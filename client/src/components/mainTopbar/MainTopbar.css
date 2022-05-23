@@ -1,0 +1,50 @@
+.mainTopbar {
+  background-color: #06886e;
+  width: 100%;
+  color: white;
+}
+
+/* left side contain */
+.leftSideMainTopBar {
+  height: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftSideMainTopBar .fa-location-dot {
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+/* middle contain */
+.middleSideMainTopBar {
+  height: 6vh;
+  align-items: center;
+  display: flex;
+}
+
+.phoneCallIcon {
+  margin-right: 25px;
+}
+
+.phoneCallIcon .fa-phone {
+  margin-right: 6px;
+  font-size: 14px;
+}
+.officeTimeIcon .fa-clock {
+  margin-right: 9px;
+  font-size: 14px;
+}
+/* right side contain */
+.rightSidemainTopBar {
+  height: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rightSideicons .fa-brands{
+    margin: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
