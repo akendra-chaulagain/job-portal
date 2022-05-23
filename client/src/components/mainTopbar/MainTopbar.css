@@ -1,27 +1,33 @@
 .mainTopbar {
-  background-color: #06886e;
+  background-color: #D51339;
   width: 100%;
   color: white;
 }
 
 /* left side contain */
 .leftSideMainTopBar {
-  height: 6vh;
+  height: 4vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.leftSideMainTopBar span {
+  font-size: 14px;
+}
 
 .leftSideMainTopBar .fa-location-dot {
-  margin-right: 6px;
+  margin-right: 7px;
   font-size: 14px;
 }
 
 /* middle contain */
 .middleSideMainTopBar {
-  height: 6vh;
+  height: 4vh;
   align-items: center;
   display: flex;
+}
+.middleSideMainTopBar span {
+  font-size: 14px;
 }
 
 .phoneCallIcon {
@@ -38,13 +44,13 @@
 }
 /* right side contain */
 .rightSidemainTopBar {
-  height: 6vh;
+  height: 4vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.rightSideicons .fa-brands{
-    margin: 10px;
-    font-size: 20px;
-    cursor: pointer;
+.rightSideicons .fa-brands {
+  margin: 10px;
+  font-size: 19px;
+  cursor: pointer;
 }

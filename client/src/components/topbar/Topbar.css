@@ -1,0 +1,68 @@
+.navbar {
+  height: 11vh;
+  width: 100%;
+  box-shadow: 0px 6px 13px -1px rgba(0, 0, 0, 0.14);
+}
+
+.companyLogo img {
+  height: 4vh;
+  width: 90%;
+  margin-left: 80%;
+}
+
+/* nav items css */
+.navbar-nav {
+  margin-right: 10%;
+}
+.nav-item {
+  padding: 15px;
+  font-weight: 600;
+}
+.nav-item a {
+  color: rgb(88, 88, 88);
+  font-size: 14px;
+}
+
+.nav-item a:hover {
+  color: #d51339;
+}
+/* home page  dropdoown*/
+.dropbtn {
+  color: gray;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: whitesmoke;
+  min-width: 200px;
+  -webkit-box-shadow: 0px 1px 12px 5px rgba(0, 0, 0, 0.13);
+  box-shadow: 0px 1px 12px 5px rgba(0, 0, 0, 0.13);
+  z-index: 1;
+  border-radius: 5px;
+  right: -59px;
+  padding: 10px 1px 10px 1px;
+}
+
+.dropdown-content a {
+  color: gray;
+  padding: 7px 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+@media only screen and (max-width: 990px) {
+  .navbar {
+    display: none;
+  }
+}
