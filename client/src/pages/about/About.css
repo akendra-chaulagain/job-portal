@@ -1,0 +1,31 @@
+.about {
+  margin-top: 15vh;
+  height: 100vh;
+}
+.aboutTopData {
+  height: 28vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgb(0, 0, 0, 0.4)),
+    url("https://images.pexels.com/photos/4065137/pexels-photo-4065137.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+}
+.aboutTopData h3 {
+  font-size: 32px;
+  color: white;
+  padding-top: 30px;
+  font-weight: 600;
+}
+/* about us wrapper */
+.aboutusWrapper {
+  margin-top: 20px;
+}
+.aboutUsdesc h3 {
+  color: #d51339;
+  font-size: 22px;
+}
+.aboutUsdesc p {
+  text-align: start;
+  font-size: 17px;
+}

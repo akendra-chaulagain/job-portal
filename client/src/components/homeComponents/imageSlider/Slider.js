@@ -8,7 +8,7 @@ const Slider = () => {
     <>
       <div className="curoselContainer">
         <Carousel
-          showArrows={false}
+          showArrows={true}
           infiniteLoop={true}
           showThumbs={false}
           showStatus={false}

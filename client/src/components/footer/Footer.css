@@ -1,0 +1,81 @@
+.footer {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8)),
+    url("https://images.pexels.com/photos/4065137/pexels-photo-4065137.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+  background-position: center;
+  background-size: cover;
+  justify-content: center;
+  background-size: contain;
+  height: 40vh;
+  width: 100%;
+  margin-top: 0px;
+  color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer h3 {
+  color: red;
+}
+
+.containerBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.firstContainer {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.middleContainer {
+  margin-top: 20px;
+  margin-bottom: 15px;
+
+}
+
+.firstContainer span {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.firstContainer span:hover {
+  color: #d51339;
+  text-decoration: underline;
+}
+
+.middleContainer span {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.middleContainer span:hover {
+  color: #d51339;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 768px) {
+  .footer {
+    height: 40vh;
+  }
+  .footer h3 {
+    font-size: 18px;
+  }
+
+  .firstContainer {
+    margin-right: 25px;
+  }
+
+  .firstContainer span {
+    font-size: 13px;
+  }
+
+  .middleContainer span {
+    font-size: 13px;
+  }
+
+  .middleContainer {
+    margin-right: 25px;
+  }
+}
