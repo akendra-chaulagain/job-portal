@@ -6,6 +6,7 @@ const Topbar = () => {
     <>
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
+        {/* company logo */}
           <div className="companyLogo">
             <img
               className="img-fluid"

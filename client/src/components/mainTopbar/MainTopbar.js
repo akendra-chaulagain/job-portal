@@ -7,7 +7,7 @@ const MainTopbar = () => {
       <div className="container-fluid mainTopbar">
         <div className="row">
           {/* left side contain */}
-          <div className="col-4 leftSideMainTopBar">
+          <div className="col-3 leftSideMainTopBar">
             {/* location icon */}
             <div className="locationIcon">
               <i className="fa-solid fa-location-dot"></i>
@@ -15,7 +15,7 @@ const MainTopbar = () => {
             </div>
           </div>
           {/* middle part contain */}
-          <div className="col-4 middleSideMainTopBar">
+          <div className="col-5 middleSideMainTopBar">
             <div className="phoneCallIcon">
               <i className="fa-solid fa-phone"></i>
               <span>+564668658</span>

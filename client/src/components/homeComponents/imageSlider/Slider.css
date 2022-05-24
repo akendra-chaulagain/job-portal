@@ -1,0 +1,119 @@
+/* .carousel {
+  width: 70vh;
+  width: 100%;
+}
+.carousel-item img {
+  height: 70vh;
+  object-fit: cover;
+}
+
+.carousel-item {
+  position: relative;
+  text-align: center;
+}
+
+.bottomLeftContain {
+  position: absolute;
+  bottom: 55%;
+  left: 12%;
+}
+.bottomLeftContain h1 {
+  font-weight: 600;
+  color: white;
+  font-size: 45px;
+}
+.bottomLeftButton {
+  position: absolute;
+  bottom: 45%;
+  left: 12%;
+}
+.bottomLeftButton button {
+  padding: 6px 18px;
+  outline: none;
+  border: none;
+  background-color: #d51339;
+  color: white;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.carousel-control-prev span {
+  margin-left: -70%;
+}
+
+.carousel-control-next span {
+  margin-right: -70%;
+}
+@media only screen and (max-width: 990px) {
+  .carousel {
+    z-index: -999;
+  }
+ 
+} */
+.curoselContainer {
+  position: relative;
+  text-align: center;
+}
+.curosel-item {
+  height: 80vh;
+  width: 100%;
+}
+.curosel-item img {
+  height: 80vh;
+  width: 100%;
+  object-fit: cover;
+}
+.bottomLeftContain {
+  position: absolute;
+  bottom: 57%;
+  left: 10%;
+}
+.bottomLeftContain h1 {
+  font-weight: 600;
+  color: white;
+  font-size: 50px;
+}
+
+.bottomLeftButton {
+  position: absolute;
+  bottom: 48%;
+  left: 10%;
+}
+.bottomLeftButton button {
+  padding: 7px 18px;
+  outline: none;
+  border: none;
+  background-color: #d51339;
+  color: white;
+  border-radius: 4px;
+  font-size: 17px;
+}
+@media only screen and (max-width: 990px) {
+  .curoselContainer {
+    z-index: -999;
+  }
+  .curosel-item img {
+    height: 50vh;
+    object-fit: cover;
+  }
+  .bottomLeftContain {
+    position: absolute;
+    bottom: 70%;
+    left: 5%;
+  }
+  .bottomLeftContain h1 {
+    font-weight: 600;
+    color: white;
+    font-size: 25px;
+  }
+  .bottomLeftButton {
+    position: absolute;
+    bottom: 65%;
+    left: 5%;
+    z-index: 99;
+  }
+  .bottomLeftButton button {
+    padding: 3px 10px;
+    font-size: 12px;
+  }
+}
