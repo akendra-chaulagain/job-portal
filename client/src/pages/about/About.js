@@ -1,16 +1,12 @@
 import React from "react";
 import Members from "../../components/boardMembers/Members";
-import MainTopbar from "../../components/mainTopbar/MainTopbar";
-import Sidebar from "../../components/sidebar/Sidebar";
-import Topbar from "../../components/topbar/Topbar";
+import Footer from "../../components/footer/Footer";
 import "./About.css";
 
 const About = () => {
   return (
     <>
-      <MainTopbar />
-      <Topbar />
-      <Sidebar />
+     
       <div className="container about">
         <div className="aboutTopData">
           <h3 className="text-center">About Us</h3>
@@ -34,9 +30,11 @@ const About = () => {
             </p>
           </div>
         </div>
-        {/* board members import from board members components */}
-        <Members />
       </div>
+      {/* board members import from board members components */}
+      <Members />
+      {/* footer */}
+      <Footer />
     </>
   );
 };

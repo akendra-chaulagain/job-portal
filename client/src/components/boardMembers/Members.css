@@ -1,0 +1,37 @@
+.boardMembers {
+  height: auto;
+  width: 100%;
+  position: relative;
+  margin-bottom: 15vh;
+}
+
+.boardMembersTopbar h3 {
+  font-size: 30px;
+  font-weight: 800;
+  color: rgb(67, 65, 65);
+  font-family: sans-serif;
+  margin: 5vh;
+}
+.boardContainWrapper {
+  border-radius: 5px;
+  /* height: 20vh; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.card {
+  box-shadow: -1px 3px 15px 5px rgba(0, 0, 0, 0.05);
+  border: none;
+  outline: none;
+}
+
+.card img {
+  height: 60vh;
+  object-fit: cover;
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+}

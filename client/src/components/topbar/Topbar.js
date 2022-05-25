@@ -6,7 +6,7 @@ const Topbar = () => {
     <>
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
-        {/* company logo */}
+          {/* company logo */}
           <div className="companyLogo">
             <img
               className="img-fluid"
@@ -21,39 +21,35 @@ const Topbar = () => {
                 <a className="nav-link dropbtn" href="/">
                   HOME
                 </a>
+
                 {/* dropdown menu */}
                 <div className="dropdown-content">
                   <a href="*">Employers</a>
                 </div>
               </li>
-              {/* about us page */}
+              {/* JOBS */}
               <li className="nav-item">
-                <a className="nav-link" href="/about">
-                  ABOUT US
+                <a className="nav-link" href="/carrers">
+                  JOBS
                 </a>
               </li>
+
               {/* requitment*/}
               <li className="nav-item ">
                 <a className="nav-link " href="/services">
                   RECRUITMENT
                 </a>
               </li>
-              {/* outsourcing */}
-              <li className="nav-item">
-                <a className="nav-link" href="/blogs">
-                  OUTSOURCING
-                </a>
-              </li>
-              {/* legalization */}
-              <li className="nav-item">
-                <a className="nav-link" href="/carrers">
-                  LEGALIZATION
-                </a>
-              </li>
               {/* blogs */}
               <li className="nav-item">
                 <a className="nav-link" href="/carrers">
                   BLOGS
+                </a>
+              </li>
+              {/* about us page */}
+              <li className="nav-item">
+                <a className="nav-link" href="/about">
+                  ABOUT US
                 </a>
               </li>
               {/* contact */}
