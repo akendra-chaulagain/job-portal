@@ -9,24 +9,32 @@ import Recruitment from "./pages/Recruitment/Recruitment";
 import Blog from "./pages/blog/Blog";
 import Contact from "./pages/contact/Contact";
 import JobApplication from "./pages/jobApplication/JobApplication";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
     <>
-      <MainTopbar />
-      <Topbar />
-      <Sidebar />
-      {/* Home page */}
-      {/* <Home /> */}
-      {/* about us page */}
-      {/* <About /> */}
-      {/* job */}
-      {/* <Jobs /> */}
-      {/* Recruitment */}
-      {/* <Recruitment /> */}
-      {/* <Blog /> */}
-      {/* <Contact/> */}
-      <JobApplication />
+      <Router>
+        <MainTopbar />
+        <Topbar />
+        <Sidebar />
+        <Routes>
+          {/* home page */}
+          <Route exact path="/" element={<Home />} />
+          {/* about us */}
+          <Route path="/about" element={<About />} />
+          {/* contact */}
+          <Route path="/contact" element={<Contact />} />
+          {/* blog */}
+          <Route path="/blog" element={<Blog />} />
+          {/* jobs */}
+          <Route path="/jobs" element={<Jobs />} />
+          {/* jop application */}
+          <Route path="/application" element={<JobApplication />} />
+          {/* recruitment */}
+          <Route path="/recruitment" element={<Recruitment />} />
+        </Routes>
+      </Router>
     </>
   );
 };

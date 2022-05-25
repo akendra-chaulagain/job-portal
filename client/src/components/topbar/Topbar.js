@@ -1,5 +1,6 @@
 import React from "react";
 import "./Topbar.css";
+import { Link } from "react-router-dom";
 
 const Topbar = () => {
   return (
@@ -18,45 +19,45 @@ const Topbar = () => {
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               {/* home page */}
               <li className="nav-item dropdown">
-                <a className="nav-link dropbtn" href="/">
+                <Link className="nav-link dropbtn" to="/">
                   HOME
-                </a>
+                </Link>
 
                 {/* dropdown menu */}
                 <div className="dropdown-content">
-                  <a href="*">Employers</a>
+                  <Link to="/application">Employers</Link>
                 </div>
               </li>
               {/* JOBS */}
               <li className="nav-item">
-                <a className="nav-link" href="/carrers">
+                <Link className="nav-link" to="/jobs">
                   JOBS
-                </a>
+                </Link>
               </li>
 
               {/* requitment*/}
               <li className="nav-item ">
-                <a className="nav-link " href="/services">
+                <Link className="nav-link " to="/recruitment">
                   RECRUITMENT
-                </a>
+                </Link>
               </li>
               {/* blogs */}
               <li className="nav-item">
-                <a className="nav-link" href="/carrers">
+                <Link className="nav-link" to="/blog">
                   BLOGS
-                </a>
+                </Link>
               </li>
               {/* about us page */}
               <li className="nav-item">
-                <a className="nav-link" href="/about">
+                <Link className="nav-link" to="/about">
                   ABOUT US
-                </a>
+                </Link>
               </li>
               {/* contact */}
               <li className="nav-item">
-                <a className="nav-link" href="/contactt">
+                <Link className="nav-link" to="/contact">
                   CONTACT
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
