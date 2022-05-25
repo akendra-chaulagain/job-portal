@@ -28,6 +28,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .card {
@@ -42,4 +43,7 @@
   width: 100%;
   padding: 20px;
   border-radius: 20px;
+}
+.blogContainWrapper p {
+  font-size: 13px;
 }

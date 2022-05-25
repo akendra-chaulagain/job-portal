@@ -1,0 +1,69 @@
+.form {
+  margin-top: 15vh;
+}
+.form h3 {
+  padding-top: 18px;
+  font-size: 32px;
+  color: rgb(50, 50, 50);
+}
+/* left side form */
+.contact-form {
+  margin-top: 5vh;
+}
+.contact-form input {
+  width: 100%;
+  height: 36px;
+  border-color: #e01b25;
+  font-size: 18px;
+  margin-top: 40px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid red;
+}
+
+.contact-form textarea {
+  width: 100%;
+  height: 36px;
+  border-color: #e01b25;
+  font-size: 18px;
+  margin-top: 50px;
+  border: none;
+  outline: none;
+  height: 20vh;
+  border: 1px solid red;
+  padding: 10px;
+}
+
+.submmitButton button {
+  background-color: rgb(224, 49, 49);
+  color: #fff;
+  font-size: 15px;
+  padding: 5px 14px;
+  border: none;
+  cursor: pointer;
+  width: 120px;
+  border-radius: 2px;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+/* right side content */
+.rightSideFormData {
+  margin-top: 5vh;
+}
+
+.rightSideFormData .fa-location-pin {
+  color: red;
+  font-size: 25px;
+}
+
+.rightSideFormData .fa-phone {
+  font-size: 25px;
+  color: red;
+  margin-top: 20px;
+}
+.rightSideFormData .fa-envelope {
+  font-size: 25px;
+  color: red;
+  margin-top: 20px;
+}

@@ -1,0 +1,9 @@
+.contact {
+  height: auto;
+  margin-bottom: 15vh;
+}
+.contact h1 {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 7px;
+}

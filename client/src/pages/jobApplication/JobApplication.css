@@ -1,0 +1,105 @@
+.jobApplication {
+  width: 100%;
+  height: auto;
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+}
+
+.jobApplicationTop {
+  height: 28vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgb(0, 0, 0, 0.4)),
+    url("https://images.pexels.com/photos/4065137/pexels-photo-4065137.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+}
+.jobApplicationTop h3 {
+  font-size: 32px;
+  color: white;
+  font-weight: 600;
+}
+/* job Application Top */
+.jobApplicationTitle p {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-top: 20px;
+}
+.jobApplicationFormInputs input {
+  width: 100%;
+  height: 45px;
+  border: none;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 7px;
+  padding: 2px 20px;
+  color: gray;
+  margin-top: 25px;
+}
+
+/* email and phone */
+.jobApplicationPhoneandEmail {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.jobApplicationPhoneandEmail input {
+  width: 49%;
+  height: 45px;
+  border: none;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 7px;
+  padding: 2px 20px;
+  color: gray;
+  margin-top: 25px;
+}
+/* textarea */
+.jobApplicationFormInputs textarea {
+  width: 100%;
+  height: 22vh;
+  border: none;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 7px;
+  padding: 2px 20px;
+  color: gray;
+  margin-top: 25px;
+  padding: 10px;
+}
+
+.jobApplicationCV {
+  width: 100%;
+  height: 20vh;
+  border: 1px solid gray;
+  margin-top: 25px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.jobApplicationCV p {
+  font-size: 25px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.jobApplicationCV img {
+  height: 19vh;
+  border-radius: 4px;
+}
+
+/* submit form */
+.cvSubmitForm {
+  margin-top: 20px;
+}
+.cvSubmitForm button {
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 8px;
+  background-color: #d51339;
+  cursor: pointer;
+  color: white;
+  border-radius: 4px;
+}

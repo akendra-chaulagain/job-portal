@@ -7,6 +7,8 @@ import Sidebar from "./components/sidebar/Sidebar";
 import Jobs from "./pages/jobs/Jobs";
 import Recruitment from "./pages/Recruitment/Recruitment";
 import Blog from "./pages/blog/Blog";
+import Contact from "./pages/contact/Contact";
+import JobApplication from "./pages/jobApplication/JobApplication";
 
 const App = () => {
   return (
@@ -22,7 +24,9 @@ const App = () => {
       {/* <Jobs /> */}
       {/* Recruitment */}
       {/* <Recruitment /> */}
-      <Blog />
+      {/* <Blog /> */}
+      {/* <Contact/> */}
+      <JobApplication />
     </>
   );
 };

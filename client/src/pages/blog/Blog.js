@@ -21,7 +21,7 @@ const Blog = () => {
                     {/* blog's title */}
                     <h5 class="card-title text-center">{item.title}</h5>
                     {/*date*/}
-                    <p class="card-text">{item.date}</p>
+                    <p class="card-text mb-2">{item.date}</p>
                   </div>
                 </div>
               </div>
