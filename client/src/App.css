@@ -3,6 +3,14 @@
 * {
   margin: 0%;
   padding: 0%;
-  box-sizing: border-box;
-  font-family: "Rubik", sans-serif;
+  /* box-sizing: border-box; */
+  /* font-family: "Rubik", sans-serif; */
+}
+.link {
+  text-decoration: none;
+  color: initial;
+}
+.link:hover {
+  background-color: inherit;
+  color: initial;
 }

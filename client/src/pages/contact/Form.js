@@ -31,11 +31,11 @@ const Form = () => {
                 </div>
                 {/* contact no. */}
                 <div className="form-field col-lg-6 ">
-                  <input name="phone" type="text" placeholder="contact No." />
+                  <input name="phone" type="text" placeholder="Contact No." />
                 </div>
                 {/* address */}
                 <div className="form-field col-lg-6 ">
-                  <input name="address" type="text" placeholder="address" />
+                  <input name="address" type="text" placeholder="Address" />
                 </div>
                 {/* messsage */}
                 <div className="form-field col-lg-12">

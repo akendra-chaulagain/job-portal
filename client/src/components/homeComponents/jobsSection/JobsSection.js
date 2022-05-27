@@ -1,6 +1,7 @@
 import React from "react";
 import "./JobsSection.css";
 import { serviceData } from "./ourServicesData";
+import { Link } from "react-router-dom";
 
 const JobsSection = () => {
   return (
@@ -34,7 +35,9 @@ const JobsSection = () => {
           {/* view all jobs link */}
           <div className="viewAllLinks text-end">
             <i class="fa-solid fa-eye"></i>
-            <p>View All</p>
+            <Link className="link" to="/jobs">
+              <p>View All</p>
+            </Link>
           </div>
         </div>
       </div>

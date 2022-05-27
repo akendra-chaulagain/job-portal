@@ -8,13 +8,16 @@ const Topbar = () => {
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
           {/* company logo */}
-          <div className="companyLogo">
-            <img
-              className="img-fluid"
-              src="https://global-uploads.webflow.com/5e157547d6f791d34ea4e2bf/6087f7f9e5ecc6623f3ecbbe_logo-example2.svg"
-              alt="company_logo"
-            />
-          </div>
+          <Link className="link" to="/">
+            <div className="companyLogo">
+              <img
+                className="img-fluid"
+                src="https://global-uploads.webflow.com/5e157547d6f791d34ea4e2bf/6087f7f9e5ecc6623f3ecbbe_logo-example2.svg"
+                alt="company_logo"
+              />
+            </div>
+          </Link>
+
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               {/* home page */}
