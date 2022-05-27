@@ -50,7 +50,7 @@ const deleteJobs = async (req, res, next) => {
   }
 };
 
-// find by id
+// get individual jobs by id
 const getJobsById = async (req, res, next) => {
   try {
     const result = await Jobs.findById(req.params.id);
