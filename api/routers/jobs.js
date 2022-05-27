@@ -1,62 +1,31 @@
 const express = require("express");
 const router = express.Router();
+const {
+  createJobs,
+  updateJobs,
+  deleteJobs,
+  getAllJObs,
+  getJobsById,
+} = require("../controllers/jobs.controllres");
 
 // jobs model
 const Jobs = require("../models/Jobs");
 
 require("../database/connection");
+
 // create jobs
-router.post("/", async (req, res) => {
-  const body = req.body;
-  const newList = new Jobs(body);
-  try {
-    const result = await newList.save();
-    return res.status(201).json(result);
-  } catch (error) {
-    res.status(400).json(error);
-  }
-});
+router.post("/", createJobs);
 
 // update
-router.put("/:id", async (req, res) => {
-  try {
-    const updatedJObs = await Jobs.findByIdAndUpdate(req.params.id, {
-      $set: req.body,
-    });
-    return res.status(201).json(updatedJObs);
-  } catch (error) {
-    res.status(400).json(error);
-  }
-});
+router.put("/:id", updateJobs);
 
 // delete jobs
-router.delete("/:id", async (req, res) => {
-  try {
-    const deleteJobs = await Jobs.findByIdAndDelete(req.params.id);
-    return res.status(201).json(deleteJobs);
-  } catch (error) {
-    res.status(400).json(error);
-  }
-});
+router.delete("/:id", deleteJobs);
 
 // get job by id
-router.get("/find/:id", async (req, res) => {
-  try {
-    const result = await Jobs.findById(req.params.id);
-    return res.status(201).json(result);
-  } catch (error) {
-    res.status(400).json(error);
-  }
-});
+router.get("/find/:id", getJobsById);
 
 // get all jobs
-router.get("/allJobs", async (req, res) => {
-  try {
-    const result = await Jobs.find();
-    return res.status(201).json(result);
-  } catch (error) {
-    res.status(400).json(error);
-  }
-});
+router.get("/allJobs", getAllJObs);
 
 module.exports = router;
