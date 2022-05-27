@@ -50,11 +50,22 @@ const getJobsById = async (req, res, next) => {
 
 // get all jobs
 const getAllJObs = async (req, res, next) => {
+  const qCategory = req.query.category;
   try {
-    const result = await Jobs.find();
-    return res.status(201).json(result);
+    // get jobs according to user querys
+    let jobs;
+    if (qCategory) {
+      jobs = await Jobs.find({
+        JobCategory: {
+          $in: [qCategory],
+        },
+      });
+    } else {
+      jobs = await Jobs.find();
+    }
+    res.status(201).json(jobs);
   } catch (error) {
-    next(error);
+    console.log(error);
   }
 };
 
