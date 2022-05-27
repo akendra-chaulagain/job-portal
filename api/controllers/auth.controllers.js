@@ -1,6 +1,8 @@
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+
 // database
 require("../database/connection");
-const bcrypt = require("bcrypt");
 
 // user model
 const User = require("../models/User");
@@ -40,8 +42,14 @@ const loginUser = async (req, res, next) => {
     // check user password with hashed password stored in the database
     const validPassword = await bcrypt.compare(password, user.password);
     if (validPassword) {
+      // jsonweb token is created
+      const token = jwt.sign(
+        { id: user._id, isAdmin: user.isAdmin },
+        process.env.JWT_SECRET_KEY,
+        { expiresIn: "5d" }
+      );
       const { password, ...others } = user._doc;
-      res.status(200).json(others);
+      res.status(200).json({ others, token });
     } else {
       res.status(400).json({ error: "Invalid data" });
     }

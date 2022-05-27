@@ -4,37 +4,49 @@ require("../database/connection");
 // jobs model
 const Jobs = require("../models/Jobs");
 
-// create jobs
-const createJobs = async (req, res, next) => {
-  const body = req.body;
-  const newList = new Jobs(body);
-  try {
-    const result = await newList.save();
-    return res.status(201).json(result);
-  } catch (error) {
-    next(error);
+// create jobs (only admin can create job)
+const createJobs = async (req, res) => {
+  if (req.user.isAdmin) {
+    const body = req.body;
+    const newList = new Jobs(body);
+    try {
+      const result = await newList.save();
+      res.status(200).json(result);
+    } catch (error) {
+      res.status(200).json(error);
+    }
+  } else {
+    res.status(401).json("You are not allowed to create jobs");
   }
 };
 
-// update jobs
+// update jobs  (only admin can update job)
 const updateJobs = async (req, res, next) => {
-  try {
-    const updatedJObs = await Jobs.findByIdAndUpdate(req.params.id, {
-      $set: req.body,
-    });
-    return res.status(201).json(updatedJObs);
-  } catch (error) {
-    next(error);
+  if (req.user.isAdmin) {
+    try {
+      const updatedJObs = await Jobs.findByIdAndUpdate(req.params.id, {
+        $set: req.body,
+      });
+      return res.status(201).json(updatedJObs);
+    } catch (error) {
+      next(error);
+    }
+  } else {
+    res.status(401).json("You are not allowed to create jobs");
   }
 };
 
-// delete jobs
+// delete jobs  (only admin can delete job)
 const deleteJobs = async (req, res, next) => {
-  try {
-    const deleteJobs = await Jobs.findByIdAndDelete(req.params.id);
-    return res.status(201).json(deleteJobs);
-  } catch (error) {
-    next(error);
+  if (req.user.isAdmin) {
+    try {
+      const deleteJobs = await Jobs.findByIdAndDelete(req.params.id);
+      return res.status(201).json(deleteJobs);
+    } catch (error) {
+      next(error);
+    }
+  } else {
+    res.status(401).json("You are not allowed to create jobs");
   }
 };
 

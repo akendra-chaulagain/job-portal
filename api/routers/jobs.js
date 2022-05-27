@@ -7,20 +7,19 @@ const {
   getAllJObs,
   getJobsById,
 } = require("../controllers/jobs.controllres");
+const verifyToken = require("../middleware/verifyToken");
 
-// jobs model
-const Jobs = require("../models/Jobs");
 
 require("../database/connection");
 
 // create jobs
-router.post("/", createJobs);
+router.post("/", verifyToken, createJobs);
 
-// update
-router.put("/:id", updateJobs);
+// update jobs
+router.put("/:id", verifyToken, updateJobs);
 
 // delete jobs
-router.delete("/:id", deleteJobs);
+router.delete("/:id", verifyToken, deleteJobs);
 
 // get job by id
 router.get("/find/:id", getJobsById);
