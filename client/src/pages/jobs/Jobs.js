@@ -2,6 +2,7 @@ import React from "react";
 import "./Jobs.css";
 import { availableJobs } from "./availableJobs";
 import Footer from "../../components/footer/Footer";
+import { Link } from "react-router-dom";
 
 const Jobs = () => {
   return (
@@ -44,7 +45,9 @@ const Jobs = () => {
                   </div>
                   <div className="col-7 jobContainData">
                     {/* company name */}
-                    <h6>{item.company}</h6>
+                    <Link className="link" to="/job/waiter">
+                      <h6>{item.company}</h6>
+                    </Link>
                     <p>{item.job}</p>
                     <p>{item.address}</p>
                   </div>

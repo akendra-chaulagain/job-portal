@@ -24,7 +24,9 @@ const JobsSection = () => {
                   </div>
                   <div className="col-7 jobContainData">
                     {/* company name */}
-                    <h6>{item.company}</h6>
+                    <Link className="link" to="/job/waiter">
+                      <h6>{item.company}</h6>
+                    </Link>
                     <p>{item.job}</p>
                     <p>{item.address}</p>
                   </div>

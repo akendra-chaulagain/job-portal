@@ -10,6 +10,7 @@ import Blog from "./pages/blog/Blog";
 import Contact from "./pages/contact/Contact";
 import JobApplication from "./pages/jobApplication/JobApplication";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SingleJobs from "./pages/singleJobs/SingleJobs";
 
 const App = () => {
   return (
@@ -33,6 +34,8 @@ const App = () => {
           <Route path="/application" element={<JobApplication />} />
           {/* recruitment */}
           <Route path="/recruitment" element={<Recruitment />} />
+          {/* single jobs page */}
+          <Route path="/job/:name" element={<SingleJobs />} />
         </Routes>
       </Router>
     </>

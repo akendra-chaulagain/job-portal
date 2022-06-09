@@ -1,0 +1,60 @@
+.singlePost {
+  height: auto;
+  width: 100%;
+  margin-top: 15vh;
+  margin-bottom: 13vh;
+}
+
+/* job image */
+.jobImg {
+  height: 50vh;
+  margin-top: 15vh;
+}
+.jobImg img {
+  height: 50vh;
+  border-radius: 10px;
+}
+
+/* job desc */
+.jobDesc {
+  margin-top: 9vh;
+}
+
+.jobDescTitle {
+  font-weight: 600;
+  font-size: 26px;
+  letter-spacing: 1px;
+}
+.jobDescInformation h3 {
+  font-size: 16px;
+  margin: 15px 0px 20px 5px;
+  letter-spacing: 1px;
+  font-size: 600;
+  text-decoration: underline;
+}
+
+/* job desc  requirement */
+.jobDescdata {
+  margin: 8px;
+}
+.jobDescdata span {
+  font-size: 15px;
+  margin-right: 10px;
+  font-weight: 900;
+}
+.jobDescdata p {
+  font-size: 15px;
+}
+
+/* applu button */
+.applyButton {
+  margin: 40px 20px 20px 15px;
+}
+.applyButton button {
+  font-size: 15px;
+  padding: 4px 33px;
+  outline: none;
+  border: none;
+  background-color: #d51339;
+  color: whitesmoke;
+}

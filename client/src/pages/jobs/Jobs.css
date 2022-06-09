@@ -40,20 +40,21 @@
   background-color: #d51339;
   color: white;
 }
+
 /* catrogry  */
 .categoryContainer h3 {
   margin-top: 25px;
   font-size: 30px;
 }
-.categoryItem{
-    margin-top: 35px;
+.categoryItem {
+  margin-top: 35px;
 }
-.categoryItem span{
-    border: 1px solid black;
-    padding: 8px;
-    margin: 10px;
-    font-size: 16px;
-    font-weight: 600;
+.categoryItem span {
+  border: 1px solid black;
+  padding: 8px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 /* jobs container */
@@ -66,7 +67,6 @@
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-  cursor: pointer;
 }
 
 .containImg img {
