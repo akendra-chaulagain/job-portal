@@ -3,7 +3,8 @@ const app = express();
 
 // import routes
 const jobsRoutes = require("./routers/jobs");
-const userRoutes = require("./routers/auth");
+const authRoutes = require("./routers/auth");
+const userRoutes = require("./routers/user");
 
 // dotenv file for  config file
 const dotenv = require("dotenv");
@@ -19,8 +20,9 @@ app.use(express.json());
 require("./database/connection");
 
 // routes
-app.use("/api/jobs", jobsRoutes);
-app.use("/api/auth", userRoutes);
+app.use("/api/v1/jobs", jobsRoutes);
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/user", userRoutes);
 
 app.listen(PORT, () => {
   console.log(`running in port no :${PORT}`);
