@@ -1,6 +1,7 @@
 import React from "react";
 import "./Topbar.css";
 import { Link } from "react-router-dom";
+import Logo from "../../assets/logo/logo.png";
 
 const Topbar = () => {
   return (
@@ -10,11 +11,7 @@ const Topbar = () => {
           {/* company logo */}
           <Link className="link" to="/">
             <div className="companyLogo">
-              <img
-                className="img-fluid"
-                src="https://global-uploads.webflow.com/5e157547d6f791d34ea4e2bf/6087f7f9e5ecc6623f3ecbbe_logo-example2.svg"
-                alt="company_logo"
-              />
+              <img className="img-fluid" src={Logo} alt="company_logo" />
             </div>
           </Link>
 

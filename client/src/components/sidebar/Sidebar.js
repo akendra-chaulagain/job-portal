@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./Sidebar.css";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(true);
@@ -33,52 +34,46 @@ const Sidebar = () => {
             <ul className="sidebar-nav">
               {/* home page */}
               <li className="sidebar-item sidebardropdown">
-                <a className="link sidebbardropbtn" href="#">
+                <Link className="link sidebbardropbtn" to="/">
                   Home
-                </a>
+                </Link>
                 <span>
                   <i className="fa-solid fa-angle-down"></i>
                 </span>
                 {/* home page dropdown */}
-                <div className="sidebardropdown-content">
-                  <a href="*">Employers</a>
+                <div className="sidebardropdown-content" onClick={showSidebarr}>
+                  <Link to="/application">Employers</Link>
                 </div>
               </li>
-              {/* about page */}
-              <li className="sidebar-item">
-                <a className="link" href="*">
-                  About us
-                </a>
+              {/* jobs page */}
+              <li className="sidebar-item" onClick={showSidebarr}>
+                <Link className="link" to="/jobs">
+                  JOBS
+                </Link>
               </li>
               {/* RECRUITMENT */}
-              <li className="sidebar-item">
-                <a className="link" href="*">
-                  Recruitment
-                </a>
+              <li className="sidebar-item" onClick={showSidebarr}>
+                <Link className="link" to="/recruitment">
+                  RECRUITMENT
+                </Link>
               </li>
-              {/* OUTSOURCING */}
-              <li className="sidebar-item ">
-                <a className=" sidebarDopbtn " href="*">
-                  Outsourcing
-                </a>
+              {/* BLOGS */}
+              <li className="sidebar-item " onClick={showSidebarr}>
+                <Link className=" sidebarDopbtn " to="/blog">
+                  BLOGS
+                </Link>
               </li>
               {/* LEGALIZATION*/}
-              <li className="sidebar-item">
-                <a className="link" href="*">
-                  Legalization
-                </a>
+              <li className="sidebar-item" onClick={showSidebarr}>
+                <Link className="link" to="/about">
+                  ABOUT US
+                </Link>
               </li>
               {/* blogs*/}
-              <li className="sidebar-item">
-                <a className="link" href="*">
-                  Blogs
-                </a>
-              </li>
-              {/* CONTACT */}
-              <li className="sidebar-item">
-                <a className="link" href="*">
-                  Contact
-                </a>
+              <li className="sidebar-item" onClick={showSidebarr}>
+                <Link className="link" to="/contact">
+                  CONTACT
+                </Link>
               </li>
             </ul>
           </div>

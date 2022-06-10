@@ -9,11 +9,11 @@
 }
 .companyLogo{
   width: 100%;
-  margin-left: 50px;
+  margin-left: 60px;
 }
 
 .companyLogo img {
-  height: 4vh;
+  height: 8vh;
   cursor: pointer;
 }
 
