@@ -1,0 +1,69 @@
+.list {
+  display: flex;
+}
+.jobContainer {
+  flex: 5;
+  margin-top: 15vh;
+  margin-left: 5%;
+  box-shadow: -4px 5px 39px -12px rgba(122, 122, 122, 0.66);
+}
+.JobTopBarData {
+  font-weight: 600;
+  font-size: 25px;
+  color: gray;
+}
+
+.JobTopBarData {
+  display: flex;
+  justify-content: space-between;
+}
+.JobTopBarData h3 {
+  font-size: 25px;
+  margin: 24px 0px 20px 30px;
+}
+
+/* add job button */
+.createJobBtn button {
+  outline: none;
+  border: none;
+  border: 1px solid red;
+  margin: 25px 100px 23px 10px;
+  font-size: 14px;
+  padding: 4px 20px;
+  color: red;
+  border-radius: 8px;
+}
+.createJobBtn button:hover {
+  background-color: rgb(255, 236, 236);
+}
+/* view and delete button */
+.button_Edit {
+  border: 1px solid rgb(183, 0, 255);
+  outline: none;
+  color: rgb(183, 0, 255);
+  border-radius: 4px;
+  font-size: 13px;
+  padding: 4px 7px;
+}
+.button_Edit:hover {
+  background-color: rgb(183, 0, 255);
+  color: white;
+}
+.button_delete {
+  border: 1px solid red;
+  outline: none;
+  color: red;
+  border-radius: 6px;
+  padding: 4px;
+  font-size: 13px;
+  margin-left: 10px;
+}
+.button_delete:hover {
+  background-color: red;
+  color: white;
+}
+.userImg img {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+}

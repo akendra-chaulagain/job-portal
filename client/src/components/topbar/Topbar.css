@@ -7,7 +7,7 @@
   z-index: 999;
   background-color: white;
 }
-.companyLogo{
+.companyLogo {
   width: 100%;
   margin-left: 60px;
 }
@@ -26,13 +26,16 @@
   font-weight: 600;
 }
 .nav-item a {
-  color: rgb(88, 88, 88);
+  /* color: rgb(88, 88, 88); */
   font-size: 14px;
+  padding: 6px 13px;
 }
 
-.nav-item a:hover {
-  color: #d51339;
+.nav-item .active {
+  border-radius: 5px;
+  background-color: #f3dee2;
 }
+
 /* home page  dropdoown*/
 .dropbtn {
   color: gray;
@@ -63,6 +66,7 @@
   text-decoration: none;
   display: block;
   font-size: 13px;
+  background-color: whitesmoke;
 }
 .dropdown:hover .dropdown-content {
   display: block;
