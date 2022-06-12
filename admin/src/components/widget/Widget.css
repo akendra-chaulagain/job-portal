@@ -4,6 +4,7 @@
   margin-top: 13vh;
   color: gray;
 }
+/* left */
 .leftWidge {
   height: 20vh;
   width: 30%;
@@ -16,10 +17,16 @@
   flex-direction: column;
 }
 .leftWidge p {
-  font-weight: 600;
+  font-weight: 500;
   color: red;
+  font-size: 14px;
+}
+.leftWidge h5 {
+  font-weight: 500;
+  font-size: 15px;
 }
 
+/* middle */
 .middletWidget {
   height: 20vh;
   box-shadow: -4px 5px 39px -12px rgba(83, 83, 83, 0.66);
@@ -36,6 +43,17 @@
   color: red;
 }
 
+.middletWidget p {
+  font-weight: 500;
+  color: red;
+  font-size: 14px;
+}
+.middletWidget h5 {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* right */
 .rightWidget {
   width: 30%;
   margin-left: 20px;
@@ -51,15 +69,31 @@
   font-weight: 600;
   color: red;
 }
+.rightWidget p {
+  font-weight: 500;
+  color: red;
+  font-size: 14px;
+}
+.rightWidget h5 {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* sell all links */
 .seeAlluser p {
   font-size: 14px;
   color: gray;
-
-  text-decoration: underline;
   cursor: pointer;
 }
 .seeAlluser p:hover {
-  color: black;
+  color: red;
+  text-decoration: underline;
+}
+
+/* icons */
+.widget i {
+  font-size: 20px;
+  margin: 15px 0px 5px 0px;
 }
 
 @media only screen and (max-width: 768px) {

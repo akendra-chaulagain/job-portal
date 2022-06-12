@@ -24,13 +24,32 @@ const Topbar = () => {
               <span>System Admin</span>
             </div>
 
-            {/* admin img */}
+            {/* admin img  drop doen menu*/}
             <div className="adminImg">
-              <img
-                className="img-fluid"
-                src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                alt="profile-img"
-              />
+              <div className="dropdown">
+                <img
+                  clasName="img-fluid  dropdown-toggle"
+                  id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown"
+                  src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                  alt="profile_img"
+                />
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li>
+                    <Link className="link dropdown-item" to="/">
+                      <i class="fa-solid fa-user"></i>
+                      <span>Profile</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className=" link dropdown-item" to="/">
+                      <i class="fa-solid fa-gear"></i>
+                      <span>Setting</span>
+                    </Link>
+                  </li>
+                  <li></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

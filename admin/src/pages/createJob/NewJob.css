@@ -30,7 +30,7 @@
 .inputField label {
   font-weight: 400;
   color: gray;
-  margin-top: 25px;
+  margin-top: 15px;
   font-size: 13px;
 }
 .inputField select {
@@ -106,4 +106,10 @@
   margin-top: 20px;
   cursor: pointer;
   text-align: center;
+}
+
+/* react quill */
+.reactQuill {
+  height: 25vh;
+  width: 100%;
 }

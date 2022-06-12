@@ -1,31 +1,31 @@
 import React from "react";
 import "./Widget.css";
-import Category from "@material-ui/icons/CategoryOutlined";
-import Person from "@material-ui/icons/Person";
-import Shopping from "@material-ui/icons/ShoppingBasketOutlined";
 
 const Widget = () => {
   return (
     <div className="container-fluid widget">
       <div className="row">
+        {/* left */}
         <div className="col-4 mt-2 leftWidge">
-          <Category />
+          <i className="fa-solid fa-briefcase"></i>
           <h5>Total Jobs</h5>
           <p>12890</p>
           <div className="seeAlluser">
             <p>view all jobs</p>
           </div>
         </div>
+        {/* middle */}
         <div className="col-4 mt-2 middletWidget">
-          <Person />
+          <i className="fa-solid fa-users"></i>
           <h5>Total Users</h5>
           <p>12890</p>
           <div className="seeAlluser">
             <p>view all users</p>
           </div>
         </div>
+        {/* right */}
         <div className="col-4 mt-2 rightWidget">
-          <Shopping />
+          <i className="fa-solid fa-pen"></i>
           <h5>Total BLogs</h5>
           <p>12890</p>
           <div className="seeAlluser">

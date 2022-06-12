@@ -48,3 +48,17 @@
   font-size: 20px;
   color: gray;
 }
+
+/* drop down */
+.adminImg .dropdown-item {
+  color: gray;
+  padding: 8px;
+}
+.adminImg .dropdown-item i {
+  margin-right: 5px;
+}
+.adminImg .dropdown-item:hover {
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+}

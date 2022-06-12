@@ -1,8 +1,24 @@
 import React, { useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./NewJob.css";
+import { useQuill } from "react-quilljs";
+import "quill/dist/quill.snow.css";
 
 const NewJob = () => {
+  const { quill, quillRef } = useQuill();
+  const [quillValue, setQuillValue] = useState();
+
+  // react quill is used for description
+  React.useEffect(() => {
+    if (quill) {
+      quill.on("text-change", (delta, oldDelta, source) => {
+        console.log(quillRef.current.firstChild.innerHTML); // Get innerHTML using quillRef
+        setQuillValue(quillRef.current.firstChild.innerHTML);
+      });
+    }
+  }, [quill, quillRef]);
+  console.log(quillValue);
+
   // preview profile iamges before uploading
   const [image, setImage] = useState(null);
   const [selectImagesProfile, setSelectImagesProfile] = useState(null);
@@ -39,12 +55,6 @@ const NewJob = () => {
                       <label htmlFor="">Publish Date</label>
                       <br />
                       <input type="date" name="year" autoComplete="off" />
-                    </div>
-                    {/* job desc */}
-                    <div className="inputField">
-                      <label htmlFor="">Description</label>
-                      <br />
-                      <input type="text" name="desc" autoComplete="off" />
                     </div>
 
                     <div className="inputField">
@@ -92,15 +102,20 @@ const NewJob = () => {
                         </div>
                       )}
                     </div>
+                  </div>
 
-                    {/* create btn */}
-                    <div className="createnewButton">
-                      {/* <button  onClick={handleSubmit} >Create</button> */}
-
-                      <div className="createButton">
-                        <button>Create</button>
-                      </div>
+                  {/* job desc */}
+                  <div className="inputField">
+                    <label htmlFor="">Description</label>
+                    <div className="reactQuill">
+                      <div ref={quillRef} />
                     </div>
+                  </div>
+                </div>
+                {/* create btn */}
+                <div className="createnewButton">
+                  <div className="createButton">
+                    <button>Create</button>
                   </div>
                 </div>
               </form>
