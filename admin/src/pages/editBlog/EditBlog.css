@@ -31,7 +31,7 @@
 .editBlogInputField label {
   font-weight: 400;
   color: gray;
-  margin-top: 25px;
+  margin-top: 10px;
   font-size: 13px;
 }
 .editBlogInputField select {
@@ -107,4 +107,10 @@
   margin-top: 20px;
   cursor: pointer;
   text-align: center;
+}
+
+/* react quill */
+.reactQuill {
+  height: 25vh;
+  width: 100%;
 }

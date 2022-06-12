@@ -17,7 +17,7 @@ const NewJob = () => {
       });
     }
   }, [quill, quillRef]);
-  console.log(quillValue);
+ 
 
   // preview profile iamges before uploading
   const [image, setImage] = useState(null);

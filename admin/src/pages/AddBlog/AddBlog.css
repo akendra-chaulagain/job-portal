@@ -30,7 +30,7 @@
 .blogInputField label {
   font-weight: 400;
   color: gray;
-  margin-top: 25px;
+  margin-top: 10px;
   font-size: 13px;
 }
 .blogInputField select {
@@ -93,7 +93,7 @@
   padding: 20px;
 }
 .blogInputFieldImgAndButton img {
-  height: 20vh;
+  height: 19vh;
   object-fit: cover;
 }
 
@@ -106,4 +106,10 @@
   margin-top: 20px;
   cursor: pointer;
   text-align: center;
+}
+
+/* react quill */
+.reactQuill {
+  height: 25vh;
+  width: 100%;
 }

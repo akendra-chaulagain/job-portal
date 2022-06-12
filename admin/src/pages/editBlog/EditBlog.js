@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./EditBlog.css";
+import { useQuill } from "react-quilljs";
+import "quill/dist/quill.snow.css";
 
 const EditBlog = () => {
   // preview profile iamges before uploading
@@ -12,6 +14,21 @@ const EditBlog = () => {
       setSelectImagesProfile(event.target.files[0]);
     }
   };
+
+  // react quill
+  const { quill, quillRef } = useQuill();
+  const [quillValue, setQuillValue] = useState();
+
+  // react quill is used for description
+  React.useEffect(() => {
+    if (quill) {
+      quill.on("text-change", (delta, oldDelta, source) => {
+        console.log(quillRef.current.firstChild.innerHTML); // Get innerHTML using quillRef
+        setQuillValue(quillRef.current.firstChild.innerHTML);
+      });
+    }
+  }, [quill, quillRef]);
+
   return (
     <>
       <div className="editBlog">
@@ -83,13 +100,19 @@ const EditBlog = () => {
                         </label>
                       </div>
                     )}
-
-                    {/* create btn */}
-                    <div className="createnewButton">
-                      <div className="createButton">
-                        <button>Create</button>
-                      </div>
-                    </div>
+                  </div>
+                </div>
+                {/* publish date */}
+                <div className="editBlogInputField">
+                  <label htmlFor="">Description</label>
+                  <div className="reactQuill">
+                    <div ref={quillRef} />
+                  </div>
+                </div>
+                {/* create btn */}
+                <div className="createnewButton">
+                  <div className="createButton">
+                    <button>Create</button>
                   </div>
                 </div>
               </form>
