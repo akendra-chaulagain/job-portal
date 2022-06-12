@@ -8,15 +8,16 @@ import {
 } from "react-router-dom";
 import Topbar from "./components/navbar/Topbar";
 import SingleUser from "./pages/singleuser/SingleUser";
-import Allproduct from "./pages/product/Allproduct";
+import Blog from "./pages/blog/Blog";
 
 import Login from "./pages/login/Login";
 import Update from "./pages/updateProduct/Update";
-import NewProduct from "./pages/new/NewProduct";
 import AllJobs from "./pages/allJobs/AllJobs";
-// import { Navigate } from "react-router-dom";
+import NewJob from "./pages/createJob/NewJob";
+import AddBlog from "./pages/AddBlog/AddBlog"
 
 const App = () => {
+
   // const user = useSelector((state) => state.user.currentUser);
   const user = true;
   return (
@@ -34,29 +35,36 @@ const App = () => {
             path="/"
             element={user ? <Home /> : <Navigate to="/login" />}
           />
-          {/* user list page */}
+          {/* jobs page */}
           <Route
             path="/jobs"
             element={user ? <AllJobs /> : <Navigate to="/login" />}
           />
-          {/* get user by id */}
+          {/* get jobs by id */}
           <Route
             path="list/:id"
             element={user ? <SingleUser /> : <Navigate to="/login" />}
           />
-          {/* get all product */}
+          {/* get all blogs */}
           <Route
-            path="/product"
-            element={user ? <Allproduct /> : <Navigate to="/login" />}
+            path="/blog"
+            element={user ? <Blog /> : <Navigate to="/login" />}
           />
-          {/* for creating new product */}
+          {/* for creating new jobs */}
           <Route
             path="/createjobs"
-            element={user ? <NewProduct /> : <Navigate to="/login" />}
+            element={user ? <NewJob /> : <Navigate to="/login" />}
           />
-          {/* fro update product */}
+
+          {/* creat enew blogs */}
           <Route
-            path="/product/:id"
+            path="/newblog"
+            element={user ? <AddBlog /> : <Navigate to="/login" />}
+          />
+
+          {/* fro update blog product */}
+          <Route
+            path="/blog/:id"
             element={user ? <Update /> : <Navigate to="/login" />}
           />
         </Routes>

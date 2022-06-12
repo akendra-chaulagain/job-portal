@@ -10,69 +10,39 @@
   font-size: 15px;
   color: gray;
   padding-top: 18px;
-  margin-left: 12%;
+  margin-left: 10%;
   margin-bottom: 10px;
   font-weight: 600;
 }
+/* list item  */
 
-.sidebarList li {
+.sidebarList {
   list-style: none;
-  font-size: 16px;
-  cursor: pointer;
-  margin-left: 10%;
-  width: 90%;
-  padding: 2px 8px;
+  text-decoration: none;
+  color: gray;
+  font-size: 18px;
+  margin-top: 14px;
 }
-.sidebarList li:hover {
-  background-color: #d51339;
-  border-radius: 8px;
-  color: whitesmoke;
-}
-
-.link {
+.sidebarList a {
   text-decoration: none;
   color: gray;
 }
-.link:hover {
-  color: gray;
+.sidebarItem {
+  padding-left: 20px;
 }
-.themeContainer {
-  margin-left: 10%;
-  display: flex;
-  margin-top: 15px;
-  cursor: pointer;
+.sidebarItem:hover {
+  background-color: red;
+  color: rgb(225, 222, 222);
+  border-radius: 4px;
+  padding-left: 30px;
+  transition: 0.3s;
 }
-.colorWhite {
-  background-color: rgb(255, 255, 255);
-  border: 1px solid black;
-  width: 20px;
-  height: 20px;
-  border-radius: 5px;
+.sidebarItem span {
+  font-size: 500;
+  font-size: 16px;
 }
-.colorBlack {
-  background-color: black;
-  width: 20px;
-  height: 20px;
-  border-radius: 5px;
-  margin-left: 10px;
-}
-
-@media only screen and (max-width: 768px) {
-  .sidebar {
-    width: 25%;
-    margin-top: 7vh;
-  }
-  .sidebartitle {
-    font-size: 12px;
-    margin-left: 0%;
-    font-weight: 500;
-  }
-
-  .sidebarItems .sidebarIcons {
-    display: none;
-  }
-
-  .sidebarList li {
-    font-size: 11px;
-  }
+/* logo */
+.sidebarItem i {
+  margin-right: 10px;
+  font-size: 17px;
 }

@@ -12,6 +12,9 @@ const jobSchema = new mongoose.Schema(
     jobDesc: {
       type: Array,
     },
+    jobCat: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

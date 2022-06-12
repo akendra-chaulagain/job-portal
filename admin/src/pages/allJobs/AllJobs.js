@@ -76,11 +76,8 @@ const AllJobs = () => {
        */}
       <Sidebar />
       <div className="jobContainer">
-        <div className="JobTopBarData ">
+        <div className="JobTopBar ">
           <h3>All Jobs</h3>
-          <span>
-            <i class="fa-light fa-grip-lines-vertical"></i>
-          </span>
           {/* create job button */}
           <div className="createJobBtn">
             <Link to="/createjobs">

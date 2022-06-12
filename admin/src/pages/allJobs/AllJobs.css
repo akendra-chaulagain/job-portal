@@ -4,22 +4,19 @@
 .jobContainer {
   flex: 5;
   margin-top: 15vh;
+  box-shadow: -4px 5px 39px -12px rgba(83, 83, 83, 0.66);
   margin-left: 5%;
-  box-shadow: -4px 5px 39px -12px rgba(122, 122, 122, 0.66);
-}
-.JobTopBarData {
-  font-weight: 600;
-  font-size: 25px;
-  color: gray;
+  margin-right: 5%;
 }
 
-.JobTopBarData {
+.JobTopBar {
   display: flex;
   justify-content: space-between;
 }
-.JobTopBarData h3 {
+.JobTopBar h3 {
   font-size: 25px;
   margin: 24px 0px 20px 30px;
+  color: gray;
 }
 
 /* add job button */

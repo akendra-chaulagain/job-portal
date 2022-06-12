@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Sidebar from "../../components/sidebar/Sidebar";
 // import "./Allproduct.css";
 import { DataGrid } from "@mui/x-data-grid";
-import "./Allproduct.css";
+import "./Blog.css";
 import { Delete, Edit } from "@material-ui/icons";
 
 const columns = [
@@ -52,7 +52,7 @@ const columns = [
             <Delete />
           </button>
           {/* delete   button*/}
-          <Link to={`/product/` + params.row._id}>
+          <Link to={`/blog/` + params.row._id}>
             <button className="button_update">
               <Edit />
             </button>
@@ -77,24 +77,23 @@ const rows = [
 const Allproduct = () => {
   return (
     <>
-      <div className="allproduct">
+      <div className="allBlog">
         <Sidebar />
 
         <div className="allContainer">
           {/* top bar create button */}
           <div className="allContainerWrapper">
-            <div className="ProductTitle ">All Products</div>
+            <div className="blogTitle ">
+              <h3>All Blogs</h3>
+            </div>
             <div className="createBtn">
-              <Link to="newProduct">
-                <button>Create</button>
+              <Link to="/newblog">
+                <button>Add Blogs</button>
               </Link>
             </div>
           </div>
 
-          <div
-            className="tableContainer"
-            style={{ height: 520, width: "96%" }}
-          >
+          <div className="tableContainer" style={{ height: 520, width: "96%" }}>
             <DataGrid
               rows={rows}
               columns={columns}

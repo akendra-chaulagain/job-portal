@@ -1,50 +1,41 @@
 import React from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
-import "./NewProduct.css";
+import "./NewJob.css";
 
-const NewProduct = () => {
+const NewJob = () => {
   return (
     <>
-      <div className="newProduct">
+      <div className="newJobs">
         <Sidebar />
 
-        <div className="container-fluid newProductContainer">
+        <div className="container-fluid newJobsContainer">
           <div className="row">
             <div className="col-md-12">
-              <div className="mewproductTitle">Create New product</div>
+              <div className="newJobTitle text-center">Create New Jobs</div>
 
-              <form className="addproductForm">
+              <form className="addJobForm">
                 <div className="row">
                   {/* left side */}
                   <div className="col-md-6">
-                    <div className="mt-3">
-                      <label htmlFor="">Image</label>
-                      <br />
-                      <input type="file" id="img" name="img" />
-                    </div>
-
                     <div className="inputField">
-                      <label htmlFor="">Title</label>
+                      <label htmlFor="">Job Title</label>
                       <br />
                       <input type="text" name="title" autoComplete="off" />
                     </div>
-                    <div className="inputField">
-                      <label htmlFor="">product Username</label>
-                      <br />
-                      <input type="text" autoComplete="off" />
-                    </div>
 
+                    {/* publish date */}
+                    <div className="inputField">
+                      <label htmlFor="">Publish Date</label>
+                      <br />
+                      <input type="date" name="year" autoComplete="off" />
+                    </div>
+                    {/* job desc */}
                     <div className="inputField">
                       <label htmlFor="">Description</label>
                       <br />
                       <input type="text" name="desc" autoComplete="off" />
                     </div>
 
-                    <div className="inputField">
-                      <label htmlFor="">Price</label>
-                      <br />
-                      <input type="number" name="year" autoComplete="off" />
-                    </div>
                     <div className="inputField">
                       <label htmlFor="">Category</label>
                       <br />
@@ -53,23 +44,11 @@ const NewProduct = () => {
                   </div>
                   {/* right side */}
                   <div className="col-md-6">
-                    <div className="inputField">
-                      <label htmlFor="">Size</label>
+                    {/* job photo */}
+                    <div className="mt-3">
+                      <label htmlFor="">Job Photo</label>
                       <br />
-                      <input type="number" name="limit" autoComplete="off" />
-                    </div>
-                    <div className="inputField">
-                      <label htmlFor="">Brand</label>
-                      <br />
-                      <input type="text" name="duration" autoComplete="off" />
-                    </div>
-                    <div className="inputField">
-                      <label htmlFor="">Is ?</label>
-                      <br />
-                      <select name="isSeries" id="active">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                      </select>
+                      <input type="file" id="img" name="img" />
                     </div>
 
                     {/* <div className="inputField">
@@ -98,4 +77,4 @@ const NewProduct = () => {
   );
 };
 
-export default NewProduct;
+export default NewJob;
