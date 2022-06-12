@@ -7,17 +7,15 @@ import {
   Navigate,
 } from "react-router-dom";
 import Topbar from "./components/navbar/Topbar";
-import SingleUser from "./pages/singleuser/SingleUser";
 import Blog from "./pages/blog/Blog";
-
+import EditJobs from "./pages/editJobs/EditJobs";
 import Login from "./pages/login/Login";
-import Update from "./pages/updateProduct/Update";
 import AllJobs from "./pages/allJobs/AllJobs";
 import NewJob from "./pages/createJob/NewJob";
-import AddBlog from "./pages/AddBlog/AddBlog"
+import AddBlog from "./pages/AddBlog/AddBlog";
+import EditBlog from "./pages/editBlog/EditBlog";
 
 const App = () => {
-
   // const user = useSelector((state) => state.user.currentUser);
   const user = true;
   return (
@@ -42,8 +40,8 @@ const App = () => {
           />
           {/* get jobs by id */}
           <Route
-            path="list/:id"
-            element={user ? <SingleUser /> : <Navigate to="/login" />}
+            path="/job/:id"
+            element={user ? <EditJobs /> : <Navigate to="/login" />}
           />
           {/* get all blogs */}
           <Route
@@ -65,7 +63,7 @@ const App = () => {
           {/* fro update blog product */}
           <Route
             path="/blog/:id"
-            element={user ? <Update /> : <Navigate to="/login" />}
+            element={user ? <EditBlog /> : <Navigate to="/login" />}
           />
         </Routes>
         {/* login container */}

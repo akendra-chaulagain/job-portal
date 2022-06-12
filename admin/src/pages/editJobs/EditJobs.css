@@ -1,0 +1,58 @@
+.editJobs {
+  display: flex;
+  height: 100vh;
+}
+.editJobsContainer {
+  flex: 5;
+  margin-top: 12vh;
+  margin-left: 10px;
+}
+.editJobTitle {
+  font-weight: 600;
+  font-size: 25px;
+  color: rgb(92, 90, 90);
+  margin-top: 10px;
+}
+
+/*input */
+.editJobsInputField input {
+  width: 89%;
+  color: gray;
+  outline: none;
+  border: 2px solid rgb(198, 198, 198);
+  padding: 4px;
+  border-radius: 5px;
+  margin-top: 7px;
+  height: 42px;
+}
+.editJobsInputField label {
+  font-weight: 600;
+  color: gray;
+  margin-top: 20px;
+}
+.editJobsInputField select {
+  width: 80%;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+}
+.editJobsInputField option {
+  color: gray;
+}
+
+.createnewButton button {
+  margin-top: 60px;
+  padding: 3px 60px;
+  outline: none;
+  border: none;
+  font-weight: 600;
+  color: white;
+  background-color: darkblue;
+  border-radius: 9px;
+}
+
+.createButton button {
+  background-color: red;
+  color: white;
+}

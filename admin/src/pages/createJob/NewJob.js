@@ -51,12 +51,6 @@ const NewJob = () => {
                       <input type="file" id="img" name="img" />
                     </div>
 
-                    {/* <div className="inputField">
-                                        <label htmlFor="">Video</label><br />
-                                        <input type="file" name='video'
-                                            onChange={(e) => setVideo(e.target.files[0])}
-                                        />
-                                    </div> */}
 
                     {/* create btn */}
                     <div className="createnewButton">

@@ -45,8 +45,8 @@ const columns = [
       return (
         <>
           {/* view data button*/}
-          <Link to={`/list/` + params.row._id}>
-            <button className="button_Edit">view</button>
+          <Link to={`/job/:id`}>
+            <button className="button_Edit">edit</button>
           </Link>
           {/* delete  user data button*/}
           <Link to={`/lists/` + params.row._id}>
