@@ -14,6 +14,7 @@ import AllJobs from "./pages/allJobs/AllJobs";
 import NewJob from "./pages/createJob/NewJob";
 import AddBlog from "./pages/AddBlog/AddBlog";
 import EditBlog from "./pages/editBlog/EditBlog";
+import './App.css'
 
 const App = () => {
   // const user = useSelector((state) => state.user.currentUser);
@@ -33,7 +34,7 @@ const App = () => {
             path="/"
             element={user ? <Home /> : <Navigate to="/login" />}
           />
-          {/* jobs page */}
+          {/* all jobs page */}
           <Route
             path="/jobs"
             element={user ? <AllJobs /> : <Navigate to="/login" />}
@@ -48,7 +49,7 @@ const App = () => {
             path="/blog"
             element={user ? <Blog /> : <Navigate to="/login" />}
           />
-          {/* for creating new jobs */}
+          {/* create new jobs */}
           <Route
             path="/createjobs"
             element={user ? <NewJob /> : <Navigate to="/login" />}
@@ -60,7 +61,7 @@ const App = () => {
             element={user ? <AddBlog /> : <Navigate to="/login" />}
           />
 
-          {/* fro update blog product */}
+          {/* update blogs */}
           <Route
             path="/blog/:id"
             element={user ? <EditBlog /> : <Navigate to="/login" />}
@@ -68,7 +69,6 @@ const App = () => {
         </Routes>
         {/* login container */}
         <Routes>
-          {/* view single order */}
           <Route path="/login" element={<Login />} />
         </Routes>
       </Router>

@@ -12,10 +12,9 @@
   padding-top: 18px;
   margin-left: 10%;
   margin-bottom: 10px;
-  font-weight: 600;
+  font-weight: 500;
 }
 /* list item  */
-
 .sidebarList {
   list-style: none;
   text-decoration: none;
@@ -29,19 +28,27 @@
 }
 .sidebarItem {
   padding-left: 20px;
+  height: 33px;
+  display: flex;
+  align-items: center;
 }
+
 .sidebarItem:hover {
-  background-color: red;
-  color: rgb(225, 222, 222);
+  color: red;
   border-radius: 4px;
   padding-left: 30px;
-  transition: 0.3s;
+  transition: 0.4s;
 }
 .sidebarItem span {
   font-size: 500;
   font-size: 16px;
 }
-/* logo */
+
+.sidebarList .active{
+color: red;
+}
+
+/* icons*/
 .sidebarItem i {
   margin-right: 10px;
   font-size: 17px;

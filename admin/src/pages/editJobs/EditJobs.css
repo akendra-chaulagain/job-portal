@@ -8,10 +8,12 @@
   margin-left: 10px;
 }
 .editJobTitle {
-  font-weight: 600;
-  font-size: 25px;
+ font-weight: 500;
   color: rgb(92, 90, 90);
-  margin-top: 10px;
+  margin-top: 20px;
+  letter-spacing: 1px;
+  text-decoration: underline;
+  font-size: 22px;
 }
 
 /*input */
@@ -26,9 +28,10 @@
   height: 42px;
 }
 .editJobsInputField label {
-  font-weight: 600;
+  font-weight: 400;
   color: gray;
-  margin-top: 20px;
+  margin-top: 25px;
+  font-size: 13px;
 }
 .editJobsInputField select {
   width: 80%;
@@ -55,4 +58,52 @@
 .createButton button {
   background-color: red;
   color: white;
+}
+
+/* thumbnail img */
+.editJobsInputFieldImg {
+  height: auto;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  box-shadow: -4px 5px 39px -12px rgba(153, 153, 153, 0.66);
+  padding: 20px;
+}
+.editJobsInputFieldImg label {
+  font-weight: 500;
+  color: gray;
+}
+.editJobsInputFieldImg p {
+  border: 1px solid red;
+  font-size: 13px;
+  padding: 4px 16px;
+  color: rgb(251, 81, 81);
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/* blog images and button */
+.editJobInputFieldImgAndButton {
+  height: auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 5px 39px -12px rgba(153, 153, 153, 0.66);
+  padding: 20px;
+}
+.editJobInputFieldImgAndButton img {
+  height: 20vh;
+  object-fit: cover;
+}
+
+.editJobInputFieldImgAndButton p {
+  border: 1px solid red;
+  font-size: 13px;
+  padding: 4px 20px;
+  color: rgb(251, 81, 81);
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+  text-align: center;
 }

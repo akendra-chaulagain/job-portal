@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./NewJob.css";
 
 const NewJob = () => {
+  // preview profile iamges before uploading
+  const [image, setImage] = useState(null);
+  const [selectImagesProfile, setSelectImagesProfile] = useState(null);
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(URL.createObjectURL(event.target.files[0]));
+      setSelectImagesProfile(event.target.files[0]);
+    }
+  };
   return (
     <>
       <div className="newJobs">
@@ -11,7 +20,9 @@ const NewJob = () => {
         <div className="container-fluid newJobsContainer">
           <div className="row">
             <div className="col-md-12">
-              <div className="newJobTitle text-center">Create New Jobs</div>
+              <div className="newJobTitle text-center">
+                <h3>Create New Job</h3>
+              </div>
 
               <form className="addJobForm">
                 <div className="row">
@@ -46,11 +57,41 @@ const NewJob = () => {
                   <div className="col-md-6">
                     {/* job photo */}
                     <div className="mt-3">
-                      <label htmlFor="">Job Photo</label>
-                      <br />
-                      <input type="file" id="img" name="img" />
+                      {/* Thumbnail photo */}
+                      {/* show select  img if user select the image  from the device*/}
+                      {image ? (
+                        <>
+                          <div className="newJobInputFieldImgAndButton">
+                            <img src={image} alt="" />
+                            <label htmlFor="files">
+                              <p>Thumbnail image</p>
+                              <input
+                                type="file"
+                                id="files"
+                                style={{ display: "none" }}
+                                name="coverPic"
+                                onChange={onImageChange}
+                              />
+                            </label>
+                          </div>
+                        </>
+                      ) : (
+                        <div className=" newJobInputFieldImg mt-3">
+                          <label htmlFor="files">
+                            Thumbnail Image
+                            <br />
+                            <p>Thumbnail image</p>
+                            <input
+                              type="file"
+                              id="files"
+                              style={{ display: "none" }}
+                              name="coverPic"
+                              onChange={onImageChange}
+                            />
+                          </label>
+                        </div>
+                      )}
                     </div>
-
 
                     {/* create btn */}
                     <div className="createnewButton">

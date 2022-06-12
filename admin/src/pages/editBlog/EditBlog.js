@@ -20,7 +20,7 @@ const EditBlog = () => {
         <div className="container-fluid editBlogContainer">
           <div className="row">
             <div className="col-md-12">
-              <div className="editBlogTitle text-center">Create New Jobs</div>
+              <div className="editBlogTitle text-center">Edit Blog</div>
 
               <form className="addJobForm">
                 <div className="row">

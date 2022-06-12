@@ -59,7 +59,7 @@ const NewJob = () => {
                       {/* show select  img if user select the image  from the device*/}
                       {image ? (
                         <>
-                          <div className="blogInputFieldImgAndButton">
+                          <div className="editJobInputFieldImgAndButton">
                             <img src={image} alt="" />
                             <label htmlFor="files">
                               <p>Job Thumbnail </p>
@@ -74,7 +74,7 @@ const NewJob = () => {
                           </div>
                         </>
                       ) : (
-                        <div className=" blogInputFieldImg mt-3">
+                        <div className=" editJobsInputFieldImg mt-3">
                           <label htmlFor="files">
                             Job Thumbnail
                             <br />
