@@ -42,7 +42,7 @@ const Topbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link className=" link dropdown-item" to="/">
+                    <Link className=" link dropdown-item" to="/setting/core">
                       <i class="fa-solid fa-gear"></i>
                       <span>Setting</span>
                     </Link>

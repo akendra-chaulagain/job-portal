@@ -1,0 +1,8 @@
+.core {
+  display: flex;
+}
+.coreContainer {
+  flex: 5;
+  margin-top: 12vh;
+  margin-left: 10px;
+}

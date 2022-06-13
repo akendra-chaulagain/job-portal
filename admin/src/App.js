@@ -17,6 +17,7 @@ import EditBlog from "./pages/editBlog/EditBlog";
 import Profile from "./pages/profile/Profile";
 import "./App.css";
 import ChangePassword from "./pages/changePassword/ChangePassword";
+import Core from "./pages/setting/coreSetting/Core";
 
 const App = () => {
   // const user = useSelector((state) => state.user.currentUser);
@@ -78,6 +79,12 @@ const App = () => {
           <Route
             path="/password"
             element={user ? <ChangePassword /> : <Navigate to="/login" />}
+          />
+
+          {/* setting page */}
+          <Route
+            path="/setting/core"
+            element={user ? <Core /> : <Navigate to="/login" />}
           />
         </Routes>
         {/* login container */}
