@@ -6,17 +6,17 @@ import { Link } from "react-router-dom";
 const JobsSection = () => {
   return (
     <>
-      <div className="container jobsContent">
+      <div className="container-fluid jobsContent">
         <div className="row">
           <div className="jobsContentTopbar text-center">
             <h1>Availables Jobs</h1>
           </div>
           {/* jobs content */}
           {serviceData.map((item, id) => (
-            <div className="col-md-4 jobsContentContainer" key={id}>
+            <div className="col-lg-3 col-sm-6 jobsContentContainer" key={id}>
               <div className="containWrapper">
                 <div className="row">
-                  <div className="col-5">
+                  <div className="col-4">
                     {/* contain img */}
                     <div className="containImg">
                       <img src={item.img} alt="our_service_img" />
@@ -28,7 +28,6 @@ const JobsSection = () => {
                       <h6>{item.company}</h6>
                     </Link>
                     <p>{item.job}</p>
-                    <p>{item.address}</p>
                   </div>
                 </div>
               </div>
@@ -36,7 +35,7 @@ const JobsSection = () => {
           ))}
           {/* view all jobs link */}
           <div className="viewAllLinks text-end">
-            <i class="fa-solid fa-eye"></i>
+            <i className="fa-solid fa-eye"></i>
             <Link className="link" to="/jobs">
               <p>View All</p>
             </Link>
