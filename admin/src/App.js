@@ -14,7 +14,9 @@ import AllJobs from "./pages/allJobs/AllJobs";
 import NewJob from "./pages/createJob/NewJob";
 import AddBlog from "./pages/AddBlog/AddBlog";
 import EditBlog from "./pages/editBlog/EditBlog";
-import './App.css'
+import Profile from "./pages/profile/Profile";
+import "./App.css";
+import ChangePassword from "./pages/changePassword/ChangePassword";
 
 const App = () => {
   // const user = useSelector((state) => state.user.currentUser);
@@ -65,6 +67,17 @@ const App = () => {
           <Route
             path="/blog/:id"
             element={user ? <EditBlog /> : <Navigate to="/login" />}
+          />
+
+          {/* profile page */}
+          <Route
+            path="/profile"
+            element={user ? <Profile /> : <Navigate to="/login" />}
+          />
+          {/* password change page */}
+          <Route
+            path="/password"
+            element={user ? <ChangePassword /> : <Navigate to="/login" />}
           />
         </Routes>
         {/* login container */}

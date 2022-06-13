@@ -36,7 +36,7 @@ const Topbar = () => {
                 />
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                   <li>
-                    <Link className="link dropdown-item" to="/">
+                    <Link className="link dropdown-item" to="/profile">
                       <i class="fa-solid fa-user"></i>
                       <span>Profile</span>
                     </Link>

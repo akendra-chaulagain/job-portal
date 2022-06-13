@@ -11,7 +11,6 @@ const Sidebar = () => {
           <div className="sidebarList">
             {/* it render to home page folder in   */}
             <NavLink
-              // className="link"
               to="/"
               className={({ isActive }) =>
                 isActive ? "active link" : ""
