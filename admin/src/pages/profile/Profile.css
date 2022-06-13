@@ -1,11 +1,10 @@
 .profile {
   display: flex;
-  background-color: whitesmoke;
 }
 .profileContainer {
   flex: 5;
   box-shadow: -4px 5px 39px -12px rgba(150, 150, 150, 0.66);
-  margin-left: 5%;
+  margin-left: 17%;
   margin-right: 5%;
   margin-top: 20vh;
   height: 10vh;
@@ -21,9 +20,9 @@
 .profileTopbar {
   display: flex;
 }
-.profileTopbar .active{
-color: red;
-border-bottom: 2px solid red;
+.profileTopbar .active {
+  color: red;
+  border-bottom: 2px solid red;
 }
 .profileTopbar a {
   margin: 19px;
@@ -31,7 +30,6 @@ border-bottom: 2px solid red;
   cursor: pointer;
   text-decoration: none;
   color: gray;
-
 }
 
 .profileTopbar i {
@@ -97,4 +95,21 @@ border-bottom: 2px solid red;
   border: none;
   border: 1px solid gray;
   margin-top: 10px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .profileContainer {
+    margin-left: 3%;
+    margin-top: 3vh;
+  }
+  .profileTopbar a {
+    margin-top: 8%;
+  }
+  .submmitButton button {
+    outline: none;
+    margin: 30px 30px 23px 10px;
+    font-size: 12px;
+    padding: 4px 20px;
+    margin-top: 5%;
+  }
 }

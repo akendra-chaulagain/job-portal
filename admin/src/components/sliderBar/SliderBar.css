@@ -1,0 +1,121 @@
+/* sidebar top conttainer */
+.SliderBar {
+  display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+  .SliderBar {
+    display: block;
+    background-color: whitesmoke;
+  }
+  .sidebarTopContainer {
+    width: 100%;
+    box-shadow: 0px 6px 13px -1px rgba(0, 0, 0, 0.14);
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  .menuIconContainer i {
+    font-size: 22px;
+    padding-left: 30px;
+  }
+
+  /* side bar active */
+  .side-menu {
+    background-color: #d51339;
+    width: 230px;
+    height: 100vh;
+    display: flex;
+    position: fixed;
+    top: 0px;
+    left: -100%;
+    transition: 0.3s;
+    z-index: 99;
+  }
+  .side-menu.active {
+    left: 0%;
+  }
+  .side-menu.active .closeNavIcon i {
+    margin-left: 370%;
+    font-size: 18px;
+    padding: 18px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin-top: 50px;
+  }
+  /* company logo */
+  .sidebar-item {
+    padding: 19px 0px 0px 0px;
+  }
+  .sidebar-item h3 {
+    font-size: 17px;
+    color: whitesmoke;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    font-weight: 400;
+  }
+  .sidebar-item a {
+    color: rgb(209, 205, 205);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .sidebar-item i {
+    padding-right: 10px;
+    font-size: 14px;
+  }
+  .sidebar-item a:hover {
+    color: #ffaeaf;
+  }
+
+  /* right side content */
+  .rightSideSlider {
+    height: 11vh;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+
+  /* admin img */
+  .rightSideAdminImg {
+    margin-right: 5%;
+  }
+  .rightSideAdminImg img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  .rightSideAdminData {
+    font-weight: 500;
+    font-size: 15px;
+    color: gray;
+  }
+  .rightSidewebSiteLink a {
+    font-size: 20px;
+    color: gray;
+    margin-left: 40px;
+  }
+
+  /* drop down */
+  .rightSideAdminImg .dropdown-item {
+    color: gray;
+    padding: 8px;
+  }
+  .rightSideAdminImg .dropdown-item i {
+    margin-right: 5px;
+  }
+  .rightSideAdminImg .dropdown-item:hover {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+  }
+}

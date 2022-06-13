@@ -17,33 +17,34 @@ const Topbar = () => {
           <div className="col-8 right text-end">
             <div className="webSiteLink">
               <Link className="link" to="/">
-                <i class="fa-solid fa-globe"></i>
+                <i className="fa-solid fa-globe"></i>
               </Link>
             </div>
             <div className="adminData">
               <span>System Admin</span>
             </div>
 
-            {/* admin img  drop doen menu*/}
+            {/* admin img  drop down menu*/}
             <div className="adminImg">
               <div className="dropdown">
                 <img
-                  clasName="img-fluid  dropdown-toggle"
+                  className="img-fluid  dropdown-toggle"
                   id="dropdownMenuButton1"
                   data-bs-toggle="dropdown"
                   src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                   alt="profile_img"
                 />
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                   <li>
                     <Link className="link dropdown-item" to="/profile">
-                      <i class="fa-solid fa-user"></i>
+                      <i className="fa-solid fa-user"></i>
                       <span>Profile</span>
                     </Link>
                   </li>
                   <li>
                     <Link className=" link dropdown-item" to="/setting/core">
-                      <i class="fa-solid fa-gear"></i>
+                      <i className="fa-solid fa-gear"></i>
                       <span>Setting</span>
                     </Link>
                   </li>
@@ -52,6 +53,8 @@ const Topbar = () => {
               </div>
             </div>
           </div>
+
+          
         </div>
       </div>
     </>

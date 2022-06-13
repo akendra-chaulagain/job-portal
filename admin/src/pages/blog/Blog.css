@@ -1,18 +1,20 @@
 .allBlog {
   display: flex;
 }
-.allContainer {
+.allBlogContainer {
   flex: 5;
   margin-top: 15vh;
   box-shadow: -4px 5px 39px -12px rgba(83, 83, 83, 0.66);
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 18%;
+  margin-right: 2%;
+  /* z-index: -999; */
+
 }
 .allContainerWrapper {
   display: flex;
   justify-content: space-between;
 }
-.createBtn button {
+.createBlogBtn button {
   outline: none;
   border: none;
   border: 1px solid red;
@@ -58,4 +60,18 @@
   height: 50px;
   width: 50px;
   object-fit: contain;
+}
+
+@media only screen and (max-width: 1000px) {
+  .allBlogContainer {
+    margin-left: 3%;
+    margin-top: 3vh;
+  }
+  .createBlogBtn button {
+    outline: none;
+    margin: 25px 30px 23px 10px;
+    font-size: 12px;
+    padding: 4px 20px;
+  }
+  
 }

@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./AllJobs.css";
 import { DataGrid } from "@mui/x-data-grid";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const columns = [
   { field: "id", headerName: "ID", width: 200 },
@@ -45,13 +45,13 @@ const columns = [
       return (
         <>
           {/* view data button*/}
-          <Link to={`/job/:id`}>
+          <NavLink to={`/job/:id`}>
             <button className="button_Edit">edit</button>
-          </Link>
+          </NavLink>
           {/* delete  user data button*/}
-          <Link to={`/lists/` + params.row._id}>
+          <NavLink to={`/lists/` + params.row._id}>
             <button className="button_delete">delete</button>
-          </Link>
+          </NavLink>
         </>
       );
     },
@@ -80,9 +80,9 @@ const AllJobs = () => {
           <h3>All Jobs</h3>
           {/* create job button */}
           <div className="createJobBtn">
-            <Link to="/createjobs">
+            <NavLink className="link" to="/createjobs">
               <button>Add Jobs</button>
-            </Link>
+            </NavLink>
           </div>
         </div>
 

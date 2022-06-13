@@ -11,13 +11,15 @@ import Blog from "./pages/blog/Blog";
 import EditJobs from "./pages/editJobs/EditJobs";
 import Login from "./pages/login/Login";
 import AllJobs from "./pages/allJobs/AllJobs";
-import NewJob from "./pages/createJob/NewJob";
 import AddBlog from "./pages/AddBlog/AddBlog";
 import EditBlog from "./pages/editBlog/EditBlog";
 import Profile from "./pages/profile/Profile";
 import "./App.css";
 import ChangePassword from "./pages/changePassword/ChangePassword";
 import Core from "./pages/setting/coreSetting/Core";
+import EmailSetting from "./pages/setting/emailSetting/EmailSetting";
+import SliderBar from "./components/sliderBar/SliderBar";
+import AddJob from "./pages/createJob/NewJob";
 
 const App = () => {
   // const user = useSelector((state) => state.user.currentUser);
@@ -28,6 +30,7 @@ const App = () => {
         {user && (
           <>
             <Topbar />
+            <SliderBar />
           </>
         )}
         <Routes>
@@ -47,15 +50,17 @@ const App = () => {
             path="/job/:id"
             element={user ? <EditJobs /> : <Navigate to="/login" />}
           />
+          {/* create new jobs */}
+          <Route
+            exact
+            path="/createjobs"
+            element={user ? <AddJob /> : <Navigate to="/login" />}
+          />
+
           {/* get all blogs */}
           <Route
             path="/blog"
             element={user ? <Blog /> : <Navigate to="/login" />}
-          />
-          {/* create new jobs */}
-          <Route
-            path="/createjobs"
-            element={user ? <NewJob /> : <Navigate to="/login" />}
           />
 
           {/* creat enew blogs */}
@@ -81,10 +86,15 @@ const App = () => {
             element={user ? <ChangePassword /> : <Navigate to="/login" />}
           />
 
-          {/* setting page */}
+          {/* core */}
           <Route
             path="/setting/core"
             element={user ? <Core /> : <Navigate to="/login" />}
+          />
+          {/* email setting */}
+          <Route
+            path="/setting/email_setting"
+            element={user ? <EmailSetting /> : <Navigate to="/login" />}
           />
         </Routes>
         {/* login container */}

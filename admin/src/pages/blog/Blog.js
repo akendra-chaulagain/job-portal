@@ -80,13 +80,13 @@ const Allproduct = () => {
       <div className="allBlog">
         <Sidebar />
 
-        <div className="allContainer">
+        <div className="allBlogContainer">
           {/* top bar create button */}
           <div className="allContainerWrapper">
             <div className="blogTitle ">
               <h3>All Blogs</h3>
             </div>
-            <div className="createBtn">
+            <div className="createBlogBtn">
               <Link to="/newblog">
                 <button>Add Blogs</button>
               </Link>

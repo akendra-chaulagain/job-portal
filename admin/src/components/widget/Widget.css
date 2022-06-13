@@ -4,7 +4,6 @@
   margin-top: 13vh;
   color: gray;
 }
-/* left */
 .leftWidge {
   height: 20vh;
   width: 30%;
@@ -26,7 +25,6 @@
   font-size: 15px;
 }
 
-/* middle */
 .middletWidget {
   height: 20vh;
   box-shadow: -4px 5px 39px -12px rgba(83, 83, 83, 0.66);
@@ -53,7 +51,6 @@
   font-size: 15px;
 }
 
-/* right */
 .rightWidget {
   width: 30%;
   margin-left: 20px;
@@ -79,7 +76,6 @@
   font-size: 15px;
 }
 
-/* sell all links */
 .seeAlluser p {
   font-size: 14px;
   color: gray;
@@ -90,17 +86,20 @@
   text-decoration: underline;
 }
 
-/* icons */
 .widget i {
   font-size: 20px;
   margin: 15px 0px 5px 0px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1000px) {
+  .widget {
+    margin-top: 2vh;
+    margin-left: -10%;
+  }
   .leftWidge {
     height: auto;
-    /* margin-left: 10px; */
-    width: 25%;
+    width: 100%;
+    margin-left: 0px;
   }
   .leftWidge h5 {
     font-size: 11px;
@@ -111,8 +110,8 @@
 
   .middletWidget {
     height: auto;
-    /* margin-left: 10px; */
-    width: 25%;
+    width: 100%;
+    margin-left: 0px;
   }
   .middletWidget h5 {
     font-size: 11px;
@@ -122,44 +121,13 @@
   }
   .rightWidget {
     height: auto;
-    /* margin-left: 10px; */
-    width: 25%;
+    width: 100%;
+    margin-left: 0px;
   }
   .rightWidget h5 {
     font-size: 11px;
   }
   .rightWidget p {
     font-size: 10px;
-  }
-}
-@media only screen and (max-width: 280px) {
-  .leftWidge {
-    width: 28%;
-  }
-  .leftWidge h5 {
-    font-size: 8px;
-  }
-  .leftWidge p {
-    font-size: 8px;
-  }
-
-  .middletWidget {
-    width: 28%;
-  }
-  .middletWidget h5 {
-    font-size: 8px;
-  }
-  .middletWidget p {
-    font-size: 8px;
-  }
-
-  .rightWidget {
-    width: 28%;
-  }
-  .rightWidget h5 {
-    font-size: 8px;
-  }
-  .rightWidget p {
-    font-size: 8px;
   }
 }

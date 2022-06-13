@@ -2,5 +2,6 @@
   display: flex;
 }
 .homeContainer {
-  flex: 5;
+  flex: 1;
+  margin-left: 15%;
 }

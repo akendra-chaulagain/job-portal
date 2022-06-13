@@ -17,7 +17,6 @@ const NewJob = () => {
       });
     }
   }, [quill, quillRef]);
- 
 
   // preview profile iamges before uploading
   const [image, setImage] = useState(null);
@@ -113,10 +112,8 @@ const NewJob = () => {
                   </div>
                 </div>
                 {/* create btn */}
-                <div className="createnewButton">
-                  <div className="createButton">
+                <div className="createnewJobButton">
                     <button>Create</button>
-                  </div>
                 </div>
               </form>
             </div>

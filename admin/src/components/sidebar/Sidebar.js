@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Sidebar.css";
 import { NavLink } from "react-router-dom";
 
@@ -12,9 +12,7 @@ const Sidebar = () => {
             {/* it render to home page folder in   */}
             <NavLink
               to="/"
-              className={({ isActive }) =>
-                isActive ? "active link" : ""
-              }
+              className={({ isActive }) => (isActive ? "active link" : "")}
             >
               <li className="sidebarItem mt-1">
                 <i class="fa-solid fa-table-columns"></i>

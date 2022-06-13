@@ -110,10 +110,8 @@ const EditBlog = () => {
                   </div>
                 </div>
                 {/* create btn */}
-                <div className="createnewButton">
-                  <div className="createButton">
+                <div className="editBlogButton">
                     <button>Create</button>
-                  </div>
                 </div>
               </form>
             </div>

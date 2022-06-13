@@ -62,3 +62,9 @@
   color: white;
   border-radius: 5px;
 }
+
+@media only screen and (max-width: 1000px) {
+  .topbar {
+    display: none;
+  }
+}

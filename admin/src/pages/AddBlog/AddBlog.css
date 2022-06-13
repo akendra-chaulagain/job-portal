@@ -5,7 +5,7 @@
 .newBlogContainer {
   flex: 5;
   margin-top: 12vh;
-  margin-left: 10px;
+  margin-left: 17%;
 }
 .newBlogTitle h3 {
   font-weight: 500;
@@ -44,20 +44,15 @@
   color: gray;
 }
 
-.createnewButton button {
+.createnewBlogButton button {
   margin-top: 60px;
   padding: 3px 60px;
   outline: none;
   border: none;
   font-weight: 600;
   color: white;
-  background-color: darkblue;
-  border-radius: 9px;
-}
-
-.createButton button {
   background-color: red;
-  color: white;
+  border-radius: 9px;
 }
 
 /* thumbnail img */
@@ -93,7 +88,7 @@
   padding: 20px;
 }
 .blogInputFieldImgAndButton img {
-  height: 19vh;
+  height: 20vh;
   object-fit: cover;
 }
 
@@ -112,4 +107,18 @@
 .reactQuill {
   height: 25vh;
   width: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .newBlogContainer {
+    margin-left: 3%;
+    margin-top: 3vh;
+  }
+  .createnewBlogButton button {
+    outline: none;
+    margin: 30px 30px 23px 10px;
+    font-size: 12px;
+    padding: 4px 20px;
+    margin-top: 17%;
+  }
 }

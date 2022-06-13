@@ -20,7 +20,7 @@ const CoreWidget = () => {
         <div className="coreWigetItem ">
           <NavLink
             className={({ isActive }) => (isActive ? "active link" : "")}
-            to="/core"
+            to="/setting/email_setting"
           >
             Email Setting
           </NavLink>

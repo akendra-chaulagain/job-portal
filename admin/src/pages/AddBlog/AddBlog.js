@@ -111,10 +111,8 @@ const AddBlog = () => {
                     <div ref={quillRef} />
                   </div>
                   {/* create btn */}
-                  <div className="createnewButton">
-                    <div className="createButton">
+                  <div className="createnewBlogButton">
                       <button>Create</button>
-                    </div>
                   </div>
                 </div>
               </form>
