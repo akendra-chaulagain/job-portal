@@ -18,11 +18,11 @@
   }
   .menuIconContainer i {
     font-size: 22px;
-    padding-left: 30px;
+    padding-left: 35px;
   }
   /* company logo */
   .companyLogoSidebar img {
-    height: 3vh;
+    height: 6vh;
     width: 100%;
     padding-right: 20px;
   }
@@ -113,5 +113,13 @@
     margin-left: 13px;
     color: white;
     font-size: 12px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .companyLogoSidebar img {
+    height: 5vh;
+  }
+  .sidebar-item a {
+    font-size: 13px;
   }
 }

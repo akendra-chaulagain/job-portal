@@ -14,7 +14,7 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgb(0, 0, 0, 0.4)),
     url("https://images.pexels.com/photos/4065137/pexels-photo-4065137.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
 }
-.jobsTopData h3 {
+.aboutTopData h3 {
   font-size: 32px;
   color: white;
   font-weight: 600;
@@ -41,37 +41,85 @@
   color: white;
 }
 
-/* catrogry  */
-.categoryContainer h3 {
-  margin-top: 25px;
-  font-size: 30px;
-}
-.categoryItem {
-  margin-top: 35px;
-}
-.categoryItem span {
-  border: 1px solid black;
-  padding: 8px;
-  margin: 10px;
-  font-size: 16px;
-  font-weight: 600;
-}
-
 /* jobs container */
-.containWrapper {
-  box-shadow: -1px 3px 15px 5px rgba(0, 0, 0, 0.05);
+.jobsContentContainer {
+  display: flex;
+  /* box-shadow: -1px 3px 15px 5px rgba(0, 0, 0, 0.05); */
   border-radius: 5px;
-  height: 20vh;
-  width: 100%;
+  height: 12vh;
+  margin-top: 10px;
+  width: 22%;
+  margin-left: 3%;
+  align-items: center;
+}
+.jobdeschData {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 10px;
+  flex-direction: column;
+  margin-left: 8px;
+}
+.jobdeschData h6 {
+  cursor: pointer;
+  margin-top: 5px;
 }
 
-.containImg img {
+.jobsImg img {
+  height: 8vh;
   border-radius: 5px;
-  height: 15vh;
-  width: 100%;
-  object-fit: cover;
+}
+@media only screen and (max-width: 1000px) {
+  .jobs {
+    margin-top: 0vh;
+    overflow: hidden;
+    margin-bottom: 6vh;
+  }
+  .jobsImg img {
+    height: 6vh;
+  }
+  .jobdeschData h6 {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .jobdeschData p {
+    font-size: 11px;
+    font-weight: 400;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .aboutTopData h3 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+  .searechInputField input {
+    width: 70%;
+    height: 38px;
+    margin-left: -25px;
+  }
+  .searechInputField span {
+    padding: 9px 18px 9px 18px;
+  }
+
+  /* jobs section */
+  .jobsContentContainer {
+    width: 100%;
+    margin-top: 7px;
+    height: 10vh;
+    margin-left: 0%;
+  }
+
+  .jobsImg img {
+    height: 6vh;
+    width: 100%;
+    object-fit: cover;
+  }
+  .jobdeschData h6 {
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .jobdeschData p {
+    font-size: 12;
+  }
 }

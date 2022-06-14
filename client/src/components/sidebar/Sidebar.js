@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import "./Sidebar.css";
 import { Link } from "react-router-dom";
+import Logo from "../../assets/logo/logo.png";
+
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(true);
@@ -16,11 +18,7 @@ const Sidebar = () => {
             <i className="fa-solid fa-bars" onClick={showSidebarr}></i>
           </div>
           <div className="companyLogoSidebar">
-            <img
-              className="img-fluid"
-              src="https://global-uploads.webflow.com/5e157547d6f791d34ea4e2bf/6087f7f9e5ecc6623f3ecbbe_logo-example2.svg"
-              alt="company_logo"
-            />
+            <img className="img-fluid" src={Logo} alt="company_logo" />
           </div>
         </div>
         <div className="sideBarWrappper">
@@ -34,7 +32,13 @@ const Sidebar = () => {
             <ul className="sidebar-nav">
               {/* home page */}
               <li className="sidebar-item sidebardropdown">
-                <Link className="link sidebbardropbtn" to="/">
+                <Link
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                  className="link sidebbardropbtn"
+                  to="/"
+                >
                   Home
                 </Link>
                 <span>
@@ -42,36 +46,73 @@ const Sidebar = () => {
                 </span>
                 {/* home page dropdown */}
                 <div className="sidebardropdown-content" onClick={showSidebarr}>
-                  <Link to="/application">Employers</Link>
+                  <Link
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    }}
+                    to="/application"
+                  >
+                    Employers
+                  </Link>
                 </div>
               </li>
               {/* jobs page */}
               <li className="sidebar-item" onClick={showSidebarr}>
-                <Link className="link" to="/jobs">
+                <Link
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                  className="link"
+                  to="/jobs"
+                >
                   JOBS
                 </Link>
               </li>
               {/* RECRUITMENT */}
               <li className="sidebar-item" onClick={showSidebarr}>
-                <Link className="link" to="/recruitment">
+                <Link
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                  className="link"
+                  to="/recruitment"
+                >
                   RECRUITMENT
                 </Link>
               </li>
               {/* BLOGS */}
               <li className="sidebar-item " onClick={showSidebarr}>
-                <Link className=" sidebarDopbtn " to="/blog">
+                <Link
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                  className=" sidebarDopbtn "
+                  to="/blog"
+                >
                   BLOGS
                 </Link>
               </li>
               {/* LEGALIZATION*/}
               <li className="sidebar-item" onClick={showSidebarr}>
-                <Link className="link" to="/about">
+                <Link
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                  className="link"
+                  to="/about"
+                >
                   ABOUT US
                 </Link>
               </li>
               {/* blogs*/}
               <li className="sidebar-item" onClick={showSidebarr}>
-                <Link className="link" to="/contact">
+                <Link
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                  className="link"
+                  to="/contact"
+                >
                   CONTACT
                 </Link>
               </li>

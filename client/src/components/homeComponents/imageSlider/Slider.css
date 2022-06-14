@@ -1,7 +1,7 @@
 .curoselContainer {
   position: relative;
   text-align: center;
-  margin-top:15vh;
+  margin-top: 15vh;
 }
 .curosel-item {
   height: 80vh;
@@ -37,17 +37,34 @@
   border-radius: 4px;
   font-size: 17px;
 }
-@media only screen and (max-width: 990px) {
+
+@media only screen and (max-width: 1000px) {
+  .curoselContainer{
+    margin-top: 0px;
+    z-index: -1;
+  }
+    .curosel-item {
+    height: 45vh;
+    width: 100%;
+  }
+  .curosel-item img {
+    height: 45vh;
+    object-fit: cover;
+  }
+  
+}
+
+@media only screen and (max-width: 768px) {
   .curoselContainer {
     z-index: -999;
     margin-top: 0vh;
   }
   .curosel-item {
-    height: 50vh;
+    height: 35vh;
     width: 100%;
   }
   .curosel-item img {
-    height: 50vh;
+    height: 35vh;
     object-fit: cover;
   }
   .bottomLeftContain {

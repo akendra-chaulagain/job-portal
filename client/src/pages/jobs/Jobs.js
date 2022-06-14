@@ -3,6 +3,7 @@ import "./Jobs.css";
 import { availableJobs } from "./availableJobs";
 import Footer from "../../components/footer/Footer";
 import { Link } from "react-router-dom";
+import Category from "../../components/category/Category";
 
 const Jobs = () => {
   return (
@@ -21,37 +22,24 @@ const Jobs = () => {
                 <i className="fa-solid fa-magnifying-glass"></i>
               </span>
             </div>
-            {/* trending jobs */}
-            <div className="categoryContainer">
-              <h3 className="text-center">Trending jobs</h3>
-              <div className="categoryItem">
-                <span>Web developer</span>
-                <span>Web developer</span>
-                <span>Web developer</span>
-                <span>Web developer</span>
-              </div>
-            </div>
+            {/* category from category section */}
+            <Category />
           </div>
 
           {availableJobs.map((item, id) => (
-            <div className="col-md-4 jobsContentContainer" key={id}>
-              <div className="containWrapper">
-                <div className="row">
-                  <div className="col-5">
-                    {/* contain img */}
-                    <div className="containImg">
-                      <img src={item.img} alt="our_service_img" />
-                    </div>
-                  </div>
-                  <div className="col-7 jobContainData">
-                    {/* company name */}
-                    <Link className="link" to="/job/waiter">
-                      <h6>{item.company}</h6>
-                    </Link>
-                    <p>{item.job}</p>
-                    <p>{item.address}</p>
-                  </div>
-                </div>
+            <div
+              className="col-md-4 col-sm-4 jobsContentContainer"
+              key={id}
+            >
+              <div className="jobsImg">
+                <img className="img-fluid" src={item.img} alt="" />
+              </div>
+
+              <div className="jobdeschData">
+                <Link className="link" to="/job/:waiter">
+                  <h6>{item.company}</h6>
+                </Link>
+                <p>{item.job}</p>
               </div>
             </div>
           ))}

@@ -6,32 +6,28 @@ import { Link } from "react-router-dom";
 const JobsSection = () => {
   return (
     <>
-      <div className="container-fluid jobsContent">
+      <div className="container jobsContent">
         <div className="row">
           <div className="jobsContentTopbar text-center">
             <h1>Availables Jobs</h1>
           </div>
           {/* jobs content */}
           {serviceData.map((item, id) => (
-            <div className="col-lg-3 col-sm-6 jobsContentContainer" key={id}>
-              <div className="containWrapper">
-                <div className="row">
-                  <div className="col-4">
-                    {/* contain img */}
-                    <div className="containImg">
-                      <img src={item.img} alt="our_service_img" />
-                    </div>
-                  </div>
-                  <div className="col-7 jobContainData">
-                    {/* company name */}
-                    <Link className="link" to="/job/waiter">
-                      <h6>{item.company}</h6>
-                    </Link>
-                    <p>{item.job}</p>
-                  </div>
+              <div
+                className="col-md-4 col-sm-4 jobsContentContainer"
+                key={item.id}
+              >
+                <div className="jobsImg">
+                  <img className="img-fluid" src={item.img} alt="" />
+                </div>
+
+                <div className="jobdeschData">
+                  <Link className="link" to="/job/:waiter">
+                    <h6>{item.company}</h6>
+                  </Link>
+                  <p>{item.job}</p>
                 </div>
               </div>
-            </div>
           ))}
           {/* view all jobs link */}
           <div className="viewAllLinks text-end">
@@ -42,6 +38,7 @@ const JobsSection = () => {
           </div>
         </div>
       </div>
+      <hr />
     </>
   );
 };

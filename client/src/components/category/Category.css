@@ -1,0 +1,46 @@
+.category {
+  height: auto;
+  margin-top: 20px;
+}
+
+.category h3 {
+  color: gray;
+  margin: 20px;
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: 1px;
+}
+
+.categoryItem p {
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid gray;
+  color: gray;
+  padding: 2px;
+}
+
+@media only screen and (max-width: 850px) {
+  .category {
+    margin-left: -5%;
+  }
+  .category h3 {
+    font-size: 20px;
+  }
+  .categoryItem p {
+    font-weight: 400;
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .categoryItem p {
+    font-weight: 400;
+    padding: 3px 4px 3px 3px;
+    font-size: 11px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .categoryItem p {
+    padding: 3px;
+    font-size: 10px;
+  }
+}
