@@ -5,6 +5,7 @@ const app = express();
 const jobsRoutes = require("./routers/jobs");
 const authRoutes = require("./routers/auth");
 const userRoutes = require("./routers/user");
+const blogRoutes = require("./routers/blog");
 
 // dotenv file for  config file
 const dotenv = require("dotenv");
@@ -23,6 +24,7 @@ require("./database/connection");
 app.use("/api/v1/jobs", jobsRoutes);
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/user", userRoutes);
+app.use("/api/v1/blog", blogRoutes);
 
 app.listen(PORT, () => {
   console.log(`running in port no :${PORT}`);

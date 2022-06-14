@@ -1,6 +1,6 @@
 .editJobs {
   display: flex;
-  height: 100vh;
+  height: 110vh;
 }
 .editJobsContainer {
   flex: 5;
@@ -44,28 +44,6 @@
   border-radius: 9px;
 }
 
-/* thumbnail img */
-.editJobsInputFieldImg {
-  height: auto;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  box-shadow: -4px 5px 39px -12px rgba(153, 153, 153, 0.66);
-  padding: 20px;
-}
-.editJobsInputFieldImg label {
-  font-weight: 500;
-  color: gray;
-}
-.editJobsInputFieldImg p {
-  border: 1px solid red;
-  font-size: 13px;
-  padding: 4px 16px;
-  color: rgb(251, 81, 81);
-  border-radius: 8px;
-  margin-top: 20px;
-  cursor: pointer;
-}
 
 /* blog images and button */
 .editJobInputFieldImgAndButton {

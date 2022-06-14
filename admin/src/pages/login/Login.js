@@ -1,27 +1,69 @@
 import React from "react";
 import "./Login.css";
+// ReactToastify is use for alert
+import { useDispatch, useSelector } from "react-redux";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
+import RegisterTextField from "../../components/RegisterTextField/RegisterTextField";
+import { loginUser } from "../../redux/apiCalls";
+
+import Logo from "../../assets/logo/logo.png";
 
 const Login = () => {
+  const dispactch = useDispatch();
+  const { isFetching } = useSelector((state) => state.user);
+  // logout user after timer
 
-
-
-
+  const validate = Yup.object({
+    email: Yup.string().email("Invalid email!").required("Email is required!"),
+    password: Yup.string().required("Password is required!"),
+  });
 
   return (
     <>
-      <div className="login">
-        <form className="loginform">
-          {/* email */}
-          <label>Email</label>
-          <input type="email" />
-          {/* password */}
-          <label>Password</label>
-          <input
-            type="password"
-          />
-          <button >Log In</button>
-        </form>
-      </div>
+      <Formik
+        initialValues={{
+          email: "",
+          password: "",
+        }}
+        validationSchema={validate}
+        onSubmit={(values) => {
+          loginUser(dispactch, values);
+        }}
+      >
+        <Form>
+          <div className=" loginPage">
+            <div className="loginFrom">
+              {/* company logo */}
+              <div className="compantLogo">
+                <img src={Logo} alt="logo" />
+              </div>
+              <div className=" LoginFormContainer">
+                <h4>Sign-In</h4>
+                {/* email */}
+                <div className="inputBox mt-3">
+                  <label>Email</label>
+                  <RegisterTextField label="Email" name="email" type="text" a />
+                </div>
+
+                {/* password */}
+                <div className="inputBox mt-2">
+                  <label>Password</label>
+                  <RegisterTextField
+                    label="Password"
+                    name="password"
+                    type="password"
+                  />
+                </div>
+                <div className="inputBox mt-1">
+                  {/* login button */}
+                  <button disabled={isFetching}>Continue</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Form>
+      </Formik>
     </>
   );
 };

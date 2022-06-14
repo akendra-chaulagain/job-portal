@@ -23,10 +23,11 @@ import AddJob from "./pages/createJob/NewJob";
 import AllCategory from "./pages/category/AllCategory";
 import CreateCategory from "./pages/createCategory/CreateCategory";
 import EditCategory from "./pages/editCategory/EditCategory";
+import { useSelector } from "react-redux";
 
 const App = () => {
-  // const user = useSelector((state) => state.user.currentUser);
-  const user = true;
+  const user = useSelector((state) => state.user.currentUser);
+  console.log(user);
   return (
     <>
       <Router>
@@ -118,7 +119,10 @@ const App = () => {
 
         {/* login container */}
         <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={!user ? <Login /> : <Navigate to="/" />}
+          />
         </Routes>
       </Router>
     </>

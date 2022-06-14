@@ -1,80 +1,93 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
 import Sidebar from "../../components/sidebar/Sidebar";
 // import "./Allproduct.css";
 import { DataGrid } from "@mui/x-data-grid";
 import "./Blog.css";
-import { Delete, Edit } from "@material-ui/icons";
+import { useDispatch, useSelector } from "react-redux";
 
-const columns = [
-  { field: "id", headerName: "ID", width: 200 },
-  //   image
-  {
-    field: "img",
-    headerName: "",
-    width: 90,
-    renderCell: (params) => {
-      return (
-        <>
-          {/* user image */}
-          <div className="userImg">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-              alt=""
-            />
-          </div>
-        </>
-      );
-    },
-  },
-  { field: "firstName", headerName: "Product ", width: 160 },
-  { field: "lastName", headerName: "Description", width: 160 },
-  { field: "email", headerName: "Category", width: 160 },
-  {
-    field: "fullName",
-    headerName: "Full name",
-    description: "This column has a value getter and is not sortable.",
-    sortable: false,
-    width: 160,
-    valueGetter: (params) =>
-      `${params.row.firstName || ""} ${params.row.lastName || ""}`,
-  },
-  {
-    field: "action",
-    headerName: "Action",
-    width: 230,
-    renderCell: (params) => {
-      return (
-        <>
-          {/*  data button*/}
-
-          <button className="button_delete">
-            <Delete />
-          </button>
-          {/* delete   button*/}
-          <Link to={`/blog/` + params.row._id}>
-            <button className="button_update">
-              <Edit />
-            </button>
-          </Link>
-        </>
-      );
-    },
-  },
-];
-const rows = [
-  { id: 1, lastName: "Snow", img: "", firstName: "Jon", email: 35 },
-  { id: 2, lastName: "Lannister", firstName: "Cersei", email: 42 },
-  { id: 3, lastName: "Lannister", firstName: "Jaime", email: 45 },
-  { id: 4, lastName: "Stark", firstName: "Arya", email: 16 },
-  { id: 5, lastName: "Targaryen", firstName: "Daenerys", email: 56 },
-  { id: 6, lastName: "Melisandre", firstName: "akendra", email: 160 },
-  { id: 7, lastName: "Clifford", firstName: "Ferrara", email: 44 },
-  { id: 8, lastName: "Frances", firstName: "Rossini", email: 36 },
-  { id: 9, lastName: "Roxie", firstName: "Harvey", email: 65 },
-];
+import { getAllBlog } from "../../redux/apiCalls";
 
 const Allproduct = () => {
+  const dispatch = useDispatch();
+  const blogs = useSelector((state) => state.blog.blogs);
+
+  // get all blogs
+  useEffect(() => {
+    getAllBlog(dispatch);
+  }, [dispatch]);
+
+  // colums material ui table
+  const columns = [
+    // job's id
+    { field: "_id", headerName: "UserId", width: 250 },
+
+    // jobs photo
+    {
+      field: "img",
+      headerName: "Photo",
+      width: 70,
+      renderCell: (params) => {
+        return (
+          <>
+            {/* user image */}
+            <div className="userImg">
+              <img src={params.row.img} alt="job_img" />
+            </div>
+          </>
+        );
+      },
+    },
+    // jobs title
+    { field: "title", headerName: "Title", width: 200 },
+
+    // author
+    { field: "author", headerName: "Author", width: 200 },
+
+    // job create date
+    {
+      field: "createdAt",
+      headerName: "Created date",
+      width: 180,
+      renderCell: (params) => {
+        return (
+          <>
+            {/* user image */}
+            <div className="userImg">
+              <span>{new Date(params.row.createdAt).toDateString()}</span>
+            </div>
+          </>
+        );
+      },
+    },
+
+    // job action
+    {
+      field: "action",
+      headerName: "Action",
+      width: 230,
+      renderCell: (params) => {
+        return (
+          <>
+            {/* view data button*/}
+            <NavLink to={`/job/${params.row._id}`}>
+              <button className="button_Edit">edit</button>
+            </NavLink>
+            {/* delete  user data button*/}
+            <span>
+              <button
+                // onClick={() => handleDelete(params.row._id)}
+                className="button_delete"
+              >
+                delete
+              </button>
+            </span>
+          </>
+        );
+      },
+    },
+  ];
+
   return (
     <>
       <div className="allBlog">
@@ -95,12 +108,12 @@ const Allproduct = () => {
 
           <div className="tableContainer" style={{ height: 520, width: "96%" }}>
             <DataGrid
-              rows={rows}
+              rows={blogs}
               columns={columns}
-              pageSize={7}
               rowsPerPageOptions={[8]}
               disableSelectionOnClick
-              //   getRowId={(r) => r._id}
+              getRowId={(r) => r._id}
+              checkboxSelection
             />
           </div>
         </div>

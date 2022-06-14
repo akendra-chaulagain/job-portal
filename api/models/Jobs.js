@@ -2,17 +2,17 @@ const mongoose = require("mongoose");
 
 const jobSchema = new mongoose.Schema(
   {
-    jobTitle: {
+    title: {
       type: String,
       required: true,
     },
-    jobPhoto: {
+    img: {
       type: String,
     },
-    jobDesc: {
-      type: Array,
+    desc: {
+      type: String,
     },
-    jobCat: {
+    cat: {
       type: String,
     },
   },
