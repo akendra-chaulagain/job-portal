@@ -22,6 +22,17 @@ const Sidebar = () => {
           </div>
 
           <div className="sidebartitle mt-3">LISTS</div>
+
+          {/* category */}
+          <div className="sidebarList">
+            {/* users link which render to userlist page */}
+            <NavLink className="link" to="/category">
+              <li className="sidebarItem mt-1">
+                <i className="fa-solid fa-shapes"></i>
+                <span>Category</span>
+              </li>
+            </NavLink>
+          </div>
           <div className="sidebarList">
             {/* users link which render to userlist page */}
             <NavLink className="link" to="/jobs">

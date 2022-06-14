@@ -85,6 +85,13 @@ const SliderBar = () => {
                   Jobs
                 </Link>
               </li>
+              {/* category */}
+              <li className="sidebar-item" onClick={showSidebarr}>
+                <Link className="link" to="/category">
+                  <i className="fa-solid fa-shapes"></i>
+                  Category
+                </Link>
+              </li>
               {/* Blog page */}
               <li className="sidebar-item" onClick={showSidebarr}>
                 <Link className="link" to="/blog">

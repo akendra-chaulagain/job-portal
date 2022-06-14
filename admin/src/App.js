@@ -20,6 +20,9 @@ import Core from "./pages/setting/coreSetting/Core";
 import EmailSetting from "./pages/setting/emailSetting/EmailSetting";
 import SliderBar from "./components/sliderBar/SliderBar";
 import AddJob from "./pages/createJob/NewJob";
+import AllCategory from "./pages/category/AllCategory";
+import CreateCategory from "./pages/createCategory/CreateCategory";
+import EditCategory from "./pages/editCategory/EditCategory";
 
 const App = () => {
   // const user = useSelector((state) => state.user.currentUser);
@@ -96,7 +99,23 @@ const App = () => {
             path="/setting/email_setting"
             element={user ? <EmailSetting /> : <Navigate to="/login" />}
           />
+          {/* category */}
+          <Route
+            path="/category"
+            element={user ? <AllCategory /> : <Navigate to="/login" />}
+          />
+          {/* create category */}
+          <Route
+            path="/create_cat"
+            element={user ? <CreateCategory /> : <Navigate to="/login" />}
+          />
+          {/* edit cat */}
+          <Route
+            path="/edit_cat/:id"
+            element={user ? <EditCategory /> : <Navigate to="/login" />}
+          />
         </Routes>
+
         {/* login container */}
         <Routes>
           <Route path="/login" element={<Login />} />

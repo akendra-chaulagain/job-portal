@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
-import "./AllJobs.css";
 import { DataGrid } from "@mui/x-data-grid";
+import "./AllCategory.css";
 import { NavLink } from "react-router-dom";
 
 const columns = [
@@ -15,10 +15,10 @@ const columns = [
       return (
         <>
           {/* user image */}
-          <div className="userImg">
+          <div className="categoryImg">
             <img
               src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-              alt="job_img"
+              alt=""
             />
           </div>
         </>
@@ -45,12 +45,12 @@ const columns = [
       return (
         <>
           {/* view data button*/}
-          <NavLink to={`/job/:id`}>
-            <button className="button_Edit">edit</button>
+          <NavLink to={`/edit_cat/:id`}>
+            <button className="categoryEdit_button">edit</button>
           </NavLink>
           {/* delete  user data button*/}
           <NavLink to={`/lists/` + params.row._id}>
-            <button className="button_delete">delete</button>
+            <button className="categoryDelete_button">delete</button>
           </NavLink>
         </>
       );
@@ -69,36 +69,38 @@ const rows = [
   { id: 9, lastName: "Roxie", firstName: "Harvey", email: 65 },
 ];
 
-const AllJobs = () => {
+const AllCategory = () => {
   return (
-    <div className=" jobs">
-      {/* side bar is imnported from side bar container
-       */}
-      <Sidebar />
-      <div className="jobContainer">
-        <div className="JobTopBar ">
-          <h3>All Jobs</h3>
-          {/* create job button */}
-          <div className="createJobBtn">
-            <NavLink className="link" to="/createjobs">
-              <button>Add Jobs</button>
-            </NavLink>
+    <>
+      <div className=" category">
+        {/* side bar is imnported from side bar container
+         */}
+        <Sidebar />
+        <div className="categoryContainer">
+          <div className="categoryTopBar ">
+            <h3>All Category</h3>
+            {/* create job button */}
+            <div className="createCategoryBtn">
+              <NavLink className="link" to="/create_cat">
+                <button>Add Category</button>
+              </NavLink>
+            </div>
+          </div>
+
+          <div style={{ height: 520, width: "96%" }}>
+            <DataGrid
+              rows={rows}
+              columns={columns}
+              pageSize={7}
+              rowsPerPageOptions={[8]}
+              disableSelectionOnClick
+              // getRowId={(r) => r._id}
+            />
           </div>
         </div>
-
-        <div style={{ height: 520, width: "96%" }}>
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={7}
-            rowsPerPageOptions={[8]}
-            disableSelectionOnClick
-            // getRowId={(r) => r._id}
-          />
-        </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default AllJobs;
+export default AllCategory;

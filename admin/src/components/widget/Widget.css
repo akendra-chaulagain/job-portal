@@ -76,12 +76,12 @@
   font-size: 15px;
 }
 
-.seeAlluser p {
+.seeAlluser a {
   font-size: 14px;
   color: gray;
   cursor: pointer;
 }
-.seeAlluser p:hover {
+.seeAlluser a:hover {
   color: red;
   text-decoration: underline;
 }

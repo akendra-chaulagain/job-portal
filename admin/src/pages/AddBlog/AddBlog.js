@@ -112,7 +112,7 @@ const AddBlog = () => {
                   </div>
                   {/* create btn */}
                   <div className="createnewBlogButton">
-                      <button>Create</button>
+                    <button>Create</button>
                   </div>
                 </div>
               </form>

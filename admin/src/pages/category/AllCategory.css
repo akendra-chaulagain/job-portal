@@ -1,27 +1,26 @@
-.jobs {
+.category {
   display: flex;
-}
-.jobContainer {
-  flex: 5;
-  margin-top: 15vh;
-  box-shadow: -4px 5px 39px -12px rgba(83, 83, 83, 0.66);
-  margin-left: 18%;
-  margin-right: 5%;
-  /* z-index: -999; */
+  height: 100vh;
 }
 
-.JobTopBar {
+.categoryContainer {
+  flex: 5;
+  margin-top: 12vh;
+  margin-left: 17%;
+}
+
+.categoryTopBar {
   display: flex;
   justify-content: space-between;
 }
-.JobTopBar h3 {
+.categoryTopBar h3 {
   font-size: 22px;
   margin: 24px 0px 20px 30px;
   color: gray;
 }
 
-/* add job button */
-.createJobBtn button {
+/* add category button */
+.createCategoryBtn button {
   outline: none;
   border: none;
   border: 1px solid red;
@@ -32,11 +31,13 @@
   border-radius: 8px;
   cursor: pointer;
 }
-.createJobBtn button:hover {
+.createCategoryBtn button:hover {
   background-color: rgb(255, 236, 236);
 }
-/* view and delete button */
-.button_Edit {
+
+/* edit button and delete button */
+
+.categoryEdit_button {
   border: 1px solid rgb(183, 0, 255);
   outline: none;
   color: rgb(183, 0, 255);
@@ -44,11 +45,12 @@
   font-size: 13px;
   padding: 4px 7px;
 }
-.button_Edit:hover {
+
+.categoryEdit_button:hover {
   background-color: rgb(183, 0, 255);
   color: white;
 }
-.button_delete {
+.categoryDelete_button {
   border: 1px solid red;
   outline: none;
   color: red;
@@ -57,25 +59,26 @@
   font-size: 13px;
   margin-left: 10px;
 }
-.button_delete:hover {
+.categoryDelete_button:hover {
   background-color: red;
   color: white;
 }
-.userImg img {
+.categoryImg img {
   height: 50px;
   width: 50px;
   object-fit: contain;
 }
 
 @media only screen and (max-width: 1000px) {
-  .jobContainer {
+  .categoryContainer {
     margin-left: 3%;
     margin-top: 3vh;
   }
-  .JobTopBar h3 {
+
+  .categoryTopBar h3 {
     font-size: 17px;
   }
-  .createJobBtn button {
+  .createCategoryBtn button {
     outline: none;
     margin: 25px 10px 23px 10px;
     font-size: 12px;
