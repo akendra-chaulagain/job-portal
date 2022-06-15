@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import "./SliderBar.css";
 import { Link } from "react-router-dom";
+import { userRequest } from "../../RequestMethod";
 
 const SliderBar = () => {
   const [sidebar, setSidebar] = useState(true);
   const showSidebarr = () => setSidebar(!sidebar);
+
+  const userId = localStorage.getItem("userId");
+  // get user data from user id
+  const [didMount, setDidMount] = useState(false);
+  const [userData, setUserData] = useState({});
+  useEffect(() => {
+    const getUserData = async () => {
+      setDidMount(true);
+
+      try {
+        const res = await userRequest.get("/user/find/" + userId);
+        setUserData(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUserData();
+    return () => setDidMount(false);
+  }, [userId]);
   return (
     <>
       {/* side bar top container */}
@@ -18,13 +38,8 @@ const SliderBar = () => {
 
           {/* right side content with user image and progile page */}
           <div className="rightSideSlider text-end">
-            <div className="rightSidewebSiteLink">
-              <Link className="link" to="/">
-                <i className="fa-solid fa-globe"></i>
-              </Link>
-            </div>
             <div className="rightSideAdminData">
-              <span>System Admin</span>
+              <span>{userData.username}</span>
             </div>
 
             {/* admin img  drop down menu*/}
@@ -34,7 +49,7 @@ const SliderBar = () => {
                   className="img-fluid  dropdown-toggle"
                   id="dropdownMenuButton1"
                   data-bs-toggle="dropdown"
-                  src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                  src={userData.logo}
                   alt="profile_img"
                 />
 

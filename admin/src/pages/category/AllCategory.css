@@ -1,12 +1,14 @@
+
 .category {
   display: flex;
-  height: 100vh;
 }
-
 .categoryContainer {
   flex: 5;
-  margin-top: 12vh;
-  margin-left: 17%;
+  margin-top: 15vh;
+  box-shadow: -4px 5px 39px -12px rgba(83, 83, 83, 0.66);
+  margin-left: 18%;
+  margin-right: 5%;
+  /* z-index: -999; */
 }
 
 .categoryTopBar {
@@ -19,7 +21,7 @@
   color: gray;
 }
 
-/* add category button */
+/* add job button */
 .createCategoryBtn button {
   outline: none;
   border: none;
@@ -34,9 +36,7 @@
 .createCategoryBtn button:hover {
   background-color: rgb(255, 236, 236);
 }
-
-/* edit button and delete button */
-
+/* view and delete button */
 .categoryEdit_button {
   border: 1px solid rgb(183, 0, 255);
   outline: none;
@@ -45,12 +45,11 @@
   font-size: 13px;
   padding: 4px 7px;
 }
-
 .categoryEdit_button:hover {
   background-color: rgb(183, 0, 255);
   color: white;
 }
-.categoryDelete_button {
+.button_delete {
   border: 1px solid red;
   outline: none;
   color: red;
@@ -59,13 +58,13 @@
   font-size: 13px;
   margin-left: 10px;
 }
-.categoryDelete_button:hover {
+.button_delete:hover {
   background-color: red;
   color: white;
 }
-.categoryImg img {
-  height: 50px;
-  width: 50px;
+.userImg img {
+  height: 60px;
+  width: 60px;
   object-fit: contain;
 }
 
@@ -74,7 +73,6 @@
     margin-left: 3%;
     margin-top: 3vh;
   }
-
   .categoryTopBar h3 {
     font-size: 17px;
   }

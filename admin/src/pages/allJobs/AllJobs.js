@@ -102,20 +102,21 @@ const AllJobs = () => {
       {/* side bar is imnported from side bar container
        */}
       <Sidebar />
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <div className="jobContainer">
-          <div className="JobTopBar ">
-            <h3>All Jobs</h3>
-            {/* create job button */}
-            <div className="createJobBtn">
-              <NavLink className="link" to="/createjobs">
-                <button>Add Jobs</button>
-              </NavLink>
-            </div>
+
+      <div className="jobContainer">
+        <div className="JobTopBar ">
+          <h3>All Jobs</h3>
+          {/* create job button */}
+          <div className="createJobBtn">
+            <NavLink className="link" to="/createjobs">
+              <button>Add Jobs</button>
+            </NavLink>
           </div>
-          <div style={{ height: 520, width: "96%" }}>
+        </div>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <div className="tableContainer" style={{ height: 520, width: "96%" }}>
             <DataGrid
               rows={jobs}
               columns={columns}
@@ -125,8 +126,8 @@ const AllJobs = () => {
               checkboxSelection
             />
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

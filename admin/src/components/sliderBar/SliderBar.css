@@ -87,8 +87,8 @@
     margin-right: 5%;
   }
   .rightSideAdminImg img {
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     border-radius: 50%;
     cursor: pointer;
     margin-right: 10px;
@@ -98,12 +98,9 @@
     font-weight: 500;
     font-size: 15px;
     color: gray;
+    margin-right: 5%;
   }
-  .rightSidewebSiteLink a {
-    font-size: 20px;
-    color: gray;
-    margin-left: 40px;
-  }
+
 
   /* drop down */
   .rightSideAdminImg .dropdown-item {

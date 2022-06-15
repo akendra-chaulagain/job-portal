@@ -1,4 +1,4 @@
-import axios from "axios";
+import { userRequest } from "../RequestMethod";
 import {
   createBlogFailure,
   createBlogStart,
@@ -50,7 +50,7 @@ import {
 export const loginUser = async (dispatch, user) => {
   dispatch(loginStart());
   try {
-    const res = await axios.post("/auth/login", user);
+    const res = await userRequest.post("/auth/login", user);
     dispatch(loginSuccess(res.data));
   } catch (error) {
     dispatch(loginfailure());
@@ -59,13 +59,11 @@ export const loginUser = async (dispatch, user) => {
   }
 };
 
-
-
 // update profile
 export const updateProfile = async (id, data, dispatch) => {
   dispatch(updateUserStart());
   try {
-    await axios.put(`/user/${id}`, data);
+    await userRequest.put(`/user/${id}`, data);
     dispatch(updateUserSuccess(id, data));
   } catch (error) {
     console.log("unable to update user" + error);
@@ -77,7 +75,7 @@ export const updateProfile = async (id, data, dispatch) => {
 export const getAllJobs = async (dispatch) => {
   dispatch(getJobsStart());
   try {
-    const res = await axios.get("/jobs/allJobs");
+    const res = await userRequest.get("/jobs/allJobs");
     dispatch(getJobsSuccess(res.data));
   } catch (error) {
     dispatch(getJobsFailure());
@@ -89,7 +87,7 @@ export const getAllJobs = async (dispatch) => {
 export const createJobs = async (jobs, dispatch) => {
   dispatch(createJobStart());
   try {
-    await axios.post(`/jobs`, jobs);
+    await userRequest.post(`/jobs`, jobs);
     dispatch(createJobSuccess(jobs.data));
   } catch (error) {
     console.log("unable to create jobs" + error);
@@ -102,7 +100,7 @@ export const createJobs = async (jobs, dispatch) => {
 export const deleteJobs = async (id, dispatch) => {
   dispatch(deleteJobStart());
   try {
-    await axios.delete(`/jobs/${id}`);
+    await userRequest.delete(`/jobs/${id}`);
     dispatch(deleteJobSuccess(id));
   } catch (error) {
     console.log("unable to delete jobs" + error);
@@ -115,7 +113,7 @@ export const deleteJobs = async (id, dispatch) => {
 export const updateProducts = async (id, jobs, dispatch) => {
   dispatch(updateJobsStart());
   try {
-    await axios.put(`/jobs/${id}`, jobs);
+    await userRequest.put(`/jobs/${id}`, jobs);
     dispatch(updateJobsSuccess(id, jobs));
   } catch (error) {
     console.log("unable to update job" + error);
@@ -129,7 +127,7 @@ export const updateProducts = async (id, jobs, dispatch) => {
 export const getAllBlog = async (dispatch) => {
   dispatch(getBlogsStart());
   try {
-    const res = await axios.get("/blog/allBlog");
+    const res = await userRequest.get("/blog/allBlog");
     dispatch(getBlogsSuccess(res.data));
   } catch (error) {
     dispatch(getBlogsFailure());
@@ -141,7 +139,7 @@ export const getAllBlog = async (dispatch) => {
 export const createBlog = async (blogData, dispatch) => {
   dispatch(createBlogStart());
   try {
-    await axios.post(`/blog`, blogData);
+    await userRequest.post(`/blog`, blogData);
     dispatch(createBlogSuccess(blogData.data));
   } catch (error) {
     console.log("unable to create blog" + error);
@@ -154,7 +152,7 @@ export const createBlog = async (blogData, dispatch) => {
 export const updateBlog = async (id, blogs, dispatch) => {
   dispatch(updateBlogsStart());
   try {
-    await axios.put(`/blog/${id}`, blogs);
+    await userRequest.put(`/blog/${id}`, blogs);
     dispatch(updateBlogsSuccess(id, blogs));
   } catch (error) {
     console.log("unable to update blog" + error);
@@ -165,7 +163,7 @@ export const updateBlog = async (id, blogs, dispatch) => {
 export const deleteBlog = async (id, dispatch) => {
   dispatch(deleteBlogStart());
   try {
-    await axios.delete(`/blog/${id}`);
+    await userRequest.delete(`/blog/${id}`);
     dispatch(deleteBlogSuccess(id));
     alert("success");
   } catch (error) {
@@ -181,7 +179,7 @@ export const deleteBlog = async (id, dispatch) => {
 export const getAllCategory = async (dispatch) => {
   dispatch(getCategorysStart());
   try {
-    const res = await axios.get("/category/allCategory");
+    const res = await userRequest.get("/category/allCategory");
     dispatch(getCategorysSuccess(res.data));
   } catch (error) {
     dispatch(getCategorysFailure());
@@ -193,7 +191,7 @@ export const getAllCategory = async (dispatch) => {
 export const createCategory = async (blogData, dispatch) => {
   dispatch(createBlogStart());
   try {
-    await axios.post(`/category`, blogData);
+    await userRequest.post(`/category`, blogData);
     dispatch(createBlogSuccess(blogData.data));
     alert("success");
   } catch (error) {
@@ -207,7 +205,7 @@ export const createCategory = async (blogData, dispatch) => {
 export const updateCategory = async (id, cat, dispatch) => {
   dispatch(updateCategorysStart());
   try {
-    await axios.put(`/category/${id}`, cat);
+    await userRequest.put(`/category/${id}`, cat);
     dispatch(updateCategorysSuccess(id, cat));
     alert("updated");
   } catch (error) {
@@ -220,7 +218,7 @@ export const updateCategory = async (id, cat, dispatch) => {
 export const deleteCategory = async (id, dispatch) => {
   dispatch(deleteCategoryStart());
   try {
-    await axios.delete(`/category/${id}`);
+    await userRequest.delete(`/category/${id}`);
     dispatch(deleteCategorySuccess(id));
     alert("success");
   } catch (error) {

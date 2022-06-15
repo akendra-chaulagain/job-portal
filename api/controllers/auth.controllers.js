@@ -48,13 +48,6 @@ const loginUser = async (req, res, next) => {
         process.env.JWT_SECRET_KEY,
         { expiresIn: "1d" }
       );
-      // saving in cookie
-      res.cookie("jsonwebToken", token, {
-        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 5),
-        path: "/",
-        httpOnly: true,
-        sameSite: "lax",
-      });
       const { password, ...others } = user._doc;
       res.status(200).json({ others, token });
     } else {

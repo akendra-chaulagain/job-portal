@@ -16,7 +16,7 @@ const blogSchema = new mongoose.Schema(
     },
     img: {
       type: String,
-      default:""
+      default: "",
     },
   },
   { timestamps: true }

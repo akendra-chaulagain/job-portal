@@ -6,7 +6,7 @@ const Jobs = require("../models/Jobs");
 
 // create jobs (only admin can create job)
 const createJobs = async (req, res) => {
-  if (req.user.isAdmin) {
+
     const body = req.body;
     const newList = new Jobs(body);
     try {
@@ -15,14 +15,12 @@ const createJobs = async (req, res) => {
     } catch (error) {
       res.status(200).json(error);
     }
-  } else {
-    res.status(401).json("You are not allowed to create jobs");
-  }
+ 
 };
 
 // update jobs  (only admin can update job)
 const updateJobs = async (req, res, next) => {
-  if (req.user.isAdmin) {
+
     try {
       const updatedJObs = await Jobs.findByIdAndUpdate(req.params.id, {
         $set: req.body,
@@ -31,23 +29,19 @@ const updateJobs = async (req, res, next) => {
     } catch (error) {
       next(error);
     }
-  } else {
-    res.status(401).json("You are not allowed to create jobs");
-  }
+ 
 };
 
 // delete jobs  (only admin can delete job)
 const deleteJobs = async (req, res, next) => {
-  if (req.user.isAdmin) {
+
     try {
       const deleteJobs = await Jobs.findByIdAndDelete(req.params.id);
       return res.status(201).json(deleteJobs);
     } catch (error) {
       next(error);
     }
-  } else {
-    res.status(401).json("You are not allowed to create jobs");
-  }
+ 
 };
 
 // get individual jobs by id

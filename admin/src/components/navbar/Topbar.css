@@ -42,11 +42,7 @@
   font-weight: 500;
   font-size: 18px;
   color: gray;
-}
-.webSiteLink a {
-  margin-right: 19px;
-  font-size: 20px;
-  color: gray;
+  margin-right: 1%;
 }
 
 /* drop down */

@@ -3,6 +3,7 @@ import "./Widget.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllBlog, getAllCategory, getAllJobs } from "../../redux/apiCalls";
+import Loader from "../Loader/Loader";
 
 const Widget = () => {
   const dispatch = useDispatch();
@@ -16,27 +17,26 @@ const Widget = () => {
     setLoading(false);
   }, [dispatch]);
 
-  // category
+  //get all category
   const categoryData = useSelector((state) => state.category.categorys);
-
-  // get all jobs
   useEffect(() => {
+    setLoading(true);
     getAllCategory(dispatch);
+    setLoading(false);
   }, [dispatch]);
 
-  // blogs
+  //get all blogs
   const blogs = useSelector((state) => state.blog.blogs);
-
-  // get all blogs
   useEffect(() => {
+    setLoading(true);
     getAllBlog(dispatch);
+    setLoading(false);
   }, [dispatch]);
 
   return (
     <div className="container-fluid widget">
       <div className="row">
         {/* left */}
-        {/* jobs */}
         <div className="col-md-4 mt-4 leftWidge">
           <i className="fa-solid fa-briefcase"></i>
           <h5>Total Jobs</h5>

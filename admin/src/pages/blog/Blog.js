@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Sidebar from "../../components/sidebar/Sidebar";
 // import "./Allproduct.css";
@@ -7,6 +7,7 @@ import "./Blog.css";
 import { useDispatch, useSelector } from "react-redux";
 
 import { deleteBlog, getAllBlog } from "../../redux/apiCalls";
+import Loader from "../../components/Loader/Loader";
 
 const Allproduct = () => {
   const dispatch = useDispatch();
@@ -14,8 +15,11 @@ const Allproduct = () => {
   const blogs = useSelector((state) => state.blog.blogs);
 
   // get all blogs
+  const [isLoading, setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true);
     getAllBlog(dispatch);
+    setLoading(false);
   }, [dispatch]);
 
   // delete blog
@@ -113,17 +117,23 @@ const Allproduct = () => {
               </Link>
             </div>
           </div>
-
-          <div className="tableContainer" style={{ height: 520, width: "96%" }}>
-            <DataGrid
-              rows={blogs}
-              columns={columns}
-              rowsPerPageOptions={[8]}
-              disableSelectionOnClick
-              getRowId={(r) => r._id}
-              checkboxSelection
-            />
-          </div>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <div
+              className="tableContainer"
+              style={{ height: 520, width: "96%" }}
+            >
+              <DataGrid
+                rows={blogs}
+                columns={columns}
+                rowsPerPageOptions={[8]}
+                disableSelectionOnClick
+                getRowId={(r) => r._id}
+                checkboxSelection
+              />
+            </div>
+          )}
         </div>
       </div>
     </>

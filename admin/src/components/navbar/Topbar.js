@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Topbar.css";
 import Logo from "../../assets/logo/logo.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { userRequest } from "../../RequestMethod";
 
 const Topbar = () => {
+  const userId = localStorage.getItem("userId");
+  // get user data from user id
+  const [didMount, setDidMount] = useState(false);
+  const [userData, setUserData] = useState({});
+  useEffect(() => {
+    const getUserData = async () => {
+      setDidMount(true);
+
+      try {
+        const res = await userRequest.get("/user/find/" + userId);
+        setUserData(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUserData();
+    return () => setDidMount(false);
+  }, [userId]);
+
   return (
     <>
       <div className="container-fluid topbar">
@@ -14,14 +35,10 @@ const Topbar = () => {
             </Link>
           </div>
 
+          {/* right side */}
           <div className="col-8 right text-end">
-            <div className="webSiteLink">
-              <Link className="link" to="/">
-                <i className="fa-solid fa-globe"></i>
-              </Link>
-            </div>
             <div className="adminData">
-              <span>System Admin</span>
+              <span>{userData.username}</span>
             </div>
 
             {/* admin img  drop down menu*/}
@@ -31,11 +48,14 @@ const Topbar = () => {
                   className="img-fluid  dropdown-toggle"
                   id="dropdownMenuButton1"
                   data-bs-toggle="dropdown"
-                  src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                  src={userData.logo}
                   alt="profile_img"
                 />
 
-                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <ul
+                  className="dropdown-menu"
+                  aria-labelledby="dropdownMenuButton1"
+                >
                   <li>
                     <Link className="link dropdown-item" to="/profile">
                       <i className="fa-solid fa-user"></i>
@@ -53,8 +73,6 @@ const Topbar = () => {
               </div>
             </div>
           </div>
-
-          
         </div>
       </div>
     </>
