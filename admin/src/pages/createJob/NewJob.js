@@ -94,7 +94,6 @@ const NewJob = () => {
     <>
       <div className="newJobs">
         <Sidebar />
-
         <div className="container-fluid newJobsContainer">
           <div className="row">
             <div className="col-md-12">
@@ -188,12 +187,13 @@ const NewJob = () => {
                         onChange={(e) => setDesc(e.target.value)}
                         ref={quillRef}
                       />
+                      {/* create btn */}
+                      <div className="createnewJobButton">
+                        <button onClick={handleSubmitData}>Create</button>
+                      </div>
                     </div>
                   </div>
-                  {/* create btn */}
-                  <div className="createnewJobButton">
-                    <button onClick={handleSubmitData}>Create</button>
-                  </div>
+
                   {progress}
                 </div>
               </form>

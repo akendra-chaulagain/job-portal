@@ -14,15 +14,18 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateProducts } from "../../redux/apiCalls";
+import Loader from "../../components/Loader/Loader";
 
 const NewJob = () => {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
 
   // get user by id
+  const [isLoading, setLoading] = useState(true);
   const [didMount, setDidMount] = useState(false);
   const [jobData, setJobData] = useState({});
   useEffect(() => {
+    setLoading(true);
     setDidMount(true);
     const getDataById = async () => {
       try {
@@ -31,6 +34,7 @@ const NewJob = () => {
       } catch (error) {}
     };
     getDataById();
+    setLoading(false);
     return () => setDidMount(false);
   }, [path]);
 
@@ -106,52 +110,71 @@ const NewJob = () => {
       <div className="editJobs">
         <Sidebar />
 
-        <div className="container-fluid editJobsContainer">
-          <div className="row">
-            <div className="col-md-12">
-              <div className="editJobTitle text-center">Edit Job</div>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <div className="container-fluid editJobsContainer">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="editJobTitle text-center">Edit Job</div>
 
-              <form className="addJobForm">
-                <div className="row">
-                  {/* left side */}
-                  <div className="col-md-6">
-                    <div className="editJobsInputField">
-                      {/* title */}
-                      <label htmlFor="">Job Title</label>
-                      <br />
-                      <input
-                        type="text"
-                        name="title"
-                        defaultValue={jobData.title}
-                        autoComplete="off"
-                        onChange={(e) => setTitle(e.target.value)}
-                      />
-                    </div>
+                <form className="addJobForm">
+                  <div className="row">
+                    {/* left side */}
+                    <div className="col-md-6">
+                      <div className="editJobsInputField">
+                        {/* title */}
+                        <label htmlFor="">Job Title</label>
+                        <br />
+                        <input
+                          type="text"
+                          name="title"
+                          defaultValue={jobData.title}
+                          autoComplete="off"
+                          onChange={(e) => setTitle(e.target.value)}
+                        />
+                      </div>
 
-                    <div className="editJobsInputField">
-                      <label htmlFor="">Category</label>
-                      <br />
-                      <input
-                        type="text"
-                        defaultValue={jobData.cat}
-                        name="genre"
-                        autoComplete="off"
-                        onChange={(e) => setCat(e.target.value)}
-                      />
+                      <div className="editJobsInputField">
+                        <label htmlFor="">Category</label>
+                        <br />
+                        <input
+                          type="text"
+                          defaultValue={jobData.cat}
+                          name="genre"
+                          autoComplete="off"
+                          onChange={(e) => setCat(e.target.value)}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  {/* right side */}
-                  <div className="col-md-6">
-                    {/* job photo */}
-                    <div className="mt-3">
-                      {/* Thumbnail photo */}
-                      {/* show select  img if user select the image  from the device*/}
-                      {image ? (
-                        <>
-                          <div className="editJobInputFieldImgAndButton">
-                            <img src={image} alt="" />
+                    {/* right side */}
+                    <div className="col-md-6">
+                      {/* job photo */}
+                      <div className="mt-3">
+                        {/* Thumbnail photo */}
+                        {/* show select  img if user select the image  from the device*/}
+                        {image ? (
+                          <>
+                            <div className="editJobInputFieldImgAndButton">
+                              <img src={image} alt="" />
+                              <label htmlFor="files">
+                                <p>Job Thumbnail </p>
+                                <input
+                                  type="file"
+                                  id="files"
+                                  style={{ display: "none" }}
+                                  name="coverPic"
+                                  onChange={onImageChange}
+                                />
+                              </label>
+                            </div>
+                          </>
+                        ) : (
+                          <div className=" editJobInputFieldImgAndButton mt-3">
+                            <img src={jobData.img} alt="job_img" />
                             <label htmlFor="files">
-                              <p>Job Thumbnail </p>
+                              <br />
+                              <p>Job Thumbnail</p>
                               <input
                                 type="file"
                                 id="files"
@@ -161,46 +184,31 @@ const NewJob = () => {
                               />
                             </label>
                           </div>
-                        </>
-                      ) : (
-                        <div className=" editJobInputFieldImgAndButton mt-3">
-                          <img src={jobData.img} alt="job_img" />
-                          <label htmlFor="files">
-                            <br />
-                            <p>Job Thumbnail</p>
-                            <input
-                              type="file"
-                              id="files"
-                              style={{ display: "none" }}
-                              name="coverPic"
-                              onChange={onImageChange}
-                            />
-                          </label>
-                        </div>
-                      )}
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-                {/* job desc */}
-                <div className="editJobsInputField">
-                  <label htmlFor="">Description</label>
-                  <div className="reactQuill">
-                    <div
-                      name="desc"
-                      onChange={(e) => setDesc(e.target.value)}
-                      ref={quillRef}
-                    />
+                  {/* job desc */}
+                  <div className="editJobsInputField">
+                    <label htmlFor="">Description</label>
+                    <div className="reactQuill">
+                      <div
+                        name="desc"
+                        onChange={(e) => setDesc(e.target.value)}
+                        ref={quillRef}
+                      />
+                      {/* create btn */}
+                      <div className="editJobButton">
+                        <button onClick={handleSubmitData}>Create</button>
+                        {progress}
+                      </div>
+                    </div>
                   </div>
-                </div>
-                {/* create btn */}
-                <div className="editJobButton">
-                  <button onClick={handleSubmitData}>Create</button>
-                  {progress}
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );

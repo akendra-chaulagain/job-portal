@@ -35,7 +35,7 @@
 }
 
 .editBlogButton button {
-  margin-top: 60px;
+  margin-top: 15px;
   padding: 3px 60px;
   outline: none;
   border: none;
@@ -43,6 +43,7 @@
   color: white;
   background-color: red;
   border-radius: 9px;
+  margin-bottom: 10vh;
 }
 
 /* thumbnail img */
@@ -107,12 +108,6 @@
 
   .editBlogTitle h3 {
     font-size: 18px;
-  }
-  .createnewBlogButton button {
-    margin: 30px 30px 23px 10px;
-    font-size: 12px;
-    padding: 4px 20px;
-    margin-top: 28%;
   }
   .editBlogInputField input {
     width: 99%;

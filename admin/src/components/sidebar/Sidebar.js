@@ -3,6 +3,10 @@ import "./Sidebar.css";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
+  const handleLogout = () => {
+    localStorage.removeItem("accesToken", "userId");
+    window.location.reload("/");
+  };
   return (
     <>
       <div className=" sidebar">
@@ -55,8 +59,7 @@ const Sidebar = () => {
           {/* user */}
           <div className="sidebartitle mt-3">USER</div>
           <div className="sidebarList">
-            {/* <NavLink className="link" to="/logout"> */}
-            <li className="sidebarItem mt-1">
+            <li className="sidebarItem mt-1" onClick={handleLogout}>
               {/* logout user */}
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
               <span>Logout</span>

@@ -34,7 +34,7 @@
 }
 
 .createnewBlogButton button {
-  margin-top: 60px;
+  margin-top: 15px;
   padding: 3px 60px;
   outline: none;
   border: none;
@@ -109,12 +109,7 @@
   .newBlogContainer {
     margin-top: 0px;
   }
-  .createnewBlogButton button {
-    margin: 30px 30px 23px 10px;
-    font-size: 12px;
-    padding: 4px 20px;
-    margin-top: 28%;
-  }
+
   .blogInputField input {
     width: 99%;
   }

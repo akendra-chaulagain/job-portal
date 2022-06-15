@@ -14,15 +14,18 @@ import app from "../../firebase";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { updateBlog } from "../../redux/apiCalls";
+import Loader from "../../components/Loader/Loader";
 
 const EditBlog = () => {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
 
   // get user by id
+  const [isLoading, setLoading] = useState(true);
   const [didMount, setDidMount] = useState(false);
   const [blogData, setBlogData] = useState({});
   useEffect(() => {
+    setLoading(true);
     setDidMount(true);
     const getDataById = async () => {
       try {
@@ -33,6 +36,7 @@ const EditBlog = () => {
       }
     };
     getDataById();
+    setLoading(false);
     return () => setDidMount(false);
   }, [path]);
 
@@ -108,49 +112,67 @@ const EditBlog = () => {
       <div className="editBlog">
         <Sidebar />
 
-        <div className="container-fluid editBlogContainer">
-          <div className="row">
-            <div className="col-md-12">
-              <div className="editBlogTitle text-center">Edit Blog</div>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <div className="container-fluid editBlogContainer">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="editBlogTitle text-center">Edit Blog</div>
 
-              <form className="addJobForm">
-                <div className="row">
-                  {/* left side */}
-                  <div className="col-md-6 leftSideBlog">
-                    {/* title */}
-                    <div className="editBlogInputField">
-                      <label htmlFor="">Title</label>
-                      <br />
-                      <input
-                        type="text"
-                        defaultValue={blogData.title}
-                        name="title"
-                        autoComplete="off"
-                        onChange={(e) => setTitle(e.target.value)}
-                      />
-                    </div>
+                <form className="addJobForm">
+                  <div className="row">
+                    {/* left side */}
+                    <div className="col-md-6 leftSideBlog">
+                      {/* title */}
+                      <div className="editBlogInputField">
+                        <label htmlFor="">Title</label>
+                        <br />
+                        <input
+                          type="text"
+                          defaultValue={blogData.title}
+                          name="title"
+                          autoComplete="off"
+                          onChange={(e) => setTitle(e.target.value)}
+                        />
+                      </div>
 
-                    {/* author name */}
-                    <div className="editBlogInputField">
-                      <label htmlFor="">Author</label>
-                      <br />
-                      <input
-                        type="text"
-                        defaultValue={blogData.author}
-                        name="year"
-                        autoComplete="off"
-                        onChange={(e) => setAuthor(e.target.value)}
-                      />
+                      {/* author name */}
+                      <div className="editBlogInputField">
+                        <label htmlFor="">Author</label>
+                        <br />
+                        <input
+                          type="text"
+                          defaultValue={blogData.author}
+                          name="year"
+                          autoComplete="off"
+                          onChange={(e) => setAuthor(e.target.value)}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  {/* right side */}
-                  <div className="col-md-6">
-                    {/* Thumbnail photo */}
-                    {/* show select  img if user select the image  from the device*/}
-                    {image ? (
-                      <>
+                    {/* right side */}
+                    <div className="col-md-6">
+                      {/* Thumbnail photo */}
+                      {/* show select  img if user select the image  from the device*/}
+                      {image ? (
+                        <>
+                          <div className="editBlogInputFieldImgAndButton">
+                            <img src={image} alt="" />
+                            <label htmlFor="files">
+                              <p>Thumbnail image</p>
+                              <input
+                                type="file"
+                                id="files"
+                                style={{ display: "none" }}
+                                name="coverPic"
+                                onChange={onImageChange}
+                              />
+                            </label>
+                          </div>
+                        </>
+                      ) : (
                         <div className="editBlogInputFieldImgAndButton">
-                          <img src={image} alt="" />
+                          <img src={blogData.img} alt="blog_img" />
                           <label htmlFor="files">
                             <p>Thumbnail image</p>
                             <input
@@ -162,44 +184,30 @@ const EditBlog = () => {
                             />
                           </label>
                         </div>
-                      </>
-                    ) : (
-                      <div className="editBlogInputFieldImgAndButton">
-                        <img src={blogData.img} alt="blog_img" />
-                        <label htmlFor="files">
-                          <p>Thumbnail image</p>
-                          <input
-                            type="file"
-                            id="files"
-                            style={{ display: "none" }}
-                            name="coverPic"
-                            onChange={onImageChange}
-                          />
-                        </label>
+                      )}
+                    </div>
+                  </div>
+                  {/* publish date */}
+                  <div className="editBlogInputField">
+                    <label htmlFor="">Description</label>
+                    <div className="reactQuill">
+                      <div
+                        name="desc"
+                        onChange={(e) => setDesc(e.target.value)}
+                        ref={quillRef}
+                      />
+                      {/* create btn */}
+                      <div className="editBlogButton">
+                        <button onClick={handleSubmitData}>Create</button>
+                        {progress}
                       </div>
-                    )}
+                    </div>
                   </div>
-                </div>
-                {/* publish date */}
-                <div className="editBlogInputField">
-                  <label htmlFor="">Description</label>
-                  <div className="reactQuill">
-                    <div
-                      name="desc"
-                      onChange={(e) => setDesc(e.target.value)}
-                      ref={quillRef}
-                    />
-                  </div>
-                </div>
-                {/* create btn */}
-                <div className="editBlogButton">
-                  <button onClick={handleSubmitData}>Create</button>
-                  {progress}
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );

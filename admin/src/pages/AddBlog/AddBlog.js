@@ -168,11 +168,11 @@ const AddBlog = () => {
                       onChange={(e) => setDesc(e.target.value)}
                       ref={quillRef}
                     />
-                  </div>
-                  {/* create btn */}
-                  <div className="createnewBlogButton">
-                    <button onClick={handleSubmitData}>Create</button>
-                    {progress}
+                    {/* create btn */}
+                    <div className="createnewBlogButton">
+                      <button onClick={handleSubmitData}>Create</button>
+                      {progress}
+                    </div>
                   </div>
                 </div>
               </form>

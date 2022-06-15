@@ -18,7 +18,7 @@
     cursor: pointer;
   }
   .menuIconContainer i {
-    font-size: 22px;
+    font-size: 20px;
     padding-left: 30px;
   }
 
@@ -73,6 +73,17 @@
   .sidebar-item a:hover {
     color: #ffaeaf;
   }
+  /* for logout  */
+  .sidebar-item span {
+    color: rgb(209, 205, 205);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .sidebar-item span:hover {
+    color: #ffaeaf;
+  }
 
   /* right side content */
   .rightSideSlider {
@@ -100,7 +111,6 @@
     color: gray;
     margin-right: 5%;
   }
-
 
   /* drop down */
   .rightSideAdminImg .dropdown-item {

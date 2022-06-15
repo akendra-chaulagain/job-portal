@@ -25,6 +25,8 @@ const Topbar = () => {
     return () => setDidMount(false);
   }, [userId]);
 
+  
+
   return (
     <>
       <div className="container-fluid topbar">

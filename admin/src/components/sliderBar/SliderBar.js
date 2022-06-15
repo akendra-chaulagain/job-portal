@@ -26,6 +26,13 @@ const SliderBar = () => {
     getUserData();
     return () => setDidMount(false);
   }, [userId]);
+
+  // logout user
+    const handleLogout = () => {
+      localStorage.removeItem("accesToken", "userId");
+      window.location.reload("/");
+    };
+
   return (
     <>
       {/* side bar top container */}
@@ -115,12 +122,12 @@ const SliderBar = () => {
                 </Link>
               </li>
               {/* logout */}
-              <li className="sidebar-item" onClick={showSidebarr}>
+              <li className="sidebar-item" onClick={handleLogout}>
                 <h3>User</h3>
-                <Link className="link" to="*">
+                <span className="link" to="*">
                   <i className="fa-solid fa-arrow-right-from-bracket"></i>
                   Logout
-                </Link>
+                </span>
               </li>
             </ul>
           </div>
