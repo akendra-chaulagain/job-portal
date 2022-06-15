@@ -17,9 +17,7 @@ const AllJobs = () => {
   // get all jobs
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => {
       getAllJobs(dispatch);
-    }, 3000);
     setLoading(false);
   }, [dispatch]);
 

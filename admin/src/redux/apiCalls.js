@@ -38,7 +38,13 @@ import {
   updateJobsStart,
   updateJobsSuccess,
 } from "./jobsReducer";
-import { loginfailure, loginStart, loginSuccess } from "./userReducer";
+import {
+  loginfailure,
+  loginStart,
+  loginSuccess,
+  updateUserStart,
+  updateUserSuccess,
+} from "./userReducer";
 
 // login user
 export const loginUser = async (dispatch, user) => {
@@ -50,6 +56,20 @@ export const loginUser = async (dispatch, user) => {
     dispatch(loginfailure());
     console.log(error);
     alert("ak");
+  }
+};
+
+
+
+// update profile
+export const updateProfile = async (id, data, dispatch) => {
+  dispatch(updateUserStart());
+  try {
+    await axios.put(`/user/${id}`, data);
+    dispatch(updateUserSuccess(id, data));
+  } catch (error) {
+    console.log("unable to update user" + error);
+    dispatch(updateUserSuccess());
   }
 };
 

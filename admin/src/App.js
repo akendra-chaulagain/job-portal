@@ -23,11 +23,9 @@ import AddJob from "./pages/createJob/NewJob";
 import AllCategory from "./pages/category/AllCategory";
 import CreateCategory from "./pages/createCategory/CreateCategory";
 import EditCategory from "./pages/editCategory/EditCategory";
-import { useSelector } from "react-redux";
 
 const App = () => {
-  const user = useSelector((state) => state.user.currentUser);
-  console.log(user);
+  const user = localStorage.getItem("accesToken");
   return (
     <>
       <Router>

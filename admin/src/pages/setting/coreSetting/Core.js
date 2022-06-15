@@ -1,9 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import "./Core.css";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
+import app from "../../../firebase";
 import CoreWidget from "../../../components/coreWidget/CoreWidget";
+import axios from "axios";
+import { updateProfile } from "../../../redux/apiCalls";
+import { useDispatch } from "react-redux";
 
 const Core = () => {
+  const userId = localStorage.getItem("userId");
+  // get user data from user id
+  const [didMount, setDidMount] = useState(false);
+  const [userData, setUserData] = useState({});
+  useEffect(() => {
+    const getUserData = async () => {
+      setDidMount(true);
+
+      try {
+        const res = await axios.get("/user/find/" + userId);
+        setUserData(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUserData();
+    return () => setDidMount(false);
+  }, [userId]);
+
   // preview profile iamges before uploading
   const [image, setImage] = useState(null);
   const [selectImagesProfile, setSelectImagesProfile] = useState(null);
@@ -12,6 +41,60 @@ const Core = () => {
       setImage(URL.createObjectURL(event.target.files[0]));
       setSelectImagesProfile(event.target.files[0]);
     }
+  };
+
+  // update user details
+  const dispatch = useDispatch();
+  const [progress, setProgress] = useState();
+  const [contactEmail, setContactEmail] = useState(userData.contactEmail);
+  const [desc, setDesc] = useState(userData.desc);
+  const [brandname, setBrandname] = useState(userData.brandname);
+  const [facebook, setFacebook] = useState(userData.facebook);
+  const [twitter, setTwitter] = useState(userData.twitter);
+  const [insta, setInsta] = useState(userData.insta);
+  const [contact, setcontact] = useState(userData.contact);
+
+  // firebase is used to store images and videos in email id
+  const handleSubmitData = (e) => {
+    e.preventDefault();
+    const storage = getStorage(app);
+    const storageRef = ref(storage, selectImagesProfile.name);
+    const uploadTask = uploadBytesResumable(storageRef, selectImagesProfile);
+    // Listen for state changes, errors, and completion of the upload.
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+        const progress = "Processing..";
+        setProgress(progress);
+        switch (snapshot.state) {
+          case "paused":
+            setProgress(progress);
+            break;
+          case "running":
+            setProgress(progress);
+            break;
+          default:
+        }
+      },
+      (error) => {},
+      () => {
+        // Upload completed successfully, now we can get the download URL
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          const data = {
+            img: downloadURL,
+            contactEmail,
+            brandname,
+            contact,
+            twitter,
+            facebook,
+            insta,
+            desc,
+          };
+          updateProfile(userId, data, dispatch);
+        });
+      }
+    );
   };
 
   return (
@@ -70,13 +153,13 @@ const Core = () => {
                 <div className="coreInputFieldItem">
                   <label htmlFor="">Brand Name</label>
                   <br />
-                  <input type="text" name="title" autoComplete="off" />
-                </div>
-                {/* brand acronym */}
-                <div className="coreInputFieldItem">
-                  <label htmlFor="">Brand Acronym</label>
-                  <br />
-                  <input type="text" name="title" autoComplete="off" />
+                  <input
+                    type="text"
+                    defaultValue={userData.brandname}
+                    name="brandname"
+                    autoComplete="off"
+                    onChange={(e) => setBrandname(e.target.value)}
+                  />
                 </div>
               </div>
               {/* description */}
@@ -84,7 +167,13 @@ const Core = () => {
                 <div className="coreInputFieldItem">
                   <label htmlFor="">Description</label>
                   <br />
-                  <textarea type="text" name="title" autoComplete="off" />
+                  <textarea
+                    type="text"
+                    defaultValue={userData.desc}
+                    name="desc"
+                    autoComplete="off"
+                    onChange={(e) => setDesc(e.target.value)}
+                  />
                 </div>
               </div>
 
@@ -94,17 +183,30 @@ const Core = () => {
               </div>
               <div className="coreInputField">
                 <br />
-                {/* brandname */}
+                {/*  contact Email*/}
                 <div className="coreInputFieldItem">
-                  <label htmlFor="">Email</label>
+                  <label htmlFor="">Contact Email</label>
                   <br />
-                  <input type="text" name="title" autoComplete="off" />
+                  <input
+                    type="text"
+                    onChange={(e) => setContactEmail(e.target.value)}
+                    name="contactEmail"
+                    autoComplete="off"
+                    defaultValue={userData.contactEmail}
+                  />
                 </div>
-                {/* brand acronym */}
+
+                {/* contact number */}
                 <div className="coreInputFieldItem">
                   <label htmlFor="">Contact Number</label>
                   <br />
-                  <input type="text" name="title" autoComplete="off" />
+                  <input
+                    type="number"
+                    defaultValue={userData.contact}
+                    name="contact"
+                    autoComplete="off"
+                    onChange={(e) => setcontact(e.target.value)}
+                  />
                 </div>
               </div>
               {/* social information */}
@@ -113,37 +215,50 @@ const Core = () => {
               </div>
               <div className="coreInputField">
                 <br />
-                {/* brandname */}
+                {/* facebook */}
                 <div className="coreInputFieldItem">
-                  <label htmlFor="">Facebook</label>
+                  <label htmlFor="">Facebook link</label>
                   <br />
-                  <input type="text" name="title" autoComplete="off" />
+                  <input
+                    type="text"
+                    defaultValue={userData.facebook}
+                    name="facebook"
+                    autoComplete="off"
+                    onChange={(e) => setFacebook(e.target.value)}
+                  />
                 </div>
-                {/* brand acronym */}
+                {/* twitter */}
                 <div className="coreInputFieldItem">
-                  <label htmlFor="">Twitter</label>
+                  <label htmlFor="">Twitter link</label>
                   <br />
-                  <input type="text" name="title" autoComplete="off" />
+                  <input
+                    type="text"
+                    defaultValue={userData.twitter}
+                    name="twitter"
+                    autoComplete="off"
+                    onChange={(e) => setTwitter(e.target.value)}
+                  />
                 </div>
               </div>
               <div className="coreInputField">
                 <br />
-                {/* brandname */}
+                {/* insta */}
                 <div className="coreInputFieldItem">
-                  <label htmlFor="">Instagram</label>
+                  <label htmlFor="">Instagram link</label>
                   <br />
-                  <input type="text" name="title" autoComplete="off" />
-                </div>
-                {/* brand acronym */}
-                <div className="coreInputFieldItem">
-                  <label htmlFor="">Linkedin</label>
-                  <br />
-                  <input type="text" name="title" autoComplete="off" />
+                  <input
+                    type="text"
+                    defaultValue={userData.insta}
+                    name="insta"
+                    autoComplete="off"
+                    onChange={(e) => setInsta(e.target.value)}
+                  />
                 </div>
               </div>
               {/* save button */}
               <div className="seveButton">
-                <button>save changes</button>
+                <button onClick={handleSubmitData}>save changes</button>
+                {progress}
               </div>
             </form>
           </div>

@@ -7,6 +7,13 @@ const userSchema = new mongoose.Schema(
       unique: true,
       required: true,
     },
+    contactEmail: {
+      type: String,
+    },
+    contact: {
+      type: Number,
+      default: "",
+    },
     password: {
       type: String,
       required: true,
@@ -14,6 +21,29 @@ const userSchema = new mongoose.Schema(
     username: {
       type: String,
       required: true,
+    },
+    desc: {
+      type: String,
+    },
+    brandname: {
+      type: String,
+      default: "",
+    },
+    logo: {
+      type: String,
+      default: "",
+    },
+    facebook: {
+      type: String,
+      default: "",
+    },
+    twitter: {
+      type: String,
+      default: "",
+    },
+    insta: {
+      type: String,
+      default: "",
     },
     isAdmin: {
       type: Boolean,

@@ -4,9 +4,8 @@ import "./Login.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import RegisterTextField from "../../components/RegisterTextField/RegisterTextField";
+import LoginTextField from "../../components/loginTextField/LoginTextField";
 import { loginUser } from "../../redux/apiCalls";
-
 import Logo from "../../assets/logo/logo.png";
 
 const Login = () => {
@@ -28,7 +27,9 @@ const Login = () => {
         }}
         validationSchema={validate}
         onSubmit={(values) => {
-          loginUser(dispactch, values);
+          loginUser(dispactch, values).then(() => {
+            window.location.replace("/");
+          });
         }}
       >
         <Form>
@@ -43,13 +44,13 @@ const Login = () => {
                 {/* email */}
                 <div className="inputBox mt-3">
                   <label>Email</label>
-                  <RegisterTextField label="Email" name="email" type="text" a />
+                  <LoginTextField label="Email" name="email" type="text" />
                 </div>
 
                 {/* password */}
                 <div className="inputBox mt-2">
                   <label>Password</label>
-                  <RegisterTextField
+                  <LoginTextField
                     label="Password"
                     name="password"
                     type="password"

@@ -62,6 +62,7 @@
   border-radius: 4px;
   border: none;
   border: 1px solid gray;
+  color: gray;
 }
 .submmitButton button {
   margin: 20px 10px 20px 50px;
@@ -78,24 +79,6 @@
   background-color: rgb(250, 105, 105);
 }
 
-/* change password input fields */
-.changeUserDataPassword {
-  margin-left: 4%;
-}
-.changeUserDataPasswordField label {
-  color: gray;
-  font-size: 14px;
-}
-.changeUserDataPasswordField input {
-  width: 90%;
-  height: 42px;
-  padding: 5px 10px;
-  outline-color: red;
-  border-radius: 4px;
-  border: none;
-  border: 1px solid gray;
-  margin-top: 10px;
-}
 
 @media only screen and (max-width: 1000px) {
   .profileContainer {

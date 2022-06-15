@@ -28,7 +28,9 @@ const EditBlog = () => {
       try {
         const res = await axios.get("/blog/find/" + path);
         setBlogData(res.data);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     };
     getDataById();
     return () => setDidMount(false);

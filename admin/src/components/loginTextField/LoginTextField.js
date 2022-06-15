@@ -1,8 +1,8 @@
 import React from "react";
 import { ErrorMessage, useField } from "formik";
-import "./RegisterTextField.css";
+import "./LoginTextField.css";
 
-const RegisterTextField = ({ label, ...props }) => {
+const LoginTextField = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <>
@@ -21,4 +21,4 @@ const RegisterTextField = ({ label, ...props }) => {
   );
 };
 
-export default RegisterTextField;
+export default LoginTextField;
