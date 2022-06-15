@@ -14,15 +14,14 @@ const AllJobs = () => {
   // loading component
 
   const [isLoading, setLoading] = useState(true);
-
   // get all jobs
   useEffect(() => {
-    getAllJobs(dispatch);
+    setLoading(true);
+    setTimeout(() => {
+      getAllJobs(dispatch);
+    }, 3000);
     setLoading(false);
   }, [dispatch]);
-
-
-  
 
   // delete jobs
   const handleDelete = (id) => {
@@ -32,13 +31,13 @@ const AllJobs = () => {
   // colums material ui table
   const columns = [
     // job's id
-    { field: "_id", headerName: "UserId", width: 250 },
+    { field: "_id", headerName: "UserId", width: 220 },
 
     // jobs photo
     {
       field: "jobPhoto",
       headerName: "Photo",
-      width: 70,
+      width: 65,
       renderCell: (params) => {
         return (
           <>
@@ -53,13 +52,14 @@ const AllJobs = () => {
     // jobs title
     { field: "title", headerName: "Title", width: 200 },
 
-
+    // job category
+    { field: "cat", headerName: "Category", width: 200 },
 
     // job create date
     {
       field: "createdAt",
       headerName: "Created date",
-      width: 180,
+      width: 160,
       renderCell: (params) => {
         return (
           <>

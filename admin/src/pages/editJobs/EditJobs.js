@@ -169,7 +169,6 @@ const NewJob = () => {
                             <br />
                             <p>Job Thumbnail</p>
                             <input
-                              defaultValue={jobData.img}
                               type="file"
                               id="files"
                               style={{ display: "none" }}

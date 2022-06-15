@@ -6,16 +6,24 @@ import { DataGrid } from "@mui/x-data-grid";
 import "./Blog.css";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getAllBlog } from "../../redux/apiCalls";
+import { deleteBlog, getAllBlog } from "../../redux/apiCalls";
 
 const Allproduct = () => {
   const dispatch = useDispatch();
+
   const blogs = useSelector((state) => state.blog.blogs);
 
   // get all blogs
   useEffect(() => {
     getAllBlog(dispatch);
   }, [dispatch]);
+
+  // delete blog
+
+  // delete jobs
+  const handleDelete = (id) => {
+    deleteBlog(id, dispatch);
+  };
 
   // colums material ui table
   const columns = [
@@ -70,13 +78,13 @@ const Allproduct = () => {
         return (
           <>
             {/* view data button*/}
-            <NavLink to={`/job/${params.row._id}`}>
+            <NavLink to={`/edit_blog/${params.row?._id}`}>
               <button className="button_Edit">edit</button>
             </NavLink>
             {/* delete  user data button*/}
             <span>
               <button
-                // onClick={() => handleDelete(params.row._id)}
+                onClick={() => handleDelete(params.row._id)}
                 className="button_delete"
               >
                 delete

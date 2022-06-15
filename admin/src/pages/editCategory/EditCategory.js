@@ -1,8 +1,47 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 import Sidebar from "../../components/sidebar/Sidebar";
+import { updateCategory } from "../../redux/apiCalls";
 import "./EditCategory.css";
 
 const EditCategory = () => {
+  const location = useLocation();
+  const path = location.pathname.split("/")[2];
+
+  // get user by id
+  const [isLoading, setLoading] = useState(true);
+
+  const [didMount, setDidMount] = useState(false);
+  const [catData, seCatData] = useState({});
+  useEffect(() => {
+    setDidMount(true);
+    setLoading(true);
+
+    const getDataById = async () => {
+      try {
+        const res = await axios.get("/category/find/" + path);
+        seCatData(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+      setLoading(false);
+    };
+    getDataById();
+    return () => setDidMount(false);
+  }, [path]);
+
+  // update category
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState(catData.title);
+  const [date, setDate] = useState(catData.date);
+
+  const handelUpdate = (e) => {
+    const cat = { title, date };
+    updateCategory(path, cat, dispatch);
+  };
+
   return (
     <div className="editCategory">
       <Sidebar />
@@ -20,20 +59,32 @@ const EditCategory = () => {
                   <div className="editCategoryField">
                     <label>Category</label>
                     <br />
-                    <input type="text" name="title" autoComplete="off" />
+                    <input
+                      type="text"
+                      defaultValue={catData.title}
+                      name="title"
+                      autoComplete="off"
+                      onChange={(e) => setTitle(e.target.value)}
+                    />
                   </div>
 
                   {/* publish date */}
                   <div className="editCategoryField">
                     <label>Publish Date</label>
                     <br />
-                    <input type="date" name="year" autoComplete="off" />
+                    <input
+                      type="date"
+                      defaultValue={catData.date}
+                      name="year"
+                      autoComplete="off"
+                      onChange={(e) => setDate(e.target.value)}
+                    />
                   </div>
                 </div>
               </div>
               {/* create btn */}
               <div className="editCategoryButton">
-                <button>Create</button>
+                <button onClick={handelUpdate}>Create</button>
               </div>
             </form>
           </div>

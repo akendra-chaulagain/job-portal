@@ -75,7 +75,7 @@ const App = () => {
 
           {/* update blogs */}
           <Route
-            path="/blog/:id"
+            path="/edit_blog/:id"
             element={user ? <EditBlog /> : <Navigate to="/login" />}
           />
 

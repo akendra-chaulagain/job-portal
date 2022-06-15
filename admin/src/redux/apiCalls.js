@@ -1,5 +1,29 @@
 import axios from "axios";
-import { getBlogsFailure, getBlogsStart, getBlogsSuccess } from "./blogReducer";
+import {
+  createBlogFailure,
+  createBlogStart,
+  createBlogSuccess,
+  deleteBlogFailure,
+  deleteBlogStart,
+  deleteBlogSuccess,
+  getBlogsFailure,
+  getBlogsStart,
+  getBlogsSuccess,
+  updateBlogsFailure,
+  updateBlogsStart,
+  updateBlogsSuccess,
+} from "./blogReducer";
+import {
+  deleteCategoryFailure,
+  deleteCategoryStart,
+  deleteCategorySuccess,
+  getCategorysFailure,
+  getCategorysStart,
+  getCategorysSuccess,
+  updateCategorysFailure,
+  updateCategorysStart,
+  updateCategorysSuccess,
+} from "./categoryReducer";
 import {
   createJobFailure,
   createJobStart,
@@ -45,7 +69,7 @@ export const getAllJobs = async (dispatch) => {
 export const createJobs = async (jobs, dispatch) => {
   dispatch(createJobStart());
   try {
-    await axios.delete(`/jobs`, jobs);
+    await axios.post(`/jobs`, jobs);
     dispatch(createJobSuccess(jobs.data));
   } catch (error) {
     console.log("unable to create jobs" + error);
@@ -79,6 +103,8 @@ export const updateProducts = async (id, jobs, dispatch) => {
   }
 };
 
+// blog section
+
 // get all blog
 export const getAllBlog = async (dispatch) => {
   dispatch(getBlogsStart());
@@ -87,6 +113,99 @@ export const getAllBlog = async (dispatch) => {
     dispatch(getBlogsSuccess(res.data));
   } catch (error) {
     dispatch(getBlogsFailure());
+    console.log(error);
+  }
+};
+
+// create blog
+export const createBlog = async (blogData, dispatch) => {
+  dispatch(createBlogStart());
+  try {
+    await axios.post(`/blog`, blogData);
+    dispatch(createBlogSuccess(blogData.data));
+  } catch (error) {
+    console.log("unable to create blog" + error);
+    dispatch(createBlogFailure());
+    console.log(error);
+  }
+};
+
+// update blogs
+export const updateBlog = async (id, blogs, dispatch) => {
+  dispatch(updateBlogsStart());
+  try {
+    await axios.put(`/blog/${id}`, blogs);
+    dispatch(updateBlogsSuccess(id, blogs));
+  } catch (error) {
+    console.log("unable to update blog" + error);
+    dispatch(updateBlogsFailure());
+  }
+};
+// delete blog
+export const deleteBlog = async (id, dispatch) => {
+  dispatch(deleteBlogStart());
+  try {
+    await axios.delete(`/blog/${id}`);
+    dispatch(deleteBlogSuccess(id));
+    alert("success");
+  } catch (error) {
+    console.log("unable to delete Blog" + error);
+    dispatch(deleteBlogFailure());
+    console.log(error);
+  }
+};
+
+// category section
+
+// get all blog
+export const getAllCategory = async (dispatch) => {
+  dispatch(getCategorysStart());
+  try {
+    const res = await axios.get("/category/allCategory");
+    dispatch(getCategorysSuccess(res.data));
+  } catch (error) {
+    dispatch(getCategorysFailure());
+    console.log(error);
+  }
+};
+
+// create blog
+export const createCategory = async (blogData, dispatch) => {
+  dispatch(createBlogStart());
+  try {
+    await axios.post(`/category`, blogData);
+    dispatch(createBlogSuccess(blogData.data));
+    alert("success");
+  } catch (error) {
+    console.log("unable to create blog" + error);
+    dispatch(createBlogFailure());
+    console.log(error);
+  }
+};
+
+// update category
+export const updateCategory = async (id, cat, dispatch) => {
+  dispatch(updateCategorysStart());
+  try {
+    await axios.put(`/category/${id}`, cat);
+    dispatch(updateCategorysSuccess(id, cat));
+    alert("updated");
+  } catch (error) {
+    console.log("unable to update category" + error);
+    dispatch(updateCategorysFailure());
+  }
+};
+
+// delete blog
+export const deleteCategory = async (id, dispatch) => {
+  dispatch(deleteCategoryStart());
+  try {
+    await axios.delete(`/category/${id}`);
+    dispatch(deleteCategorySuccess(id));
+    alert("success");
+  } catch (error) {
+    console.log("unable to delete category" + error);
+    dispatch(deleteCategoryFailure());
     console.log(error);
   }
 };

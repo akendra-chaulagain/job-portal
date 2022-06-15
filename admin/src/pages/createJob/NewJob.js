@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./NewJob.css";
 import { useQuill } from "react-quilljs";
@@ -10,10 +10,19 @@ import {
 } from "firebase/storage";
 import app from "../../firebase";
 import "quill/dist/quill.snow.css";
-import { useDispatch } from "react-redux";
-import { createJobs } from "../../redux/apiCalls";
+import { useDispatch, useSelector } from "react-redux";
+import { createJobs, getAllCategory } from "../../redux/apiCalls";
 
 const NewJob = () => {
+  // category
+  const categoryData = useSelector((state) => state.category.categorys);
+  const dispatch = useDispatch();
+
+  // get all jobs
+  useEffect(() => {
+    getAllCategory(dispatch);
+  }, [dispatch]);
+
   // react quill is used to for job desc
   const { quill, quillRef } = useQuill();
   const [desc, setDesc] = useState();
@@ -27,7 +36,6 @@ const NewJob = () => {
     }
   }, [quill, quillRef]);
 
-  const dispatch = useDispatch();
   const [progress, setProgress] = useState();
   const [title, setTitle] = useState("");
   const [cat, setCat] = useState("");
@@ -112,12 +120,22 @@ const NewJob = () => {
                     <div className="inputField">
                       <label htmlFor="">Category</label>
                       <br />
-                      <input
+                      {/* <input
                         type="text"
                         name="cat"
                         autoComplete="off"
                         onChange={(e) => setCat(e.target.value)}
-                      />
+                      /> */}
+                      <select
+                        onChange={(e) => setCat(e.target.value)}
+                        name="cat"
+                      >
+                        {categoryData?.map((item) => (
+                          <option value={item.title} key={item._id}>
+                            {item.title}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                   </div>
                   {/* right side */}

@@ -2,12 +2,18 @@ import React, { useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./AddBlog.css";
 import { useQuill } from "react-quilljs";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
+import app from "../../firebase";
 import "quill/dist/quill.snow.css";
+import { useDispatch } from "react-redux";
+import { createBlog } from "../../redux/apiCalls";
 
 const AddBlog = () => {
-
-
-
   // preview profile iamges before uploading
   const [image, setImage] = useState(null);
   const [selectImagesProfile, setSelectImagesProfile] = useState(null);
@@ -17,19 +23,62 @@ const AddBlog = () => {
       setSelectImagesProfile(event.target.files[0]);
     }
   };
-  // react quill
+  // react quill is used to for job desc
   const { quill, quillRef } = useQuill();
-  const [quillValue, setQuillValue] = useState();
+  const [desc, setDesc] = useState();
 
   // react quill is used for description
   React.useEffect(() => {
     if (quill) {
-      quill.on("text-change", (delta, oldDelta, source) => {
-        console.log(quillRef.current.firstChild.innerHTML); // Get innerHTML using quillRef
-        setQuillValue(quillRef.current.firstChild.innerHTML);
+      quill.on("text-change", () => {
+        setDesc(quillRef.current.firstChild.innerHTML);
       });
     }
   }, [quill, quillRef]);
+
+  const dispatch = useDispatch();
+  const [progress, setProgress] = useState();
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+
+  // firebase is used to store images and videos in email id
+  const handleSubmitData = (e) => {
+    e.preventDefault();
+    const storage = getStorage(app);
+    const storageRef = ref(storage, selectImagesProfile.name);
+    const uploadTask = uploadBytesResumable(storageRef, selectImagesProfile);
+    // Listen for state changes, errors, and completion of the upload.
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+        const progress = "Processing..";
+        setProgress(progress);
+        switch (snapshot.state) {
+          case "paused":
+            setProgress(progress);
+            break;
+          case "running":
+            setProgress(progress);
+            break;
+          default:
+        }
+      },
+      (error) => {},
+      () => {
+        // Upload completed successfully, now we can get the download URL
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          const blogData = {
+            img: downloadURL,
+            title,
+            author,
+            desc,
+          };
+          createBlog(blogData, dispatch);
+        });
+      }
+    );
+  };
 
   return (
     <>
@@ -51,21 +100,24 @@ const AddBlog = () => {
                     <div className="blogInputField">
                       <label htmlFor="">Title</label>
                       <br />
-                      <input type="text" name="title" autoComplete="off" />
+                      <input
+                        type="text"
+                        onChange={(e) => setTitle(e.target.value)}
+                        name="title"
+                        autoComplete="off"
+                      />
                     </div>
 
                     {/* author name */}
                     <div className="blogInputField">
                       <label htmlFor="">Author</label>
                       <br />
-                      <input type="text" name="year" autoComplete="off" />
-                    </div>
-
-                    {/* publish date */}
-                    <div className="blogInputField">
-                      <label htmlFor="">Publish Date</label>
-                      <br />
-                      <input type="date" name="genre" autoComplete="off" />
+                      <input
+                        type="text"
+                        onChange={(e) => setAuthor(e.target.value)}
+                        name="author"
+                        autoComplete="off"
+                      />
                     </div>
                   </div>
                   {/* right side */}
@@ -111,11 +163,16 @@ const AddBlog = () => {
                   <label htmlFor="">Description</label>
                   {/* react quill */}
                   <div className="reactQuill">
-                    <div ref={quillRef} />
+                    <div
+                      name="desc"
+                      onChange={(e) => setDesc(e.target.value)}
+                      ref={quillRef}
+                    />
                   </div>
                   {/* create btn */}
                   <div className="createnewBlogButton">
-                    <button>Create</button>
+                    <button onClick={handleSubmitData}>Create</button>
+                    {progress}
                   </div>
                 </div>
               </form>

@@ -2,6 +2,7 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import jobsReducer from "./jobsReducer";
 import userReducer from "./userReducer";
 import blogReducer from "./blogReducer";
+import categoryReducer from "./categoryReducer";
 
 import {
   persistStore,
@@ -20,13 +21,14 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  blacklist: ["jobs", "blog"],
+  blacklist: ["jobs", "blog", "category"],
 };
 
 const rootReducer = combineReducers({
   jobs: jobsReducer,
   user: userReducer,
   blog: blogReducer,
+  category: categoryReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
