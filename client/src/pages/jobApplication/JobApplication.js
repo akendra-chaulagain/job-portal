@@ -73,7 +73,7 @@ const JobApplication = () => {
               </div>
               {/* submit button */}
               <div className="cvSubmitForm">
-                  <button>SUBMIT FORM</button>
+                <button>SUBMIT FORM</button>
               </div>
             </form>
           </div>

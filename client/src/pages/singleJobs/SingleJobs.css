@@ -3,16 +3,15 @@
   width: 100%;
   margin-top: 15vh;
   margin-bottom: 13vh;
+  color: gray;
 }
 
 /* job image */
-.jobImg {
-  height: 50vh;
-  margin-top: 15vh;
-}
 .jobImg img {
   height: 50vh;
   border-radius: 10px;
+  margin-top: 15vh;
+  width: 100%;
 }
 
 /* job desc */
@@ -37,11 +36,7 @@
 .jobDescdata {
   margin: 8px;
 }
-.jobDescdata span {
-  font-size: 15px;
-  margin-right: 10px;
-  font-weight: 900;
-}
+
 .jobDescdata p {
   font-size: 15px;
 }
@@ -55,6 +50,48 @@
   padding: 4px 33px;
   outline: none;
   border: none;
-  background-color: #d51339;
+  background-color: red;
   color: whitesmoke;
+}
+.applyButton button:hover {
+  background-color: rgb(244, 75, 75);
+}
+@media only screen and (max-width: 1000px) {
+  .singlePost {
+    margin-top: 0vh;
+    margin-bottom: 6vh;
+    overflow: hidden;
+  }
+
+  .jobImg img {
+    height: 35vh;
+    border-radius: 4px;
+    margin-top: 0vh;
+  }
+  /* job desc */
+  .jobDesc {
+    margin-top: 4vh;
+  }
+  .jobDescTitle {
+    font-weight: 500;
+    font-size: 25px;
+    letter-spacing: 1px;
+  }
+  .jobDescInformation h3 {
+    font-size: 14px;
+    font-size: 500;
+  }
+  .jobDescdata p {
+    font-size: 12px;
+  }
+
+  /* applu button */
+  .applyButton button {
+    font-size: 12px;
+    padding: 4px 20px;
+    outline: none;
+    border: none;
+    background-color: red;
+    color: whitesmoke;
+  }
 }

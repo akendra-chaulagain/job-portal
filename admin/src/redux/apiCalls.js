@@ -196,9 +196,9 @@ export const deleteBlog = async (id, dispatch) => {
   }
 };
 
-// category section
 
-// get all blog
+
+// get all category
 export const getAllCategory = async (dispatch) => {
   dispatch(getCategorysStart());
   try {
@@ -210,7 +210,7 @@ export const getAllCategory = async (dispatch) => {
   }
 };
 
-// create blog
+// create category
 export const createCategory = async (blogData, dispatch) => {
   dispatch(createBlogStart());
   try {

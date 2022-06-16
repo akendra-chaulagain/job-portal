@@ -32,6 +32,7 @@
 }
 
 .card {
+  width: 100%;
   z-index: -99;
   box-shadow: -1px 3px 15px 5px rgba(0, 0, 0, 0.05);
   border: none;

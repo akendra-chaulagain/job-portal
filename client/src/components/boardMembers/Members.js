@@ -18,18 +18,17 @@ const Members = () => {
             >
               <div className="boardContainWrapper">
                 {/* board members photo */}
-                <div class="bordCard" key={id}>
+                <div className="bordCard" key={id}>
                   <img
-                    className="img-fluid"
                     src={item.img}
-                    class="card-img-top"
+                    className="img-fluid card-img-top"
                     alt="member_img"
                   />
-                  <div class="card-body">
+                  <div className="card-body">
                     {/* member's name */}
-                    <h5 class="card-title">{item.name}</h5>
+                    <h5 className="card-title">{item.name}</h5>
                     {/* member's post */}
-                    <p class="card-text">{item.job}</p>
+                    <p className="card-text">{item.job}</p>
                   </div>
                 </div>
               </div>

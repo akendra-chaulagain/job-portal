@@ -4,7 +4,7 @@ import "./Loader.css";
 const Loader = () => {
   return (
     <>
-      <div class="ring">
+      <div className="ring">
         <span></span>
       </div>
     </>

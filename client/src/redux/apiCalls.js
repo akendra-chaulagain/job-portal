@@ -1,6 +1,11 @@
 import { getBlogsFailure, getBlogsStart, getBlogsSuccess } from "./blogReducer";
 import axios from "axios";
 import { getJobsFailure, getJobsStart, getJobsSuccess } from "./jobsReducer";
+import {
+  getCategorysFailure,
+  getCategorysStart,
+  getCategorysSuccess,
+} from "./categoryReducer";
 
 // get all blogs
 export const getAllBlogs = async (dispatch) => {
@@ -22,6 +27,18 @@ export const getAllJobs = async (dispatch) => {
     dispatch(getJobsSuccess(res.data));
   } catch (error) {
     dispatch(getJobsFailure());
+    console.log(error);
+  }
+};
+
+// get all category
+export const getAllCategory = async (dispatch) => {
+  dispatch(getCategorysStart());
+  try {
+    const res = await axios.get("/category/allCategory");
+    dispatch(getCategorysSuccess(res.data));
+  } catch (error) {
+    dispatch(getCategorysFailure());
     console.log(error);
   }
 };

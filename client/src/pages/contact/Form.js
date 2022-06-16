@@ -53,12 +53,16 @@ const Form = () => {
                 </div>
                 {/* subject */}
                 <div className="form-field col-lg-12 ">
-                  <input name="subject" type="text" placeholder="Subject*" />
+                  <input
+                    nameName="subject"
+                    type="text"
+                    placeholder="Subject*"
+                  />
                 </div>
                 {/* messsage */}
                 <div className="form-field col-lg-12">
                   <textarea
-                    name="message"
+                    nameName="message"
                     type="text"
                     placeholder="Enter your message*"
                   />
@@ -76,7 +80,7 @@ const Form = () => {
               {/* location icon */}
               <div className="contactUsIconItem">
                 <p className="text-center">
-                  <i class="fa-solid fa-location-pin"></i>
+                  <i className="fa-solid fa-location-pin"></i>
                 </p>
                 <h5 className="text-center">Address </h5>
                 <h6 className="text-center">Katmandu ,Nepal ,street 32</h6>
@@ -84,7 +88,7 @@ const Form = () => {
               {/* contact us icon */}
               <div className="contactUsIconItem">
                 <p className="text-center">
-                  <i class="fa-solid fa-phone"></i>
+                  <i className="fa-solid fa-phone"></i>
                 </p>
                 <h5 className="text-center">Contact no </h5>
                 <h6 className="text-center">+654675476</h6>
@@ -92,7 +96,7 @@ const Form = () => {
               {/* email */}
               <div className="contactUsIconItem">
                 <p className="text-center">
-                  <i class="fa-solid fa-envelope"></i>
+                  <i className="fa-solid fa-envelope"></i>
                 </p>
                 <h5 className="text-center">our email </h5>
                 <h6 className="text-center">companyName@gmail.com</h6>

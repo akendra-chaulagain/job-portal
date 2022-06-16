@@ -12,6 +12,9 @@ const jobSchema = new mongoose.Schema(
     desc: {
       type: String,
     },
+    location: {
+      type: String,
+    },
     cat: {
       type: String,
     },

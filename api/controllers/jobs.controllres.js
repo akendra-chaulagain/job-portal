@@ -50,14 +50,14 @@ const getJobsById = async (req, res, next) => {
 
 // get all jobs
 const getAllJObs = async (req, res, next) => {
-  const qCategory = req.query.category;
+  const qcat = req.query.cat;
   try {
     // get jobs according to user querys
     let jobs;
-    if (qCategory) {
+    if (qcat) {
       jobs = await Jobs.find({
-        JobCategory: {
-          $in: [qCategory],
+        cat: {
+          $in: [qcat],
         },
       });
     } else {
@@ -69,12 +69,10 @@ const getAllJObs = async (req, res, next) => {
   }
 };
 
-
 module.exports = {
   createJobs,
   updateJobs,
   deleteJobs,
   getAllJObs,
   getJobsById,
-
 };

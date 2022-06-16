@@ -4,7 +4,7 @@ import Footer from "../../components/footer/Footer";
 import { Link } from "react-router-dom";
 import Category from "../../components/category/Category";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllJobs } from "../../redux/apiCalls";
+import {  getAllJobs } from "../../redux/apiCalls";
 import Loader from "../../components/Loader/Loader";
 
 const Jobs = () => {
@@ -32,6 +32,8 @@ const Jobs = () => {
       )
     );
   };
+
+  
 
   return (
     <>
@@ -72,7 +74,10 @@ const Jobs = () => {
                     </div>
 
                     <div className="jobdeschData">
-                      <Link className="link" to="/job/:waiter">
+                      <Link
+                        className="link"
+                        to={`/job/${item.title}/${item._id}`}
+                      >
                         <h6>{item.title}</h6>
                       </Link>
                     </div>
@@ -92,10 +97,13 @@ const Jobs = () => {
                     </div>
 
                     <div className="jobdeschData">
-                      <Link className="link" to="/job/:waiter">
+                      <Link
+                        className="link"
+                        to={`/job/${item.title}/${item._id}`}
+                      >
                         <h6>{item.title}</h6>
                       </Link>
-                      <p>{item.job}</p>
+                      <p>{item.location}</p>
                     </div>
                   </div>
                 ))}

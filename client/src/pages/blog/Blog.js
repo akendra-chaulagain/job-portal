@@ -39,15 +39,15 @@ const Blog = () => {
                 >
                   <div className="blogContainWrapper">
                     {/* board members photo */}
-                    <div class="card" key={id}>
+                    <div className="card" key={id}>
                       <img
                         src={item.img}
-                        class="card-img-top"
+                        className="card-img-top"
                         alt="member_img"
                       />
-                      <div class="card-body">
+                      <div className="card-body">
                         {/* blog's title */}
-                        <h5 class="card-title text-center">{item.title}</h5>
+                        <h5 className="card-title text-center">{item.title}</h5>
                         {/*date*/}
                         <p className="card-text mb-2">
                           {new Date(item.createdAt).toDateString()}

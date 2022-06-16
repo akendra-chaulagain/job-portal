@@ -36,7 +36,7 @@ const App = () => {
           {/* recruitment */}
           <Route path="/recruitment" element={<Recruitment />} />
           {/* single jobs page */}
-          <Route path="/job/:name" element={<SingleJobs />} />
+          <Route path="/job/:title/:id" element={<SingleJobs />} />
           {/* singlre blog page */}
           <Route path="/single_blog/:id" element={<SingleBlog />} />
         </Routes>
