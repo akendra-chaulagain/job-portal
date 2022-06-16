@@ -4,12 +4,16 @@ import { DataGrid } from "@mui/x-data-grid";
 import "./AllCategory.css";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteCategory, getAllCategory } from "../../redux/apiCalls";
+import { getAllCategory } from "../../redux/apiCalls";
 import Loader from "../../components/Loader/Loader";
+import DeleteAlert from "../../components/deleteAlert/DeleteAlert";
 
 const AllCategory = () => {
+  const category = "job category";
   const dispatch = useDispatch();
   const categoryData = useSelector((state) => state.category.categorys);
+  //Open Close delete alert
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
 
   const [isLoading, setLoading] = useState(true);
   // get all jobs
@@ -18,11 +22,6 @@ const AllCategory = () => {
     getAllCategory(dispatch);
     setLoading(false);
   }, [dispatch]);
-
-  // delete jobs
-  const handleDelete = (id) => {
-    deleteCategory(id, dispatch);
-  };
 
   const columns = [
     // id
@@ -48,7 +47,11 @@ const AllCategory = () => {
             {/* delete  user data button*/}
             <span>
               <button
-                onClick={() => handleDelete(params.row._id)}
+                // onClick={() => handleDelete(params.row._id)}
+                onClick={() =>
+                  setShowDeleteAlert(!showDeleteAlert) ||
+                  setShowDeleteAlert(params.row._id)
+                }
                 className="button_delete"
               >
                 delete
@@ -86,6 +89,15 @@ const AllCategory = () => {
                 className="tableContainer"
                 style={{ height: 520, width: "96%" }}
               >
+              {/* show popoup whwn delete button is clicked */}
+                {showDeleteAlert && (
+                  <DeleteAlert
+                    setShowDeleteAlert={setShowDeleteAlert}
+                    id={showDeleteAlert}
+                    props={category}
+                  />
+                )}
+
                 <DataGrid
                   rows={categoryData}
                   columns={columns}

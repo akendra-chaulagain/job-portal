@@ -4,27 +4,26 @@ import "./AllJobs.css";
 import { DataGrid } from "@mui/x-data-grid";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteJobs, getAllJobs } from "../../redux/apiCalls";
+import { getAllJobs } from "../../redux/apiCalls";
 import Loader from "../../components/Loader/Loader";
+import DeleteAlert from "../../components/deleteAlert/DeleteAlert";
 
 const AllJobs = () => {
+  const job = "job";
   const dispatch = useDispatch();
-  const jobs = useSelector((state) => state.jobs.jobs);
+  const jobs = useSelector((state) => state.jobs?.jobs);
 
+  //Open Close delete alert
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   // loading component
-
   const [isLoading, setLoading] = useState(true);
+  
   // get all jobs
   useEffect(() => {
     setLoading(true);
-      getAllJobs(dispatch);
+    getAllJobs(dispatch);
     setLoading(false);
   }, [dispatch]);
-
-  // delete jobs
-  const handleDelete = (id) => {
-    deleteJobs(id, dispatch);
-  };
 
   // colums material ui table
   const columns = [
@@ -79,13 +78,16 @@ const AllJobs = () => {
         return (
           <>
             {/* view data button*/}
-            <NavLink to={`/job/${params.row._id}`}>
+            <NavLink to={`/job/${params.row?._id}`}>
               <button className="button_Edit">edit</button>
             </NavLink>
             {/* delete  user data button*/}
             <span>
               <button
-                onClick={() => handleDelete(params.row._id)}
+                onClick={() =>
+                  setShowDeleteAlert(!showDeleteAlert) ||
+                  setShowDeleteAlert(params.row._id)
+                }
                 className="button_delete"
               >
                 delete
@@ -117,12 +119,20 @@ const AllJobs = () => {
           <Loader />
         ) : (
           <div className="tableContainer" style={{ height: 520, width: "96%" }}>
+            {/* show popoup whwn delete button is clicked */}
+            {showDeleteAlert && (
+              <DeleteAlert
+                setShowDeleteAlert={setShowDeleteAlert}
+                id={showDeleteAlert}
+                props={job}
+              />
+            )}
             <DataGrid
               rows={jobs}
               columns={columns}
               rowsPerPageOptions={[8]}
               disableSelectionOnClick
-              getRowId={(r) => r._id}
+              getRowId={(r) => r?._id}
               checkboxSelection
             />
           </div>

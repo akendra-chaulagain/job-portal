@@ -28,10 +28,11 @@ const SliderBar = () => {
   }, [userId]);
 
   // logout user
-    const handleLogout = () => {
-      localStorage.removeItem("accesToken", "userId");
-      window.location.reload("/");
-    };
+  const handleLogout = () => {
+    localStorage.removeItem("accesToken");
+    localStorage.removeItem("userId");
+    window.location.reload("/");
+  };
 
   return (
     <>

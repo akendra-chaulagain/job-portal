@@ -6,28 +6,25 @@ import { DataGrid } from "@mui/x-data-grid";
 import "./Blog.css";
 import { useDispatch, useSelector } from "react-redux";
 
-import { deleteBlog, getAllBlog } from "../../redux/apiCalls";
+import { getAllBlog } from "../../redux/apiCalls";
 import Loader from "../../components/Loader/Loader";
+import DeleteAlert from "../../components/deleteAlert/DeleteAlert";
 
 const Allproduct = () => {
+  const blog = "blog";
   const dispatch = useDispatch();
-
   const blogs = useSelector((state) => state.blog.blogs);
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
 
   // get all blogs
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(true);
-    getAllBlog(dispatch);
+    setTimeout(() => {
+      getAllBlog(dispatch);
+    }, 1000);
     setLoading(false);
   }, [dispatch]);
-
-  // delete blog
-
-  // delete jobs
-  const handleDelete = (id) => {
-    deleteBlog(id, dispatch);
-  };
 
   // colums material ui table
   const columns = [
@@ -88,7 +85,10 @@ const Allproduct = () => {
             {/* delete  user data button*/}
             <span>
               <button
-                onClick={() => handleDelete(params.row._id)}
+                onClick={() =>
+                  setShowDeleteAlert(!showDeleteAlert) ||
+                  setShowDeleteAlert(params.row._id)
+                }
                 className="button_delete"
               >
                 delete
@@ -124,6 +124,14 @@ const Allproduct = () => {
               className="tableContainer"
               style={{ height: 520, width: "96%" }}
             >
+              {/* show popoup whwn delete button is clicked */}
+              {showDeleteAlert && (
+                <DeleteAlert
+                  setShowDeleteAlert={setShowDeleteAlert}
+                  id={showDeleteAlert}
+                  props={blog}
+                />
+              )}
               <DataGrid
                 rows={blogs}
                 columns={columns}

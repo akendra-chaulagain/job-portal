@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import LoginTextField from "../../components/loginTextField/LoginTextField";
 import { loginUser } from "../../redux/apiCalls";
 import Logo from "../../assets/logo/logo.png";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
   const dispactch = useDispatch();
@@ -27,9 +28,7 @@ const Login = () => {
         }}
         validationSchema={validate}
         onSubmit={(values) => {
-          loginUser(dispactch, values).then(() => {
-            window.location.replace("/");
-          });
+          loginUser(dispactch, values);
         }}
       >
         <Form>
@@ -63,6 +62,7 @@ const Login = () => {
               </div>
             </div>
           </div>
+          <ToastContainer />
         </Form>
       </Formik>
     </>

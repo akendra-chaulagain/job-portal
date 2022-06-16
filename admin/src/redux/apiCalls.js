@@ -46,6 +46,30 @@ import {
   updateUserSuccess,
 } from "./userReducer";
 
+import { toast, Zoom } from "react-toastify";
+
+// success tostify
+const tostifySuccess = {
+  position: "bottom-right",
+  autoClose: 2000,
+  hideProgressBar: true,
+  closeOnClick: true,
+  pauseOnHover: false,
+  progress: undefined,
+};
+
+// failure tostify
+const tostifyFailure = {
+  position: "bottom-right",
+  autoClose: 2000,
+  hideProgressBar: true,
+  closeOnClick: false,
+  pauseOnHover: true,
+  draggable: false,
+  theme: "dark",
+  progress: undefined,
+};
+
 // login user
 export const loginUser = async (dispatch, user) => {
   dispatch(loginStart());
@@ -55,7 +79,7 @@ export const loginUser = async (dispatch, user) => {
   } catch (error) {
     dispatch(loginfailure());
     console.log(error);
-    alert("ak");
+    toast.error(" Login failed!", tostifyFailure);
   }
 };
 
@@ -165,7 +189,6 @@ export const deleteBlog = async (id, dispatch) => {
   try {
     await userRequest.delete(`/blog/${id}`);
     dispatch(deleteBlogSuccess(id));
-    alert("success");
   } catch (error) {
     console.log("unable to delete Blog" + error);
     dispatch(deleteBlogFailure());
@@ -214,13 +237,12 @@ export const updateCategory = async (id, cat, dispatch) => {
   }
 };
 
-// delete blog
+// delete cat
 export const deleteCategory = async (id, dispatch) => {
   dispatch(deleteCategoryStart());
   try {
     await userRequest.delete(`/category/${id}`);
     dispatch(deleteCategorySuccess(id));
-    alert("success");
   } catch (error) {
     console.log("unable to delete category" + error);
     dispatch(deleteCategoryFailure());

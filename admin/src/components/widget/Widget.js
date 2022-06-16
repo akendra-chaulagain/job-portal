@@ -3,7 +3,7 @@ import "./Widget.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllBlog, getAllCategory, getAllJobs } from "../../redux/apiCalls";
-import Loader from "../Loader/Loader";
+import { ToastContainer, toast } from "react-toastify";
 
 const Widget = () => {
   const dispatch = useDispatch();
@@ -34,45 +34,48 @@ const Widget = () => {
   }, [dispatch]);
 
   return (
-    <div className="container-fluid widget">
-      <div className="row">
-        {/* left */}
-        <div className="col-md-4 mt-4 leftWidge">
-          <i className="fa-solid fa-briefcase"></i>
-          <h5>Total Jobs</h5>
-          <p>{jobs.length}</p>
-          <div className="seeAlluser">
-            <Link className="link" to="/jobs">
-              view all jobs
-            </Link>
+    <>
+      <div className="container-fluid widget">
+        <div className="row">
+          {/* left */}
+          <div className="col-md-4 mt-4 leftWidge">
+            <i className="fa-solid fa-briefcase"></i>
+            <h5>Total Jobs</h5>
+            <p>{jobs.length}</p>
+            <div className="seeAlluser">
+              <Link className="link" to="/jobs">
+                view all jobs
+              </Link>
+            </div>
           </div>
-        </div>
-        {/* middle */}
-        {/* category */}
-        <div className="col-md-4 mt-4 middletWidget">
-          <i class="fa-solid fa-shapes"></i>
-          <h5>Total Category</h5>
-          <p>{categoryData.length}</p>
-          <div className="seeAlluser">
-            <Link className="link" to="/category">
-              view all category
-            </Link>
+          {/* middle */}
+          {/* category */}
+          <div className="col-md-4 mt-4 middletWidget">
+            <i class="fa-solid fa-shapes"></i>
+            <h5>Total Category</h5>
+            <p>{categoryData.length}</p>
+            <div className="seeAlluser">
+              <Link className="link" to="/category">
+                view all category
+              </Link>
+            </div>
           </div>
-        </div>
-        {/* right */}
-        {/* blog */}
-        <div className="col-md-4 mt-4 rightWidget">
-          <i className="fa-solid fa-pen"></i>
-          <h5>Total BLogs</h5>
-          <p>{blogs.length}</p>
-          <div className="seeAlluser">
-            <Link className="link" to="/blog">
-              view all blogs
-            </Link>
+          {/* right */}
+          {/* blog */}
+          <div className="col-md-4 mt-4 rightWidget">
+            <i className="fa-solid fa-pen"></i>
+            <h5>Total BLogs</h5>
+            <p>{blogs.length}</p>
+            <div className="seeAlluser">
+              <Link className="link" to="/blog">
+                view all blogs
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <ToastContainer/>
+    </>
   );
 };
 
