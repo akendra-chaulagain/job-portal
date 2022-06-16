@@ -18,6 +18,7 @@
   font-size: 32px;
   color: white;
   font-weight: 600;
+  letter-spacing: 4px;
 }
 /* search container */
 .searchContainer {
@@ -41,52 +42,11 @@
   color: white;
 }
 
-/* jobs container */
-.jobsContentContainer {
-  display: flex;
-  /* box-shadow: -1px 3px 15px 5px rgba(0, 0, 0, 0.05); */
-  border-radius: 5px;
-  height: 12vh;
-  margin-top: 10px;
-  width: 22%;
-  margin-left: 3%;
-  align-items: center;
-}
-.jobdeschData {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-left: 8px;
-}
-.jobdeschData h6 {
-  cursor: pointer;
-  margin-top: 5px;
-  color: gray;
-}
-.jobdeschData p {
-  color: gray;
-}
-
-.jobsImg img {
-  height: 8vh;
-  border-radius: 5px;
-}
 @media only screen and (max-width: 1000px) {
   .jobs {
     margin-top: 0vh;
     overflow: hidden;
     margin-bottom: 6vh;
-  }
-  .jobsImg img {
-    height: 6vh;
-  }
-  .jobdeschData h6 {
-    font-size: 12px;
-    font-weight: 500;
-  }
-  .jobdeschData p {
-    font-size: 11px;
-    font-weight: 400;
   }
 }
 
@@ -103,27 +63,5 @@
   }
   .searechInputField span {
     padding: 9px 18px 9px 18px;
-  }
-
-  /* jobs section */
-  .jobsContentContainer {
-    width: 100%;
-    margin-top: 7px;
-    height: 10vh;
-    margin-left: 0%;
-  }
-
-  .jobsImg img {
-    height: 6vh;
-    width: 100%;
-    object-fit: cover;
-  }
-  .jobdeschData h6 {
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 500;
-  }
-  .jobdeschData p {
-    font-size: 12;
   }
 }

@@ -32,6 +32,7 @@
 }
 
 .card {
+  z-index: -99;
   box-shadow: -1px 3px 15px 5px rgba(0, 0, 0, 0.05);
   border: none;
   outline: none;
@@ -71,11 +72,11 @@
     font-weight: 500;
   }
   .card img {
-  height: 20vh;
-  width: 100%;
-  padding: 5px;
-}
-.blogContainWrapper p {
-  font-size: 11px;
-}
+    height: 20vh;
+    width: 100%;
+    padding: 5px;
+  }
+  .blogContainWrapper p {
+    font-size: 11px;
+  }
 }

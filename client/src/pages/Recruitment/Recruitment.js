@@ -7,7 +7,7 @@ const Recruitment = () => {
     <>
       <div className="container recruitment">
         <div className=" recruitmentTop">
-          <h3 className="text-center">RECRUITMEMT</h3>
+          <h3 className="text-center">Recruitment</h3>
         </div>
         {/* recruitment data */}
         <div className="recruitmentData mt-5">

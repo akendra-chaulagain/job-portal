@@ -16,7 +16,7 @@
   display: flex;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 5px;
-  height: 12vh;
+  height: 15vh;
   margin-top: 10px;
   width: 22%;
   margin-left: 3%;
@@ -32,14 +32,17 @@
   cursor: pointer;
   margin-top: 5px;
   color: gray;
+  font-weight: 500;
 }
 .jobdeschData p {
   color: gray;
 }
 
 .jobsImg img {
-  height: 8vh;
+  height: 50px;
+  width: 50px;
   border-radius: 5px;
+  object-fit: fill;
 }
 /* view all link */
 .viewAllLinks {

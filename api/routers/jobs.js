@@ -9,7 +9,6 @@ const {
 } = require("../controllers/jobs.controllres");
 const verifyToken = require("../middleware/verifyToken");
 
-
 require("../database/connection");
 
 // create jobs
