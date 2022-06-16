@@ -61,6 +61,10 @@
 .jobdeschData h6 {
   cursor: pointer;
   margin-top: 5px;
+  color: gray;
+}
+.jobdeschData p {
+  color: gray;
 }
 
 .jobsImg img {

@@ -21,10 +21,28 @@
   margin-top: 20px;
 }
 .aboutUsdesc h3 {
-  color: #d51339;
-  font-size: 22px;
+  color: red;
+  font-size: 20px;
 }
 .aboutUsdesc p {
-  text-align: start;
-  font-size: 17px;
+  margin-top: 20px;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  color: gray;
+}
+@media only screen and (max-width: 1000px) {
+  .about {
+    margin-top: 0vh;
+  }
+  .aboutTopData h3 {
+    font-size: 25px;
+  }
+  .aboutUsdesc p {
+    text-align: start;
+    font-size: 15px;
+    color: gray;
+  }
+  .aboutUsdesc h3 {
+    font-size: 19px;
+  }
 }

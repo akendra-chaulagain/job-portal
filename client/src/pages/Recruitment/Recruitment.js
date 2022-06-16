@@ -10,8 +10,7 @@ const Recruitment = () => {
           <h3 className="text-center">RECRUITMEMT</h3>
         </div>
         {/* recruitment data */}
-        <div className="recruitmentData">
-          <h3 className="text-center">Recruitment</h3>
+        <div className="recruitmentData mt-5">
           <div className="recrumentText">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -40,9 +39,9 @@ const Recruitment = () => {
               asperiores totam ut? Reprehenderit.
             </p>
           </div>
-          {/* recruitmentContent contant */}
+          {/* recruitmentData contant */}
           <div className="row">
-            <div className="col-md-6 recruitmentContent">
+            <div className="col-md-6 recruitmentData">
               <h3 className="text-center">RECRUITMENT SERVICES</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem,
@@ -57,7 +56,7 @@ const Recruitment = () => {
                 illo facilis!
               </p>
             </div>
-            <div className="col-md-6 recruitmentContent">
+            <div className="col-md-6 recruitmentData">
               <h3 className="text-center">OFFSHORE RECRUITMENT</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -70,7 +69,7 @@ const Recruitment = () => {
                 quasi vitae, aliquid ratione dicta maiores eaque nobis odio!
               </p>
             </div>
-            <div className="col-md-6 recruitmentContent">
+            <div className="col-md-6 recruitmentData">
               <h3 className="text-center">OFFSHORE RECRUITMENT</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -83,7 +82,7 @@ const Recruitment = () => {
                 quasi vitae, aliquid ratione dicta maiores eaque nobis odio!
               </p>
             </div>
-            <div className="col-md-6 recruitmentContent">
+            <div className="col-md-6 recruitmentData">
               <h3 className="text-center">OFFSHORE RECRUITMENT</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.

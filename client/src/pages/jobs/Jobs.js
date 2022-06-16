@@ -27,10 +27,7 @@ const Jobs = () => {
           </div>
 
           {availableJobs.map((item, id) => (
-            <div
-              className="col-md-4 col-sm-4 jobsContentContainer"
-              key={id}
-            >
+            <div className="col-md-4 col-sm-4 jobsContentContainer" key={id}>
               <div className="jobsImg">
                 <img className="img-fluid" src={item.img} alt="" />
               </div>

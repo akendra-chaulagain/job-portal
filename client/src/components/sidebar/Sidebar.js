@@ -4,7 +4,6 @@ import "./Sidebar.css";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo/logo.png";
 
-
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(true);
   const showSidebarr = () => setSidebar(!sidebar);
@@ -17,8 +16,11 @@ const Sidebar = () => {
             {/* navbar  on */}
             <i className="fa-solid fa-bars" onClick={showSidebarr}></i>
           </div>
+          {/* company logo */}
           <div className="companyLogoSidebar">
-            <img className="img-fluid" src={Logo} alt="company_logo" />
+            <Link to="/">
+              <img className="img-fluid" src={Logo} alt="company_logo" />
+            </Link>
           </div>
         </div>
         <div className="sideBarWrappper">

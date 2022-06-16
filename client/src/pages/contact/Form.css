@@ -1,11 +1,13 @@
 .form {
   margin-top: 15vh;
-  margin-bottom: 5vh;
+  margin-bottom: 2vh;
 }
 .form h3 {
   padding-top: 18px;
-  font-size: 32px;
-  color: rgb(50, 50, 50);
+  font-size: 25px;
+  color: gray;
+  letter-spacing: 2px;
+  font-weight: 500;
 }
 /* left side form */
 .contact-form {
@@ -20,6 +22,11 @@
   border: none;
   outline: none;
   border-bottom: 1px solid red;
+  color: gray;
+}
+.contact-form input::placeholder {
+  font-size: 14px;
+  padding: 0px 0px 6px 0px;
 }
 
 .contact-form textarea {
@@ -33,6 +40,11 @@
   height: 20vh;
   border: 1px solid red;
   padding: 10px;
+  color: gray;
+}
+.contact-form textarea::placeholder {
+  font-size: 14px;
+  padding: 0px 0px 6px 0px;
 }
 
 .submmitButton button {
@@ -49,22 +61,61 @@
 }
 
 /* right side content */
+.contactUsIconItem {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-top: 20px;
+}
 .rightSideFormData {
-  margin-top: 5vh;
+  margin-top: 6vh;
 }
 
-.rightSideFormData .fa-location-pin {
-  color: red;
-  font-size: 25px;
-}
-
-.rightSideFormData .fa-phone {
-  font-size: 25px;
-  color: red;
-  margin-top: 20px;
-}
+.rightSideFormData .fa-location-pin,
+.rightSideFormData .fa-phone,
 .rightSideFormData .fa-envelope {
-  font-size: 25px;
   color: red;
+  font-size: 17px;
   margin-top: 20px;
+}
+.rightSideFormData h5 {
+  color: gray;
+  font-weight: 400;
+  font-size: 18px;
+  margin-top: -15px;
+}
+.rightSideFormData h6 {
+  color: gray;
+  font-size: 14px;
+  padding-bottom: 20px;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 1000px) {
+  .form {
+    margin-top: 0vh;
+  }
+  .form h3 {
+    padding-top: 20px;
+    font-size: 23px;
+  }
+  .contact-form {
+    margin-top: 2vh;
+  }
+
+  .rightSideFormData {
+    margin-top: 0vh;
+  }
+  /* icons */
+  .rightSideFormData .fa-location-pin,
+  .fa-phone,
+  .fa-envelope {
+    color: red;
+    font-size: 17px;
+    margin-top: 20px;
+  }
+  .rightSideFormData h5 {
+    font-size: 17px;
+  }
+  .rightSideFormData h6 {
+    font-size: 13px;
+  }
 }

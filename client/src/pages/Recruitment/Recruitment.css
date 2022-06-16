@@ -18,16 +18,37 @@
   color: white;
   font-weight: 600;
 }
+
 .recruitmentData h3 {
   margin-top: 10vh;
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 600;
+  color: gray;
 }
 .recruitmentData p {
   margin-top: 20px;
-  font-size: 17px;
+  font-size: 15px;
   letter-spacing: 0.4px;
+  color: gray;
 }
-.recruitmentContent h3{
-    font-size: 23px;
+
+@media only screen and (max-width: 1000px) {
+  .recruitment {
+    margin-top: 0vh;
+    margin-bottom: 6vh;
+  }
+  .recruitmentTop h3 {
+    font-size: 25px;
+  }
+
+  .recruitmentData h3 {
+    margin-top: 3vh;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .recruitmentData p {
+    margin-top: 20px;
+    font-size: 15px;
+    letter-spacing: 0.4px;
+  }
 }

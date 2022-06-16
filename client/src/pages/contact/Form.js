@@ -79,7 +79,7 @@ const Form = () => {
                   <i class="fa-solid fa-location-pin"></i>
                 </p>
                 <h5 className="text-center">Address </h5>
-                <p className="text-center">Katmandu ,Nepal ,street 32</p>
+                <h6 className="text-center">Katmandu ,Nepal ,street 32</h6>
               </div>
               {/* contact us icon */}
               <div className="contactUsIconItem">
@@ -87,7 +87,7 @@ const Form = () => {
                   <i class="fa-solid fa-phone"></i>
                 </p>
                 <h5 className="text-center">Contact no </h5>
-                <p className="text-center">+654675476</p>
+                <h6 className="text-center">+654675476</h6>
               </div>
               {/* email */}
               <div className="contactUsIconItem">
@@ -95,7 +95,7 @@ const Form = () => {
                   <i class="fa-solid fa-envelope"></i>
                 </p>
                 <h5 className="text-center">our email </h5>
-                <p className="text-center">companyName@gmail.com</p>
+                <h6 className="text-center">companyName@gmail.com</h6>
               </div>
             </div>
           </div>

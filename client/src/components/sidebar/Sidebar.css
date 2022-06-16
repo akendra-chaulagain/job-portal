@@ -117,7 +117,7 @@
 }
 @media only screen and (max-width: 600px) {
   .companyLogoSidebar img {
-    height: 5vh;
+    height: 4.5vh;
   }
   .sidebar-item a {
     font-size: 13px;

@@ -7,14 +7,14 @@
   font-size: 26px;
   margin-top: 45px;
   font-weight: 600;
-  color: rgb(67, 65, 65);
+  color: gray;
   margin-bottom: 25px;
   letter-spacing: 1px;
 }
 
 .jobsContentContainer {
   display: flex;
-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 5px;
   height: 12vh;
   margin-top: 10px;
@@ -31,6 +31,10 @@ box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 .jobdeschData h6 {
   cursor: pointer;
   margin-top: 5px;
+  color: gray;
+}
+.jobdeschData p {
+  color: gray;
 }
 
 .jobsImg img {
@@ -60,7 +64,7 @@ box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   .jobsImg img {
     height: 6vh;
   }
-   .jobsContentTopbar h1 {
+  .jobsContentTopbar h1 {
     font-size: 22px;
     margin-top: 30px;
   }

@@ -44,6 +44,38 @@
   padding: 20px;
   border-radius: 20px;
 }
+.card h5 {
+  font-size: 19px;
+  color: gray;
+  letter-spacing: 1px;
+}
 .blogContainWrapper p {
   font-size: 13px;
+  color: gray;
+}
+
+@media only screen and (max-width: 1000px) {
+  .blog {
+    margin-top: 0vh;
+    margin-bottom: 6vh;
+  }
+  .blogTop h3 {
+    font-size: 25px;
+  }
+  .blogContainWrapper {
+    width: 100%;
+    margin-top: 5px;
+  }
+  .card h5 {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .card img {
+  height: 20vh;
+  width: 100%;
+  padding: 5px;
+}
+.blogContainWrapper p {
+  font-size: 11px;
+}
 }

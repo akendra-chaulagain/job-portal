@@ -17,14 +17,15 @@
 .jobApplicationTop h3 {
   font-size: 32px;
   color: white;
-  font-weight: 600;
+  font-weight: 500;
 }
 /* job Application Top */
 .jobApplicationTitle p {
-  font-size: 26px;
-  font-weight: 700;
+  font-size: 25px;
+  font-weight: 500;
   letter-spacing: 2px;
   margin-top: 20px;
+  color: gray;
 }
 .jobApplicationFormInputs input {
   width: 100%;
@@ -55,6 +56,7 @@
   color: gray;
   margin-top: 25px;
 }
+
 /* textarea */
 .jobApplicationFormInputs textarea {
   width: 100%;
@@ -80,9 +82,10 @@
   align-items: center;
 }
 .jobApplicationCV p {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 600;
   cursor: pointer;
+  color: gray;
 }
 .jobApplicationCV img {
   height: 19vh;
@@ -98,8 +101,43 @@
   outline: none;
   border: none;
   padding: 8px;
-  background-color: #d51339;
+  background-color: red;
   cursor: pointer;
   color: white;
   border-radius: 4px;
+}
+
+/* for all placeholders */
+.jobApplicationPhoneandEmail,
+.jobApplicationFormInputs input::placeholder {
+  font-size: 16px;
+}
+.jobApplicationFormInputs textarea::placeholder {
+  font-size: 16px;
+}
+@media only screen and (max-width: 1000px) {
+  .jobApplication {
+    margin-top: 0vh;
+    margin-bottom: 6vh;
+  }
+  .jobApplicationTop h3 {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .jobApplicationTitle p {
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: 500;
+  }
+  .jobApplicationCV p {
+    font-size: 17px;
+    font-weight: 500;
+  }
+  .cvSubmitForm button {
+    padding: 8px;
+    background-color: red;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+  }
 }

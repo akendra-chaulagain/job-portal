@@ -7,7 +7,7 @@
   font-size: 26px;
   margin: 30px;
   font-weight: 600;
-  color: rgb(67, 65, 65);
+  color: gray;
   margin-bottom: 25px;
   letter-spacing: 1px;
 }
@@ -17,9 +17,14 @@
   height: 45vh;
 }
 .ourServiceFirstTitle {
-  font-size: 25px;
+  font-size: 24px;
   margin: 10px 10px 15px 0px;
   font-weight: 600;
+  color: gray;
+}
+.ourServiceFirstDesc p{
+  color: gray;
+  font-size: 15px;
 }
 @media only screen and (max-width: 1000px) {
   .ourService h1 {
