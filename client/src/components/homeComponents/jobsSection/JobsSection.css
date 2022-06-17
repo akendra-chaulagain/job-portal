@@ -5,45 +5,44 @@
 
 .jobsContentTopbar h1 {
   font-size: 26px;
-  margin-top: 45px;
-  font-weight: 600;
-  color: gray;
+  margin-top: 20px;
+  font-weight: 700;
   margin-bottom: 25px;
   letter-spacing: 1px;
+  color: #0d235d;
 }
 
 .jobsContentContainer {
   display: flex;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
   border-radius: 5px;
-  height: 15vh;
+  height: auto;
   margin-top: 10px;
   width: 22%;
   margin-left: 3%;
   align-items: center;
 }
 .jobdeschData {
+  margin-left: 8px;
+  margin: 20px 0px 0px 10px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-left: 8px;
 }
 .jobdeschData h6 {
   cursor: pointer;
-  margin-top: 5px;
-  color: gray;
-  font-weight: 500;
+  margin-top: 0px;
+  font-weight: 600;
+  color: #0d235d;
+  font-size: 17px;
 }
 .jobdeschData p {
+  font-size: 11px;
+  font-weight: 500;
   color: gray;
 }
 
-.jobsImg img {
-  height: 50px;
-  width: 50px;
-  border-radius: 5px;
-  object-fit: fill;
-}
 /* view all link */
 .viewAllLinks {
   margin-top: 20px;
@@ -64,8 +63,8 @@
   color: #d51339;
 }
 @media only screen and (max-width: 1000px) {
-  .jobsImg img {
-    height: 6vh;
+  .jobsContentContainer{
+    margin-top: -15vh;
   }
   .jobsContentTopbar h1 {
     font-size: 22px;
@@ -76,7 +75,7 @@
     font-weight: 500;
   }
   .jobdeschData p {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 400;
   }
 }
@@ -95,11 +94,6 @@
     margin-left: 0%;
   }
 
-  .jobsImg img {
-    height: 6vh;
-    width: 100%;
-    object-fit: cover;
-  }
   .jobdeschData h6 {
     cursor: pointer;
     font-size: 13px;
@@ -123,6 +117,6 @@
     font-size: 12px;
   }
   .jobdeschData p {
-    font-size: 11px;
+    font-size: 10px;
   }
 }

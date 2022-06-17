@@ -53,16 +53,12 @@ const Form = () => {
                 </div>
                 {/* subject */}
                 <div className="form-field col-lg-12 ">
-                  <input
-                    nameName="subject"
-                    type="text"
-                    placeholder="Subject*"
-                  />
+                  <input name="subject" type="text" placeholder="Subject*" />
                 </div>
                 {/* messsage */}
                 <div className="form-field col-lg-12">
                   <textarea
-                    nameName="message"
+                    name="message"
                     type="text"
                     placeholder="Enter your message*"
                   />

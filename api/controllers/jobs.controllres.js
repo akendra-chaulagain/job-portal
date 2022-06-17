@@ -61,11 +61,11 @@ const getAllJObs = async (req, res, next) => {
         },
       });
     } else {
-      jobs = await Jobs.find();
+      jobs = await Jobs.find().sort({ _id: -1 });
     }
     res.status(201).json(jobs);
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 

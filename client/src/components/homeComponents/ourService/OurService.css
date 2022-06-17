@@ -2,14 +2,15 @@
   height: auto;
   width: 100%;
   margin-bottom: 5vh;
+  color: #0d235d;
 }
 .ourService h1 {
   font-size: 26px;
-  margin: 30px;
-  font-weight: 600;
-  color: gray;
+  margin-top: 20px;
+  font-weight: 700;
   margin-bottom: 25px;
   letter-spacing: 1px;
+  color: #0d235d;
 }
 /* first image */
 .ourServiceFirstImg img {
@@ -20,11 +21,9 @@
   font-size: 24px;
   margin: 10px 10px 15px 0px;
   font-weight: 600;
-  color: gray;
 }
-.ourServiceFirstDesc p{
-  color: gray;
-  font-size: 15px;
+.ourServiceFirstDesc p {
+  font-size: 14px;
 }
 @media only screen and (max-width: 1000px) {
   .ourService h1 {
@@ -47,7 +46,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .ourService{
+  .ourService {
     font-size: 20px;
   }
   .ourServiceFirstImg img {

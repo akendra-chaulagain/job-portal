@@ -47,13 +47,15 @@
   border-radius: 20px;
 }
 .card h5 {
-  font-size: 19px;
-  color: gray;
+  font-size: 17px;
+  color: #0d235d;
+  font-weight: 700;
+
   letter-spacing: 1px;
 }
 .blogContainWrapper p {
   font-size: 13px;
-  color: gray;
+  color: #0d235d;
 }
 
 @media only screen and (max-width: 1000px) {

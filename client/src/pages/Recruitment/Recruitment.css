@@ -3,6 +3,7 @@
   height: auto;
   margin-top: 15vh;
   margin-bottom: 15vh;
+  color: #0d235d;
 }
 .recruitmentTop {
   height: 28vh;
@@ -20,16 +21,17 @@
 }
 
 .recruitmentData h3 {
-  margin-top: 10vh;
-  font-size: 22px;
-  font-weight: 600;
-  color: gray;
+  font-size: 20px;
+  margin-top: 20px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  color: #0d235d;
 }
 .recruitmentData p {
   margin-top: 20px;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 0.4px;
-  color: gray;
 }
 
 @media only screen and (max-width: 1000px) {

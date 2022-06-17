@@ -3,6 +3,7 @@
   height: auto;
   width: 100%;
   margin-bottom: 15vh;
+  color: #0d235d;
 }
 
 .jobsTopData {
@@ -42,6 +43,31 @@
   color: white;
 }
 
+/* category section */
+
+
+.category h3 {
+  font-size: 26px;
+  margin-top: 20px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  color: #0d235d;
+}
+
+.categoryItem {
+  cursor: pointer;
+}
+
+.categoryItem option {
+  cursor: pointer;
+  border: 1px solid rgb(209, 209, 209);
+  color: #0d235d;
+  padding: 3px 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
 @media only screen and (max-width: 1000px) {
   .jobs {
     margin-top: 0vh;
@@ -63,5 +89,30 @@
   }
   .searechInputField span {
     padding: 9px 18px 9px 18px;
+  }
+  /* category */
+  .category {
+    margin-left: -5%;
+  }
+  .category h3 {
+    font-size: 20px;
+  }
+  .categoryItem option {
+    font-weight: 400;
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .categoryItem option {
+    font-weight: 400;
+    padding: 3px 4px 3px 3px;
+    font-size: 11px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .categoryItem p {
+    padding: 3px;
+    font-size: 10px;
   }
 }

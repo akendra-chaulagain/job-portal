@@ -12,6 +12,7 @@ import JobApplication from "./pages/jobApplication/JobApplication";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SingleJobs from "./pages/singleJobs/SingleJobs";
 import SingleBlog from "./pages/singleBlogPage/SingleBlog";
+import CategoryJobs from "./pages/categoryJobs/CategoryJobs";
 
 const App = () => {
   return (
@@ -39,6 +40,9 @@ const App = () => {
           <Route path="/job/:title/:id" element={<SingleJobs />} />
           {/* singlre blog page */}
           <Route path="/single_blog/:id" element={<SingleBlog />} />
+
+          {/* category item page */}
+          <Route path="/job/trending/:name" element={<CategoryJobs />} />
         </Routes>
       </Router>
     </>

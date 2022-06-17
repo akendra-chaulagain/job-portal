@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./Jobs.css";
 import Footer from "../../components/footer/Footer";
 import { Link } from "react-router-dom";
-import Category from "../../components/category/Category";
 import { useDispatch, useSelector } from "react-redux";
-import {  getAllJobs } from "../../redux/apiCalls";
+import { getAllCategory, getAllJobs } from "../../redux/apiCalls";
 import Loader from "../../components/Loader/Loader";
+import axios from "axios";
+import ReactPaginate from "react-paginate";
+import CategoryJobs from "../categoryJobs/CategoryJobs";
 
 const Jobs = () => {
   const dispatch = useDispatch();
@@ -20,6 +22,16 @@ const Jobs = () => {
     setLoading(false);
   }, [dispatch]);
 
+  // get all category
+  const categoryData = useSelector((state) => state.category.categorys);
+  const [didMount, setDidMount] = useState(false);
+
+  useEffect(() => {
+    setDidMount(true);
+    getAllCategory(dispatch);
+    return () => setDidMount(false);
+  }, [dispatch]);
+
   // search jobs
   const [searchInput, setSearchInput] = useState("");
   const [foundJobs, setFoundJobs] = useState([]);
@@ -32,8 +44,6 @@ const Jobs = () => {
       )
     );
   };
-
-  
 
   return (
     <>
@@ -58,21 +68,31 @@ const Jobs = () => {
                   <i className="fa-solid fa-magnifying-glass"></i>
                 </span>
               </div>
-              {/* category from category section */}
-              <Category />
+              {/* category  items*/}
+              <div className="container-fluid category">
+                <h3>Trending Jobs</h3>
+                <div className="row">
+                  {categoryData.map((item) => (
+                    <div
+                      className=" col-md-2 col-3 categoryItem"
+                      key={item._id}
+                    >
+                      <Link className="link" to={`/job/trending/${item.title}`}>
+                        <option>{item.title}</option>
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
             {foundJobs.length <= 0 ? (
               <>
                 {/* CSS OF JOB CONTAINER IS SAME AS JOSECTION FROM COMPONENT/HOMECOMPONENT  */}
-                {jobs.map((item, id) => (
+                {jobs.map((item) => (
                   <div
                     className="col-md-4 col-sm-4 jobsContentContainer"
-                    key={id}
+                    key={item._id}
                   >
-                    <div className="jobsImg">
-                      <img className="img-fluid" src={item.img} alt="" />
-                    </div>
-
                     <div className="jobdeschData">
                       <Link
                         className="link"
@@ -80,6 +100,12 @@ const Jobs = () => {
                       >
                         <h6>{item.title}</h6>
                       </Link>
+                      {/* job desc */}
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: item.desc.slice(0, 60),
+                        }}
+                      ></p>
                     </div>
                   </div>
                 ))}
@@ -90,12 +116,8 @@ const Jobs = () => {
                 {foundJobs.map((item, id) => (
                   <div
                     className="col-md-4 col-sm-4 jobsContentContainer"
-                    key={id}
+                    key={item._id}
                   >
-                    <div className="jobsImg">
-                      <img className="img-fluid" src={item.img} alt="" />
-                    </div>
-
                     <div className="jobdeschData">
                       <Link
                         className="link"
@@ -103,7 +125,12 @@ const Jobs = () => {
                       >
                         <h6>{item.title}</h6>
                       </Link>
-                      <p>{item.location}</p>
+                      {/* job desc */}
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: item.desc.slice(0, 60),
+                        }}
+                      ></p>
                     </div>
                   </div>
                 ))}

@@ -35,15 +35,12 @@ const JobsSection = () => {
                 <h1>Availables Jobs</h1>
               </div>
               {/* jobs content */}
-              {jobs.map((item) => (
+
+              {jobs.slice(0, 12).map((item) => (
                 <div
                   className="col-md-4 col-sm-4 jobsContentContainer"
                   key={item._id}
                 >
-                  <div className="jobsImg">
-                    <img className="img-fluid" src={item.img} alt="" />
-                  </div>
-
                   <div className="jobdeschData">
                     <Link
                       className="link"
@@ -51,7 +48,12 @@ const JobsSection = () => {
                     >
                       <h6>{item.title}</h6>
                     </Link>
-                    <p>{item.location}</p>
+                    {/* job desc */}
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: item.desc.slice(0, 60),
+                      }}
+                    ></p>
                   </div>
                 </div>
               ))}
@@ -64,9 +66,7 @@ const JobsSection = () => {
                   }}
                   className="link"
                   to="/jobs"
-                >
-                  <p>View All</p>
-                </Link>
+                ></Link>
               </div>
             </div>
           </div>
