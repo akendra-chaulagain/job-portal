@@ -1,4 +1,5 @@
 import { userRequest } from "../RequestMethod";
+
 import {
   createBlogFailure,
   createBlogStart,
@@ -42,16 +43,17 @@ import {
   loginfailure,
   loginStart,
   loginSuccess,
+  updateUserFailure,
   updateUserStart,
   updateUserSuccess,
 } from "./userReducer";
 
-import { toast, Zoom } from "react-toastify";
+import { toast } from "react-toastify";
 
 // success tostify
 const tostifySuccess = {
   position: "bottom-right",
-  autoClose: 2000,
+  autoClose: 3000,
   hideProgressBar: true,
   closeOnClick: true,
   pauseOnHover: false,
@@ -61,7 +63,7 @@ const tostifySuccess = {
 // failure tostify
 const tostifyFailure = {
   position: "bottom-right",
-  autoClose: 2000,
+  autoClose: 3000,
   hideProgressBar: true,
   closeOnClick: false,
   pauseOnHover: true,
@@ -89,9 +91,11 @@ export const updateProfile = async (id, data, dispatch) => {
   try {
     await userRequest.put(`/user/${id}`, data);
     dispatch(updateUserSuccess(id, data));
+    toast.success(" Profile successfully  updated!", tostifySuccess);
   } catch (error) {
     console.log("unable to update user" + error);
-    dispatch(updateUserSuccess());
+    dispatch(updateUserFailure());
+    toast.error(" Login failed!", tostifyFailure);
   }
 };
 
@@ -113,10 +117,12 @@ export const createJobs = async (jobs, dispatch) => {
   try {
     await userRequest.post(`/jobs`, jobs);
     dispatch(createJobSuccess(jobs.data));
+    toast.success(" Job successfully  created!", tostifySuccess);
   } catch (error) {
     console.log("unable to create jobs" + error);
     dispatch(createJobFailure());
     console.log(error);
+    toast.error(" Something went wrong! please try again!!", tostifyFailure);
   }
 };
 
@@ -130,6 +136,7 @@ export const deleteJobs = async (id, dispatch) => {
     console.log("unable to delete jobs" + error);
     dispatch(deleteJobFailure());
     console.log(error);
+    toast.error(" Unable to delete jobs!", tostifyFailure);
   }
 };
 
@@ -139,14 +146,69 @@ export const updateProducts = async (id, jobs, dispatch) => {
   try {
     await userRequest.put(`/jobs/${id}`, jobs);
     dispatch(updateJobsSuccess(id, jobs));
+    toast.success(" Job updated!", tostifySuccess);
   } catch (error) {
     console.log("unable to update job" + error);
     dispatch(updateJobsFailure());
+    toast.error(" Something went wrong! please try again!! ", tostifyFailure);
+  }
+};
+
+// get all category
+export const getAllCategory = async (dispatch) => {
+  dispatch(getCategorysStart());
+  try {
+    const res = await userRequest.get("/category/allCategory");
+    dispatch(getCategorysSuccess(res.data));
+  } catch (error) {
+    dispatch(getCategorysFailure());
+    console.log(error);
+  }
+};
+
+// create category
+export const createCategory = async (blogData, dispatch) => {
+  dispatch(createBlogStart());
+  try {
+    await userRequest.post(`/category`, blogData);
+    dispatch(createBlogSuccess(blogData.data));
+    toast.success(" Category successfully  created!", tostifySuccess);
+  } catch (error) {
+    console.log("unable to create blog" + error);
+    dispatch(createBlogFailure());
+    console.log(error);
+    toast.error(" Something went wrong! please try again!! ", tostifyFailure);
+  }
+};
+
+// update category
+export const updateCategory = async (id, cat, dispatch) => {
+  dispatch(updateCategorysStart());
+  try {
+    await userRequest.put(`/category/${id}`, cat);
+    dispatch(updateCategorysSuccess(id, cat));
+    toast.success(" Category successfully  updated!", tostifySuccess);
+  } catch (error) {
+    console.log("unable to update category" + error);
+    dispatch(updateCategorysFailure());
+    toast.error(" Something went wrong! please try again!! ", tostifyFailure);
+  }
+};
+
+// delete cat
+export const deleteCategory = async (id, dispatch) => {
+  dispatch(deleteCategoryStart());
+  try {
+    await userRequest.delete(`/category/${id}`);
+    dispatch(deleteCategorySuccess(id));
+  } catch (error) {
+    console.log("unable to delete category" + error);
+    dispatch(deleteCategoryFailure());
+    console.log(error);
   }
 };
 
 // blog section
-
 // get all blog
 export const getAllBlog = async (dispatch) => {
   dispatch(getBlogsStart());
@@ -192,60 +254,6 @@ export const deleteBlog = async (id, dispatch) => {
   } catch (error) {
     console.log("unable to delete Blog" + error);
     dispatch(deleteBlogFailure());
-    console.log(error);
-  }
-};
-
-
-
-// get all category
-export const getAllCategory = async (dispatch) => {
-  dispatch(getCategorysStart());
-  try {
-    const res = await userRequest.get("/category/allCategory");
-    dispatch(getCategorysSuccess(res.data));
-  } catch (error) {
-    dispatch(getCategorysFailure());
-    console.log(error);
-  }
-};
-
-// create category
-export const createCategory = async (blogData, dispatch) => {
-  dispatch(createBlogStart());
-  try {
-    await userRequest.post(`/category`, blogData);
-    dispatch(createBlogSuccess(blogData.data));
-    alert("success");
-  } catch (error) {
-    console.log("unable to create blog" + error);
-    dispatch(createBlogFailure());
-    console.log(error);
-  }
-};
-
-// update category
-export const updateCategory = async (id, cat, dispatch) => {
-  dispatch(updateCategorysStart());
-  try {
-    await userRequest.put(`/category/${id}`, cat);
-    dispatch(updateCategorysSuccess(id, cat));
-    alert("updated");
-  } catch (error) {
-    console.log("unable to update category" + error);
-    dispatch(updateCategorysFailure());
-  }
-};
-
-// delete cat
-export const deleteCategory = async (id, dispatch) => {
-  dispatch(deleteCategoryStart());
-  try {
-    await userRequest.delete(`/category/${id}`);
-    dispatch(deleteCategorySuccess(id));
-  } catch (error) {
-    console.log("unable to delete category" + error);
-    dispatch(deleteCategoryFailure());
     console.log(error);
   }
 };

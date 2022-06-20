@@ -17,12 +17,12 @@ import Profile from "./pages/profile/Profile";
 import "./App.css";
 import ChangePassword from "./pages/changePassword/ChangePassword";
 import Core from "./pages/setting/coreSetting/Core";
-import EmailSetting from "./pages/setting/emailSetting/EmailSetting";
 import SliderBar from "./components/sliderBar/SliderBar";
 import AddJob from "./pages/createJob/NewJob";
 import AllCategory from "./pages/category/AllCategory";
 import CreateCategory from "./pages/createCategory/CreateCategory";
 import EditCategory from "./pages/editCategory/EditCategory";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   const user = localStorage.getItem("accesToken");
@@ -93,11 +93,6 @@ const App = () => {
             path="/setting/core"
             element={user ? <Core /> : <Navigate to="/login" />}
           />
-          {/* email setting */}
-          <Route
-            path="/setting/email_setting"
-            element={user ? <EmailSetting /> : <Navigate to="/login" />}
-          />
           {/* category */}
           <Route
             path="/category"
@@ -113,15 +108,14 @@ const App = () => {
             path="/edit_cat/:id"
             element={user ? <EditCategory /> : <Navigate to="/login" />}
           />
-        </Routes>
-
-        {/* login container */}
-        <Routes>
           <Route
+            exact
             path="/login"
-            element={!user ? <Login /> : <Navigate to="/" />}
+            element={user ? <Navigate to="/" /> : <Login />}
           />
         </Routes>
+        {/* tost container is used for alert function */}
+        <ToastContainer />
       </Router>
     </>
   );

@@ -35,12 +35,12 @@ const deleteUser = async (req, res, next) => {
 };
 
 // get admin user data
-const getUserData = async (req, res, next) => {
+const getUserData = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     return res.status(201).json(user);
   } catch (err) {
-    next(err);
+    console.log(err);
   }
 };
 

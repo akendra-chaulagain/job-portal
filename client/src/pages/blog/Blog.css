@@ -58,6 +58,30 @@
   color: #0d235d;
 }
 
+/* pagination */
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px 15px 0px;
+  gap: 15px;
+  text-decoration: none;
+  padding: 10px 2px;
+}
+.pagination .page-num {
+  text-decoration: none;
+  color: gray;
+  font-weight: 600;
+  font-size: 13px;
+}
+.pagination .active {
+  text-decoration: none;
+  color: black;
+  padding: 1px 10px;
+  border: 1px solid gray;
+}
+
 @media only screen and (max-width: 1000px) {
   .blog {
     margin-top: 0vh;
@@ -81,5 +105,10 @@
   }
   .blogContainWrapper p {
     font-size: 11px;
+  }
+  /* pagination */
+  .pagination .page-num {
+    font-weight: 500;
+    font-size: 10px;
   }
 }

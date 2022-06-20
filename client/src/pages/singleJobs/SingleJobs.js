@@ -13,7 +13,7 @@ const SingleJobs = () => {
 
   // get user by id
   const location = useLocation();
-  const path = location.pathname.split("/")[3];
+  const path = location.pathname.split("/")[2];
   const [isLoading, setLoading] = useState(true);
 
   const [didMount, setDidMount] = useState(false);

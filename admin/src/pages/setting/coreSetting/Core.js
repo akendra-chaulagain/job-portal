@@ -9,13 +9,14 @@ import {
 } from "firebase/storage";
 import app from "../../../firebase";
 import CoreWidget from "../../../components/coreWidget/CoreWidget";
-import axios from "axios";
 import { updateProfile } from "../../../redux/apiCalls";
 import { useDispatch } from "react-redux";
 import { userRequest } from "../../../RequestMethod";
 import Loader from "../../../components/Loader/Loader";
+import { useNavigate } from "react-router-dom";
 
 const Core = () => {
+  const navigate = useNavigate();
   const userId = localStorage.getItem("userId");
   // get user data from user id
   const [isLoading, setLoading] = useState(true);
@@ -69,7 +70,7 @@ const Core = () => {
       "state_changed",
       (snapshot) => {
         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-        const progress = "Processing..";
+        const progress = <Loader />;
         setProgress(progress);
         switch (snapshot.state) {
           case "paused":
@@ -96,6 +97,7 @@ const Core = () => {
             desc,
           };
           updateProfile(userId, data, dispatch);
+          navigate("/profile");
         });
       }
     );
@@ -108,167 +110,172 @@ const Core = () => {
         <Loader />
       ) : (
         <div className="container coreContainer">
-          <div className="row">
-            <div className="col-3 coreLeft">
-              {/* left side  */}
-              <CoreWidget />
-            </div>
+          {progress ? (
+            <Loader />
+          ) : (
+            <>
+              <div className="row">
+                <div className="col-3 coreLeft">
+                  {/* left side  */}
+                  <CoreWidget />
+                </div>
 
-            <div className="col-md-9 coreRight">
-              {/* company logo */}
-              <div className="text-center companyLogo">
-                {/* company logo */}
-                {/* show select  img if user select the image  from the device*/}
-                {image ? (
-                  <>
-                    <div className="uploadLogoBtnImg">
-                      <img src={image} alt="img" />
-                      <label htmlFor="files">
-                        <p>Logo</p>
+                <div className="col-md-9 coreRight">
+                  {/* company logo */}
+                  <div className="text-center companyLogo">
+                    {/* company logo */}
+                    {/* show select  img if user select the image  from the device*/}
+                    {image ? (
+                      <>
+                        <div className="uploadLogoBtnImg">
+                          <img src={image} alt="img" />
+                          <label htmlFor="files">
+                            <p>Logo</p>
+                            <input
+                              type="file"
+                              id="files"
+                              style={{ display: "none" }}
+                              name="logo"
+                              onChange={onImageChange}
+                            />
+                          </label>
+                        </div>
+                      </>
+                    ) : (
+                      <div className=" uploadLogoBtnImg mt-3">
+                        <img src={userData.logo} alt="blog_img" />
+                        <label htmlFor="files">
+                          <p>Thumbnail image</p>
+                          <input
+                            type="file"
+                            id="files"
+                            style={{ display: "none" }}
+                            name="logo"
+                            onChange={onImageChange}
+                          />
+                        </label>
+                      </div>
+                    )}
+                  </div>
+                  {/* input filed */}
+                  <form action="" className="coreFields">
+                    {/* input fields */}
+                    <div className="coreInputField">
+                      {/* brandname */}
+                      <div className="coreInputFieldItem">
+                        <label htmlFor="">Brand Name</label>
+                        <br />
                         <input
-                          type="file"
-                          id="files"
-                          style={{ display: "none" }}
-                          name="logo"
-                          onChange={onImageChange}
+                          type="text"
+                          defaultValue={userData.brandname}
+                          name="brandname"
+                          autoComplete="off"
+                          onChange={(e) => setBrandname(e.target.value)}
                         />
-                      </label>
+                      </div>
                     </div>
-                  </>
-                ) : (
-                  <div className=" uploadLogoBtnImg mt-3">
-                    <img src={userData.logo} alt="blog_img" />
-                    <label htmlFor="files">
-                      <p>Thumbnail image</p>
-                      <input
-                        type="file"
-                        id="files"
-                        style={{ display: "none" }}
-                        name="logo"
-                        onChange={onImageChange}
-                      />
-                    </label>
-                  </div>
-                )}
+                    {/* description */}
+                    <div className="coreInputField">
+                      <div className="coreInputFieldItem">
+                        <label htmlFor="">Description</label>
+                        <br />
+                        <textarea
+                          type="text"
+                          defaultValue={userData.desc}
+                          name="desc"
+                          autoComplete="off"
+                          onChange={(e) => setDesc(e.target.value)}
+                        />
+                      </div>
+                    </div>
+
+                    {/* contact details */}
+                    <div className="contactDetails">
+                      <p>Contact Details</p>
+                    </div>
+                    <div className="coreInputField">
+                      <br />
+                      {/*  contact Email*/}
+                      <div className="coreInputFieldItem">
+                        <label htmlFor="">Contact Email</label>
+                        <br />
+                        <input
+                          type="text"
+                          onChange={(e) => setContactEmail(e.target.value)}
+                          name="contactEmail"
+                          autoComplete="off"
+                          defaultValue={userData.contactEmail}
+                        />
+                      </div>
+
+                      {/* contact number */}
+                      <div className="coreInputFieldItem">
+                        <label htmlFor="">Contact Number</label>
+                        <br />
+                        <input
+                          type="number"
+                          defaultValue={userData.contact}
+                          name="contact"
+                          autoComplete="off"
+                          onChange={(e) => setcontact(e.target.value)}
+                        />
+                      </div>
+                    </div>
+                    {/* social information */}
+                    <div className="socialDetails">
+                      <p>Social Information</p>
+                    </div>
+                    <div className="coreInputField">
+                      <br />
+                      {/* facebook */}
+                      <div className="coreInputFieldItem">
+                        <label htmlFor="">Facebook link</label>
+                        <br />
+                        <input
+                          type="text"
+                          defaultValue={userData.facebook}
+                          name="facebook"
+                          autoComplete="off"
+                          onChange={(e) => setFacebook(e.target.value)}
+                        />
+                      </div>
+                      {/* twitter */}
+                      <div className="coreInputFieldItem">
+                        <label htmlFor="">Twitter link</label>
+                        <br />
+                        <input
+                          type="text"
+                          defaultValue={userData.twitter}
+                          name="twitter"
+                          autoComplete="off"
+                          onChange={(e) => setTwitter(e.target.value)}
+                        />
+                      </div>
+                    </div>
+                    <div className="coreInputField">
+                      <br />
+                      {/* insta */}
+                      <div className="coreInputFieldItem">
+                        <label htmlFor="">Instagram link</label>
+                        <br />
+                        <input
+                          type="text"
+                          defaultValue={userData.insta}
+                          name="insta"
+                          autoComplete="off"
+                          onChange={(e) => setInsta(e.target.value)}
+                        />
+                      </div>
+                    </div>
+                    {/* save button */}
+                    <div className="seveButton">
+                      <button onClick={handleSubmitData}>save changes</button>
+                    </div>
+                  </form>
+                </div>
               </div>
-              {/* input filed */}
-              <form action="" className="coreFields">
-                {/* input fields */}
-                <div className="coreInputField">
-                  {/* brandname */}
-                  <div className="coreInputFieldItem">
-                    <label htmlFor="">Brand Name</label>
-                    <br />
-                    <input
-                      type="text"
-                      defaultValue={userData.brandname}
-                      name="brandname"
-                      autoComplete="off"
-                      onChange={(e) => setBrandname(e.target.value)}
-                    />
-                  </div>
-                </div>
-                {/* description */}
-                <div className="coreInputField">
-                  <div className="coreInputFieldItem">
-                    <label htmlFor="">Description</label>
-                    <br />
-                    <textarea
-                      type="text"
-                      defaultValue={userData.desc}
-                      name="desc"
-                      autoComplete="off"
-                      onChange={(e) => setDesc(e.target.value)}
-                    />
-                  </div>
-                </div>
-
-                {/* contact details */}
-                <div className="contactDetails">
-                  <p>Contact Details</p>
-                </div>
-                <div className="coreInputField">
-                  <br />
-                  {/*  contact Email*/}
-                  <div className="coreInputFieldItem">
-                    <label htmlFor="">Contact Email</label>
-                    <br />
-                    <input
-                      type="text"
-                      onChange={(e) => setContactEmail(e.target.value)}
-                      name="contactEmail"
-                      autoComplete="off"
-                      defaultValue={userData.contactEmail}
-                    />
-                  </div>
-
-                  {/* contact number */}
-                  <div className="coreInputFieldItem">
-                    <label htmlFor="">Contact Number</label>
-                    <br />
-                    <input
-                      type="number"
-                      defaultValue={userData.contact}
-                      name="contact"
-                      autoComplete="off"
-                      onChange={(e) => setcontact(e.target.value)}
-                    />
-                  </div>
-                </div>
-                {/* social information */}
-                <div className="socialDetails">
-                  <p>Social Information</p>
-                </div>
-                <div className="coreInputField">
-                  <br />
-                  {/* facebook */}
-                  <div className="coreInputFieldItem">
-                    <label htmlFor="">Facebook link</label>
-                    <br />
-                    <input
-                      type="text"
-                      defaultValue={userData.facebook}
-                      name="facebook"
-                      autoComplete="off"
-                      onChange={(e) => setFacebook(e.target.value)}
-                    />
-                  </div>
-                  {/* twitter */}
-                  <div className="coreInputFieldItem">
-                    <label htmlFor="">Twitter link</label>
-                    <br />
-                    <input
-                      type="text"
-                      defaultValue={userData.twitter}
-                      name="twitter"
-                      autoComplete="off"
-                      onChange={(e) => setTwitter(e.target.value)}
-                    />
-                  </div>
-                </div>
-                <div className="coreInputField">
-                  <br />
-                  {/* insta */}
-                  <div className="coreInputFieldItem">
-                    <label htmlFor="">Instagram link</label>
-                    <br />
-                    <input
-                      type="text"
-                      defaultValue={userData.insta}
-                      name="insta"
-                      autoComplete="off"
-                      onChange={(e) => setInsta(e.target.value)}
-                    />
-                  </div>
-                </div>
-                {/* save button */}
-                <div className="seveButton">
-                  <button onClick={handleSubmitData}>save changes</button>
-                  {progress}
-                </div>
-              </form>
-            </div>
-          </div>
+            </>
+          )}
         </div>
       )}
     </div>

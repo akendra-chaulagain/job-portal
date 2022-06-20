@@ -1,15 +1,15 @@
 import React from "react";
 import "./Login.css";
-// ReactToastify is use for alert
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import LoginTextField from "../../components/loginTextField/LoginTextField";
 import { loginUser } from "../../redux/apiCalls";
 import Logo from "../../assets/logo/logo.png";
-import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  let navigate = useNavigate();
   const dispactch = useDispatch();
   const { isFetching } = useSelector((state) => state.user);
   // logout user after timer
@@ -18,7 +18,7 @@ const Login = () => {
     email: Yup.string().email("Invalid email!").required("Email is required!"),
     password: Yup.string().required("Password is required!"),
   });
-
+ 
   return (
     <>
       <Formik
@@ -29,6 +29,7 @@ const Login = () => {
         validationSchema={validate}
         onSubmit={(values) => {
           loginUser(dispactch, values);
+          navigate("/");
         }}
       >
         <Form>
@@ -57,12 +58,13 @@ const Login = () => {
                 </div>
                 <div className="inputBox mt-1">
                   {/* login button */}
-                  <button disabled={isFetching}>Continue</button>
+                  <button type="submit" disabled={isFetching}>
+                    Continue
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-          <ToastContainer />
         </Form>
       </Formik>
     </>

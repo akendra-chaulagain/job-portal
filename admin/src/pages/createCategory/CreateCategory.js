@@ -3,8 +3,10 @@ import { useDispatch } from "react-redux";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { createCategory } from "../../redux/apiCalls";
 import "./CreateCategory.css";
+import { useNavigate } from "react-router-dom";
 
 const CreateCategory = () => {
+  const naviget = useNavigate();
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
@@ -14,6 +16,7 @@ const CreateCategory = () => {
     const catData = { title, date };
     e.preventDefault();
     createCategory(catData, dispatch);
+    naviget("/category");
   };
 
   return (

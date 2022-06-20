@@ -1,60 +1,22 @@
-.footer {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8)),
-    url("https://images.pexels.com/photos/4065137/pexels-photo-4065137.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-  background-position: center;
-  background-size: cover;
-  background-size: contain;
-  width: 100%;
-  margin-top: 0px;
-  color: gray;
-}
-
-.footer h3 {
-  color: red;
-}
-
-.containerBox {
-  height: 25vh;
-  width: 100%;
+footer {
   display: flex;
-  justify-content: space-evenly;
-  margin-top: 20px;
-}
-/* left side data */
-.firstContainer span {
-  cursor: pointer;
-  font-size: 17px;
+  justify-content: center;
+  margin: 70px 0px 20px 0px;
 }
 
-.firstContainer span:hover {
-  color: #d51339;
-  text-decoration: underline;
+footer p {
+  font-weight: 600;
+  color: rgb(14, 14, 79);
 }
-
-/* middle */
-.middleContainer span {
-  cursor: pointer;
-  font-size: 17px;
+footer i {
+  margin: 0px 4px 0px 4px;
 }
-
-.middleContainer span:hover {
-  color: #d51339;
-  text-decoration: underline;
-}
-
-/* right */
-
-
-@media only screen and (max-width: 768px) {
-  .footer h3 {
-    color: red;
-    font-size: 16px;
+@media only screen and (max-width: 1000px) {
+  footer {
+    margin: 20px 0px 20px 0px;
   }
-  .firstContainer span {
-    font-size: 12px;
-  }
-  /* middle */
-  .middleContainer span {
-    font-size: 12px;
+  footer p {
+    font-weight: 500;
+    font-size: 11px;
   }
 }

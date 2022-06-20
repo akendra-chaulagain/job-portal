@@ -1,6 +1,7 @@
 .jobsContent {
   height: auto;
   width: 100%;
+ 
 }
 
 .jobsContentTopbar h1 {
@@ -63,8 +64,8 @@
   color: #d51339;
 }
 @media only screen and (max-width: 1000px) {
-  .jobsContentContainer{
-    margin-top: -15vh;
+  .jobsContentContainer {
+    margin-top: 0vh;
   }
   .jobsContentTopbar h1 {
     font-size: 22px;

@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCategory, getAllJobs } from "../../redux/apiCalls";
 import Loader from "../../components/Loader/Loader";
-import axios from "axios";
 import ReactPaginate from "react-paginate";
-import CategoryJobs from "../categoryJobs/CategoryJobs";
 
 const Jobs = () => {
   const dispatch = useDispatch();
@@ -43,6 +41,25 @@ const Jobs = () => {
         keys.some((key) => item[key].toLowerCase().includes(searchInput))
       )
     );
+  };
+
+  // We start with an empty list of items.
+  const [currentItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+  const itemsPerPage = 20;
+
+  useEffect(() => {
+    // Fetch items from another resources.
+    const endOffset = itemOffset + itemsPerPage;
+    setCurrentItems(jobs.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(jobs.length / itemsPerPage));
+  }, [itemOffset, jobs]);
+
+  // Invoke when user click to request another page.
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % jobs.length;
+    setItemOffset(newOffset);
   };
 
   return (
@@ -88,16 +105,13 @@ const Jobs = () => {
             {foundJobs.length <= 0 ? (
               <>
                 {/* CSS OF JOB CONTAINER IS SAME AS JOSECTION FROM COMPONENT/HOMECOMPONENT  */}
-                {jobs.map((item) => (
+                {currentItems.map((item) => (
                   <div
                     className="col-md-4 col-sm-4 jobsContentContainer"
                     key={item._id}
                   >
                     <div className="jobdeschData">
-                      <Link
-                        className="link"
-                        to={`/job/${item.title}/${item._id}`}
-                      >
+                      <Link className="link" to={`/job/${item._id}`}>
                         <h6>{item.title}</h6>
                       </Link>
                       {/* job desc */}
@@ -109,6 +123,20 @@ const Jobs = () => {
                     </div>
                   </div>
                 ))}
+                <ReactPaginate
+                  breakLabel="..."
+                  nextLabel="next >"
+                  onPageChange={handlePageClick}
+                  pageRangeDisplayed={5}
+                  pageCount={pageCount}
+                  previousLabel="< previous"
+                  renderOnZeroPageCount={null}
+                  containerClassName="pagination"
+                  pageLinkClassName="page-num"
+                  previousLinkClassName="page-num"
+                  nextLinkClassName="page-num"
+                  activeLinkClassName="active"
+                />
               </>
             ) : (
               <>
@@ -119,10 +147,7 @@ const Jobs = () => {
                     key={item._id}
                   >
                     <div className="jobdeschData">
-                      <Link
-                        className="link"
-                        to={`/job/${item.title}/${item._id}`}
-                      >
+                      <Link className="link" to={`/job/${item._id}`}>
                         <h6>{item.title}</h6>
                       </Link>
                       {/* job desc */}

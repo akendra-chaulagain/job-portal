@@ -11,6 +11,7 @@ export const userSlice = createSlice({
     // user reducer(for login)
     loginStart: (state) => {
       state.isFetching = true;
+      state.error = false;
     },
     loginSuccess: (state, action) => {
       state.isFetching = false;

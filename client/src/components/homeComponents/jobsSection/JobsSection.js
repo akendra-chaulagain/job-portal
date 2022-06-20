@@ -42,10 +42,7 @@ const JobsSection = () => {
                   key={item._id}
                 >
                   <div className="jobdeschData">
-                    <Link
-                      className="link"
-                      to={`/job/${item.title}/${item._id}`}
-                    >
+                    <Link className="link" to={`/job/${item._id}`}>
                       <h6>{item.title}</h6>
                     </Link>
                     {/* job desc */}
@@ -66,7 +63,9 @@ const JobsSection = () => {
                   }}
                   className="link"
                   to="/jobs"
-                ></Link>
+                >
+                  <p>view all jobs</p>
+                </Link>
               </div>
             </div>
           </div>

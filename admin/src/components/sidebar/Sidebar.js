@@ -1,11 +1,14 @@
 import React from "react";
 import "./Sidebar.css";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem("accesToken", "userId");
-    window.location.reload("/");
+    localStorage.removeItem("accesToken");
+    localStorage.removeItem("userId");
+    navigate("/");
   };
   return (
     <>
@@ -19,7 +22,7 @@ const Sidebar = () => {
               className={({ isActive }) => (isActive ? "active link" : "")}
             >
               <li className="sidebarItem mt-1">
-                <i class="fa-solid fa-table-columns"></i>
+                <i className="fa-solid fa-table-columns"></i>
                 <span>Dashboard</span>
               </li>
             </NavLink>
@@ -41,7 +44,7 @@ const Sidebar = () => {
             {/* users link which render to userlist page */}
             <NavLink className="link" to="/jobs">
               <li className="sidebarItem mt-1">
-                <i class="fa-solid fa-briefcase"></i>
+                <i className="fa-solid fa-briefcase"></i>
                 <span>Jobs</span>
               </li>
             </NavLink>
@@ -51,7 +54,7 @@ const Sidebar = () => {
             {/* blog page */}
             <NavLink className="link" to="/blog">
               <li className="sidebarItem mt-1">
-                <i class="fa-solid fa-pen"></i>
+                <i className="fa-solid fa-pen"></i>
                 <span>Blog</span>
               </li>
             </NavLink>

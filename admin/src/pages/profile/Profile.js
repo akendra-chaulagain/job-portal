@@ -2,13 +2,16 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 import Loader from "../../components/Loader/Loader";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { updateProfile } from "../../redux/apiCalls";
 import { userRequest } from "../../RequestMethod";
 import "./Profile.css";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
   const userId = localStorage.getItem("userId");
 
   // get user data from user id
@@ -35,10 +38,12 @@ const Profile = () => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState(userData.username);
   const [email, setEmail] = useState(userData.email);
+
   const handleSave = (e) => {
     e.preventDefault();
     const data = { username, email };
     updateProfile(userId, data, dispatch);
+    navigate("/");
   };
 
   return (
@@ -97,7 +102,12 @@ const Profile = () => {
 
               {/* submit button */}
               <div className="submmitButton">
-                <button onClick={handleSave}>save changes</button>
+                <button
+                  type="button"
+                  onClick={handleSave}
+                >
+                  save changes
+                </button>
               </div>
             </form>
           </div>

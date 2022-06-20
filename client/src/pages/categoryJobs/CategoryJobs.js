@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./CategoryJobs.css";
+import ReactPaginate from "react-paginate";
 
 const CategoryJobs = () => {
   const location = useLocation();
@@ -22,9 +23,25 @@ const CategoryJobs = () => {
     getCategoryData();
     return () => setDidMount(false);
   }, [path]);
-  if (!didMount) {
-    return null;
-  }
+
+  // We start with an empty list of items.
+  const [currentItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+  const itemsPerPage = 20;
+
+  useEffect(() => {
+    // Fetch items from another resources.
+    const endOffset = itemOffset + itemsPerPage;
+    setCurrentItems(catData.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(catData.length / itemsPerPage));
+  }, [itemOffset, catData]);
+
+  // Invoke when user click to request another page.
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % catData.length;
+    setItemOffset(newOffset);
+  };
 
   return (
     <>
@@ -43,7 +60,7 @@ const CategoryJobs = () => {
 
         <div className="row">
           {/* CSS OF category CONTAINER IS SAME AS JOSECTION FROM COMPONENT/HOMECOMPONENT  */}
-          {catData.map((item) => (
+          {currentItems.map((item) => (
             <div
               className="col-md-4 col-sm-4 jobsContentContainer"
               key={item._id}
@@ -61,6 +78,20 @@ const CategoryJobs = () => {
               </div>
             </div>
           ))}
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel="next >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={pageCount}
+            previousLabel="< previous"
+            renderOnZeroPageCount={null}
+            containerClassName="pagination"
+            pageLinkClassName="page-num"
+            previousLinkClassName="page-num"
+            nextLinkClassName="page-num"
+            activeLinkClassName="active"
+          />
         </div>
       </div>
     </>

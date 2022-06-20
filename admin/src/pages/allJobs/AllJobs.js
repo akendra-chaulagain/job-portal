@@ -17,7 +17,7 @@ const AllJobs = () => {
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   // loading component
   const [isLoading, setLoading] = useState(true);
-  
+
   // get all jobs
   useEffect(() => {
     setLoading(true);
@@ -132,8 +132,8 @@ const AllJobs = () => {
               columns={columns}
               rowsPerPageOptions={[8]}
               disableSelectionOnClick
-              getRowId={(r) => r?._id}
               checkboxSelection
+              getRowId={(r) => r?._id}
             />
           </div>
         )}

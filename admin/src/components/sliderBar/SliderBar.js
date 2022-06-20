@@ -3,8 +3,10 @@ import { useState } from "react";
 import "./SliderBar.css";
 import { Link } from "react-router-dom";
 import { userRequest } from "../../RequestMethod";
+import { useNavigate } from "react-router-dom";
 
 const SliderBar = () => {
+  let navigate = useNavigate();
   const [sidebar, setSidebar] = useState(true);
   const showSidebarr = () => setSidebar(!sidebar);
 
@@ -31,7 +33,7 @@ const SliderBar = () => {
   const handleLogout = () => {
     localStorage.removeItem("accesToken");
     localStorage.removeItem("userId");
-    window.location.reload("/");
+    navigate("/");
   };
 
   return (

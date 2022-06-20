@@ -15,8 +15,10 @@ import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateProducts } from "../../redux/apiCalls";
 import Loader from "../../components/Loader/Loader";
+import { useNavigate } from "react-router-dom";
 
 const NewJob = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname.split("/")[2];
 
@@ -100,6 +102,7 @@ const NewJob = () => {
             desc,
           };
           updateProducts(path, jobs, dispatch);
+          navigate("/jobs");
         });
       }
     );
