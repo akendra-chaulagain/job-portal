@@ -36,6 +36,7 @@ const NewJob = () => {
   const [metaTitle, setMetaTitle] = useState("");
   const [metaKey, setMetaKey] = useState("");
   const [metaDesc, setMetaDesc] = useState("");
+  console.log(cat);
 
   // create jobs
   const handleSubmitData = (e) => {
@@ -77,11 +78,15 @@ const NewJob = () => {
                       <br />
 
                       <select
-                        onChange={(e) => setCat(e.target.value)}
                         name="cat"
+                        onChange={(e) => setCat(e.target.value)}
                       >
                         {categoryData?.map((item) => (
-                          <option value={item.title} key={item._id}>
+                          <option
+                            // defaultValue={item[0].title}
+                            value={item.title}
+                            key={item._id}
+                          >
                             {item.title}
                           </option>
                         ))}

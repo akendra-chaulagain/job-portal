@@ -6,16 +6,16 @@
 .categoryTopTitle {
   font-size: 26px;
   letter-spacing: 1px;
-  font-weight: 600;
-  color: #002a9f;
+  font-weight: 700;
+  color: black;
   margin: 20vh 0px 0.5vh 0px;
 }
 .categoryTopText {
   width: 50%;
 }
 .categoryTopText p {
-  color: #6c757d;
-  font-size: 14px;
+  color: black;
+  font-size: 15px;
 }
 
 @media only screen and (max-width: 1000px) {

@@ -43,6 +43,7 @@ import {
   loginfailure,
   loginStart,
   loginSuccess,
+  logOutUserSuccess,
   updateUserFailure,
   updateUserStart,
   updateUserSuccess,
@@ -78,8 +79,9 @@ export const loginUser = async (dispatch, user) => {
   try {
     const res = await userRequest.post("/auth/login", user);
     dispatch(loginSuccess(res.data));
-    window.location.replace("/");
-    toast.success(" Login siccess!", tostifySuccess);
+    // logout user
+
+    toast.success(" Login success!", tostifySuccess);
   } catch (error) {
     dispatch(loginfailure());
     console.log(error);

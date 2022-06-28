@@ -34,14 +34,14 @@
 .jobdeschData h6 {
   cursor: pointer;
   margin-top: 0px;
-  font-weight: 600;
-  color: #0d235d;
-  font-size: 17px;
+  font-weight: 700;
+  color: black;
+  font-size: 19px;
 }
 .jobdeschData p {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
-  color: gray;
+  color: black;
 }
 
 /* view all link */

@@ -61,10 +61,10 @@
 .categoryItem option {
   cursor: pointer;
   border: 1px solid rgb(209, 209, 209);
-  color: #0d235d;
+  color: black;
   padding: 3px 10px;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 @media only screen and (max-width: 1000px) {

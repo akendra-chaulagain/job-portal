@@ -40,6 +40,23 @@ export const userSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
+
+    // logout user
+    // update user
+    logOutUserStart: (state) => {
+      state.isFetching = true;
+      state.error = false;
+    },
+    logOutUserSuccess: (state) => {
+      state.isFetching = false;
+      state.currentUser =
+        localStorage.removeItem("accesToken") ||
+        localStorage.removeItem("userId");
+    },
+    logOutUserFailure: (state) => {
+      state.isFetching = false;
+      state.error = true;
+    },
   },
 });
 
@@ -50,6 +67,9 @@ export const {
   updateUserFailure,
   updateUserStart,
   updateUserSuccess,
+  logOutUserFailure,
+  logOutUserStart,
+  logOutUserSuccess,
 } = userSlice.actions;
 
 export default userSlice.reducer;

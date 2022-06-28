@@ -23,6 +23,7 @@ const CategoryJobs = () => {
     getCategoryData();
     return () => setDidMount(false);
   }, [path]);
+  console.log(catData);
 
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState([]);

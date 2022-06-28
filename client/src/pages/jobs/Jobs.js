@@ -22,6 +22,7 @@ const Jobs = () => {
 
   // get all category
   const categoryData = useSelector((state) => state.category.categorys);
+  console.log(categoryData);
   const [didMount, setDidMount] = useState(false);
 
   useEffect(() => {

@@ -47,15 +47,15 @@
   border-radius: 20px;
 }
 .card h5 {
-  font-size: 17px;
-  color: #0d235d;
+  font-size: 20px;
+  color: black;
   font-weight: 700;
 
   letter-spacing: 1px;
 }
 .blogContainWrapper p {
   font-size: 13px;
-  color: #0d235d;
+  color: black;
 }
 
 /* pagination */
