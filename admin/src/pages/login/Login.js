@@ -18,7 +18,7 @@ const Login = () => {
     email: Yup.string().email("Invalid email!").required("Email is required!"),
     password: Yup.string().required("Password is required!"),
   });
- 
+
   return (
     <>
       <Formik
@@ -29,7 +29,6 @@ const Login = () => {
         validationSchema={validate}
         onSubmit={(values) => {
           loginUser(dispactch, values);
-          navigate("/");
         }}
       >
         <Form>

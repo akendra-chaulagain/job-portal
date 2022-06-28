@@ -1,6 +1,7 @@
 .newJobs {
   display: flex;
-  height: 100vh;
+  height: auto;
+  padding-bottom: 10vh;
 }
 .newJobsContainer {
   flex: 5;
@@ -33,11 +34,14 @@
   font-size: 13px;
 }
 .inputField select {
-  width: 80%;
+  width: 89%;
+  color: rgb(56, 56, 56);
   outline: none;
-  border: 1px solid gray;
+  border: 2px solid rgb(198, 198, 198);
+  padding: 4px;
   border-radius: 5px;
-  padding: 5px;
+  margin-top: 7px;
+  height: 42px;
 }
 .inputField option {
   color: gray;
@@ -54,14 +58,19 @@
   background-color: red;
 }
 
-/* thumbnail img */
-.newJobInputFieldImg {
+/* meta data  */
+.seoMetaData {
   height: auto;
-  width: 50%;
+  width: 80%;
   display: flex;
   justify-content: center;
   box-shadow: -4px 5px 39px -12px rgba(153, 153, 153, 0.66);
   padding: 20px;
+  flex-direction: column;
+}
+.seoMetaData h3 {
+  font-size: 18px;
+  color: gray;
 }
 .newJobInputFieldImg label {
   font-weight: 500;
@@ -106,6 +115,7 @@
 .reactQuill {
   height: 25vh;
   width: 100%;
+  margin-bottom: 10vh;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -130,5 +140,3 @@
     font-size: 12px;
   }
 }
-
-

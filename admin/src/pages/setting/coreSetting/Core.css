@@ -100,6 +100,31 @@
   margin-left: 1%;
 }
 
+/* seo meta data keywords */
+.settingSeoMetaData p {
+  margin-top: 30px;
+  margin-bottom: -10px;
+  color: gray;
+  font-size: 18px;
+  margin-left: 1%;
+}
+.settingSeoMetaData label {
+  font-weight: 400;
+  color: rgb(155, 155, 155);
+  margin-top: 15px;
+  font-size: 13px;
+}
+.settingSeoMetaData input {
+  width: 100%;
+  color: gray;
+  border: 2px solid rgb(198, 198, 198);
+  padding: 6px 10px;
+  border-radius: 5px;
+  margin-top: 7px;
+  height: 42px;
+  outline-color: red;
+}
+
 /* save button */
 .seveButton button {
   margin: 20px 10px 20px 8px;

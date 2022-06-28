@@ -30,22 +30,7 @@ const AllJobs = () => {
     // job's id
     { field: "_id", headerName: "UserId", width: 220 },
 
-    // jobs photo
-    {
-      field: "jobPhoto",
-      headerName: "Photo",
-      width: 65,
-      renderCell: (params) => {
-        return (
-          <>
-            {/* user image */}
-            <div className="userImg">
-              <img src={params.row.img} alt="job_img" />
-            </div>
-          </>
-        );
-      },
-    },
+   
     // jobs title
     { field: "title", headerName: "Title", width: 200 },
 

@@ -58,49 +58,73 @@ const Core = () => {
   const [twitter, setTwitter] = useState(userData.twitter);
   const [insta, setInsta] = useState(userData.insta);
   const [contact, setcontact] = useState(userData.contact);
+  const [metaTitle, setMetaTitle] = useState(userData.metaTitle);
+  const [metaKey, setMetaKey] = useState(userData.metaKey);
+  const [metaDesc, setMetaDesc] = useState(userData.metaDesc);
 
   // firebase is used to store images and videos in email id
   const handleSubmitData = (e) => {
     e.preventDefault();
-    const storage = getStorage(app);
-    const storageRef = ref(storage, selectImagesProfile.name);
-    const uploadTask = uploadBytesResumable(storageRef, selectImagesProfile);
-    // Listen for state changes, errors, and completion of the upload.
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-        const progress = <Loader />;
-        setProgress(progress);
-        switch (snapshot.state) {
-          case "paused":
-            setProgress(progress);
-            break;
-          case "running":
-            setProgress(progress);
-            break;
-          default:
+
+    if (selectImagesProfile) {
+      const storage = getStorage(app);
+      const storageRef = ref(storage, selectImagesProfile.name);
+      const uploadTask = uploadBytesResumable(storageRef, selectImagesProfile);
+      // Listen for state changes, errors, and completion of the upload.
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+          const progress = <Loader />;
+          setProgress(progress);
+          switch (snapshot.state) {
+            case "paused":
+              setProgress(progress);
+              break;
+            case "running":
+              setProgress(progress);
+              break;
+            default:
+          }
+        },
+        (error) => {},
+        () => {
+          // Upload completed successfully, now we can get the download URL
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            const data = {
+              logo: downloadURL,
+              contactEmail,
+              brandname,
+              contact,
+              twitter,
+              facebook,
+              insta,
+              desc,
+              metaDesc,
+              metaTitle,
+              metaKey,
+            };
+            updateProfile(userId, data, dispatch);
+            navigate("/profile");
+          });
         }
-      },
-      (error) => {},
-      () => {
-        // Upload completed successfully, now we can get the download URL
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          const data = {
-            logo: downloadURL,
-            contactEmail,
-            brandname,
-            contact,
-            twitter,
-            facebook,
-            insta,
-            desc,
-          };
-          updateProfile(userId, data, dispatch);
-          navigate("/profile");
-        });
-      }
-    );
+      );
+    } else {
+      const data = {
+        contactEmail,
+        brandname,
+        contact,
+        twitter,
+        facebook,
+        insta,
+        desc,
+        metaDesc,
+        metaTitle,
+        metaKey,
+      };
+      updateProfile(userId, data, dispatch);
+      navigate("/setting/core");
+    }
   };
 
   return (
@@ -145,7 +169,7 @@ const Core = () => {
                       <div className=" uploadLogoBtnImg mt-3">
                         <img src={userData.logo} alt="blog_img" />
                         <label htmlFor="files">
-                          <p>Thumbnail image</p>
+                          <p>Logo</p>
                           <input
                             type="file"
                             id="files"
@@ -252,9 +276,9 @@ const Core = () => {
                         />
                       </div>
                     </div>
+                    {/* instagram */}
                     <div className="coreInputField">
                       <br />
-                      {/* insta */}
                       <div className="coreInputFieldItem">
                         <label htmlFor="">Instagram link</label>
                         <br />
@@ -267,6 +291,50 @@ const Core = () => {
                         />
                       </div>
                     </div>
+                    {/* seo keywords(SEO MetaData) */}
+                    <div className="col-md-12">
+                      {/* meta data */}
+                      <div className="settingSeoMetaData mt-3">
+                        {/* meta title */}
+                        <p>SEO Meta</p>
+                        <div className="coreInputFieldItem">
+                          <label htmlFor="">Meta Title</label>
+                          <br />
+                          <input
+                            type="text"
+                            name="metaTitle"
+                            defaultValue={userData.metaTitle}
+                            autoComplete="off"
+                            onChange={(e) => setMetaTitle(e.target.value)}
+                          />
+                        </div>
+                        {/* meta keywords */}
+                        <div className="coreInputFieldItem">
+                          <label htmlFor="">Meta KeyWords</label>
+                          <br />
+                          <input
+                            type="text"
+                            name="metaKey"
+                            defaultValue={userData.metaKey}
+                            autoComplete="off"
+                            onChange={(e) => setMetaKey(e.target.value)}
+                          />
+                        </div>
+                        {/* meta desc */}
+                        <div className="coreInputFieldItem">
+                          <label htmlFor="">Meta Description</label>
+                          <br />
+                          <input
+                            type="text"
+                            name="metadesc"
+                            defaultValue={userData.metaDesc}
+                            autoComplete="off"
+                            onChange={(e) => setMetaDesc(e.target.value)}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
                     {/* save button */}
                     <div className="seveButton">
                       <button onClick={handleSubmitData}>save changes</button>

@@ -45,6 +45,15 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    metaTitle: {
+      type: String,
+    },
+    metaKey: {
+      type: String,
+    },
+    metaDesc: {
+      type: String,
+    },
     isAdmin: {
       type: Boolean,
       default: false,

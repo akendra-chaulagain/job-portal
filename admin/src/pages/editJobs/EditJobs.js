@@ -2,25 +2,34 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./EditJobs.css";
 import { useQuill } from "react-quilljs";
-import {
-  getStorage,
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-} from "firebase/storage";
-import app from "../../firebase";
+
 import "quill/dist/quill.snow.css";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { updateProducts } from "../../redux/apiCalls";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllCategory, getAllJobs, updateJobs } from "../../redux/apiCalls";
 import Loader from "../../components/Loader/Loader";
 import { useNavigate } from "react-router-dom";
 
 const NewJob = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname.split("/")[2];
+
+  //  // category
+  const categoryData = useSelector((state) => state.category.categorys);
+  // get all jobs
+  useEffect(() => {
+    setLoading(true);
+    getAllCategory(dispatch);
+    setLoading(false);
+  }, [dispatch]);
+
+  // get all jobs
+  useEffect(() => {
+    getAllJobs(dispatch);
+  }, [dispatch]);
 
   // get user by id
   const [isLoading, setLoading] = useState(true);
@@ -33,22 +42,14 @@ const NewJob = () => {
       try {
         const res = await axios.get("/jobs/find/" + path);
         setJobData(res.data);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     };
     getDataById();
     setLoading(false);
     return () => setDidMount(false);
   }, [path]);
-
-  // preview profile iamges before uploading
-  const [image, setImage] = useState(null);
-  const [selectImagesProfile, setSelectImagesProfile] = useState(null);
-  const onImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      setImage(URL.createObjectURL(event.target.files[0]));
-      setSelectImagesProfile(event.target.files[0]);
-    }
-  };
 
   // react quill
   const { quill, quillRef } = useQuill();
@@ -63,49 +64,17 @@ const NewJob = () => {
     }
   }, [quill, quillRef]);
 
-  const dispatch = useDispatch();
-  const [progress, setProgress] = useState();
   const [title, setTitle] = useState(jobData.title);
   const [cat, setCat] = useState(jobData.cat);
+  const [metaTitle, setMetaTitle] = useState(jobData.metaTitle);
+  const [metaKey, setMetaKey] = useState(jobData.metaKey);
+  const [metaDesc, setMetaDesc] = useState(jobData.metaDesc);
 
-  // firebase is used to store images and videos in email id
   const handleSubmitData = (e) => {
+    const jobData = { title, cat, desc, metaDesc, metaKey, metaTitle };
     e.preventDefault();
-    const storage = getStorage(app);
-    const storageRef = ref(storage, selectImagesProfile.name);
-    const uploadTask = uploadBytesResumable(storageRef, selectImagesProfile);
-    // Listen for state changes, errors, and completion of the upload.
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-        const progress = "Processing..";
-        setProgress(progress);
-        switch (snapshot.state) {
-          case "paused":
-            setProgress(progress);
-            break;
-          case "running":
-            setProgress(progress);
-            break;
-          default:
-        }
-      },
-      (error) => {},
-      () => {
-        // Upload completed successfully, now we can get the download URL
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          const jobs = {
-            img: downloadURL,
-            title,
-            cat,
-            desc,
-          };
-          updateProducts(path, jobs, dispatch);
-          navigate("/jobs");
-        });
-      }
-    );
+    updateJobs(path, jobData, dispatch);
+    navigate("/jobs");
   };
 
   return (
@@ -141,53 +110,58 @@ const NewJob = () => {
                       <div className="editJobsInputField">
                         <label htmlFor="">Category</label>
                         <br />
-                        <input
-                          type="text"
-                          defaultValue={jobData.cat}
-                          name="genre"
-                          autoComplete="off"
+                        <select
                           onChange={(e) => setCat(e.target.value)}
-                        />
+                          name="cat"
+                        >
+                          {categoryData?.map((item) => (
+                            <option value={item.title} key={item._id}>
+                              {item.title}
+                            </option>
+                          ))}
+                        </select>
                       </div>
                     </div>
-                    {/* right side */}
                     <div className="col-md-6">
-                      {/* job photo */}
-                      <div className="mt-3">
-                        {/* Thumbnail photo */}
-                        {/* show select  img if user select the image  from the device*/}
-                        {image ? (
-                          <>
-                            <div className="editJobInputFieldImgAndButton">
-                              <img src={image} alt="" />
-                              <label htmlFor="files">
-                                <p>Job Thumbnail </p>
-                                <input
-                                  type="file"
-                                  id="files"
-                                  style={{ display: "none" }}
-                                  name="coverPic"
-                                  onChange={onImageChange}
-                                />
-                              </label>
-                            </div>
-                          </>
-                        ) : (
-                          <div className=" editJobInputFieldImgAndButton mt-3">
-                            <img src={jobData.img} alt="job_img" />
-                            <label htmlFor="files">
-                              <br />
-                              <p>Job Thumbnail</p>
-                              <input
-                                type="file"
-                                id="files"
-                                style={{ display: "none" }}
-                                name="coverPic"
-                                onChange={onImageChange}
-                              />
-                            </label>
-                          </div>
-                        )}
+                      {/* meta data */}
+                      <div className="seoMetaData mt-3">
+                        {/* meta title */}
+                        <h3>SEO Meta</h3>
+                        <div className="inputField">
+                          <label htmlFor="">Meta Title</label>
+                          <br />
+                          <input
+                            type="text"
+                            name="metaTitle"
+                            autoComplete="off"
+                            defaultValue={jobData.metaTitle}
+                            onChange={(e) => setMetaTitle(e.target.value)}
+                          />
+                        </div>
+                        {/* meta keywords */}
+                        <div className="inputField">
+                          <label htmlFor="">Meta KeyWords</label>
+                          <br />
+                          <input
+                            type="text"
+                            name="metaKey"
+                            defaultValue={jobData.metaKey}
+                            autoComplete="off"
+                            onChange={(e) => setMetaKey(e.target.value)}
+                          />
+                        </div>
+                        {/* meta desc */}
+                        <div className="inputField">
+                          <label htmlFor="">Meta Description</label>
+                          <br />
+                          <input
+                            type="text"
+                            name="metadesc"
+                            defaultValue={jobData.metaDesc}
+                            autoComplete="off"
+                            onChange={(e) => setMetaDesc(e.target.value)}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -202,8 +176,7 @@ const NewJob = () => {
                       />
                       {/* create btn */}
                       <div className="editJobButton">
-                        <button onClick={handleSubmitData}>Create</button>
-                        {progress}
+                        <button onClick={handleSubmitData}>update</button>
                       </div>
                     </div>
                   </div>

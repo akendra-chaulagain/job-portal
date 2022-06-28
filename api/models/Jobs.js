@@ -6,9 +6,6 @@ const jobSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    img: {
-      type: String,
-    },
     desc: {
       type: String,
     },
@@ -16,6 +13,15 @@ const jobSchema = new mongoose.Schema(
       type: String,
     },
     cat: {
+      type: String,
+    },
+    metaTitle: {
+      type: String,
+    },
+    metaKey: {
+      type: String,
+    },
+    metaDesc: {
       type: String,
     },
   },

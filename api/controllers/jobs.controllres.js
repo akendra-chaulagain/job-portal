@@ -18,6 +18,9 @@ const createJobs = async (req, res) => {
 
 // update jobs  (only admin can update job)
 const updateJobs = async (req, res, next) => {
+  // if (!req.body.img) {
+  //   delete req.body.img;
+  // }
   try {
     const updatedJObs = await Jobs.findByIdAndUpdate(req.params.id, {
       $set: req.body,

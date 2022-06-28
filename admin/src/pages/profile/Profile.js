@@ -102,10 +102,7 @@ const Profile = () => {
 
               {/* submit button */}
               <div className="submmitButton">
-                <button
-                  type="button"
-                  onClick={handleSave}
-                >
+                <button type="button" onClick={handleSave}>
                   save changes
                 </button>
               </div>

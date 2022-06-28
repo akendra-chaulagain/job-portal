@@ -51,7 +51,7 @@ const getCategoryById = async (req, res, next) => {
 // get all Category
 const getAllCategory = async (req, res, next) => {
   try {
-    const data = await Category.find();
+    const data = await Category.find().sort({ _id: -1 });
     res.status(201).json(data);
   } catch (error) {
     next(error);

@@ -1,11 +1,12 @@
 .newBlog {
   display: flex;
-  height: 100vh;
+  height: auto;
 }
 .newBlogContainer {
   flex: 5;
   margin-top: 12vh;
   margin-left: 17%;
+  margin-bottom: 10vh;
 }
 .newBlogTitle h3 {
   font-weight: 500;
@@ -65,6 +66,38 @@
   border-radius: 8px;
   margin-top: 20px;
   cursor: pointer;
+}
+
+/* meta data  */
+.newBlogseoMetaData {
+  height: auto;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  box-shadow: -4px 5px 39px -12px rgba(153, 153, 153, 0.66);
+  padding: 20px;
+  flex-direction: column;
+  margin: 10px 10px 10px 0px;
+}
+.newBlogseoMetaData h3 {
+  font-size: 18px;
+  color: gray;
+}
+.metaDatainputField label {
+  font-weight: 400;
+  color: gray;
+  font-size: 13px;
+}
+
+.metaDatainputField input {
+  width: 89%;
+  color: gray;
+  outline: none;
+  border: 2px solid rgb(198, 198, 198);
+  padding: 4px;
+  border-radius: 5px;
+  margin-top: 7px;
+  height: 42px;
 }
 
 /* blog images and button */

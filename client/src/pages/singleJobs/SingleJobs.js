@@ -41,14 +41,8 @@ const SingleJobs = () => {
       ) : (
         <div className="container singlePost">
           <div className="row">
-            <div className="col-md-5 jobImg">
-              <img
-                src="https://images.pexels.com/photos/375889/pexels-photo-375889.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt=""
-              />
-            </div>
             {/* job desc  */}
-            <div className="col-md-7 jobDesc">
+            <div className="col-md-12 jobDesc">
               <div className="jobDescTitle text-center">{jobData.title}</div>
               {/* job requirement title*/}
               <div className="jobDescInformation">

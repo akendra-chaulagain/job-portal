@@ -3,10 +3,8 @@ import { useState } from "react";
 import "./SliderBar.css";
 import { Link } from "react-router-dom";
 import { userRequest } from "../../RequestMethod";
-import { useNavigate } from "react-router-dom";
 
 const SliderBar = () => {
-  let navigate = useNavigate();
   const [sidebar, setSidebar] = useState(true);
   const showSidebarr = () => setSidebar(!sidebar);
 
@@ -33,7 +31,7 @@ const SliderBar = () => {
   const handleLogout = () => {
     localStorage.removeItem("accesToken");
     localStorage.removeItem("userId");
-    navigate("/");
+    window.location.reload("/login");
   };
 
   return (
@@ -127,7 +125,7 @@ const SliderBar = () => {
               {/* logout */}
               <li className="sidebar-item" onClick={handleLogout}>
                 <h3>User</h3>
-                <span className="link" to="*">
+                <span style={{ cursor: "pointer" }} className="link">
                   <i className="fa-solid fa-arrow-right-from-bracket"></i>
                   Logout
                 </span>

@@ -78,6 +78,8 @@ export const loginUser = async (dispatch, user) => {
   try {
     const res = await userRequest.post("/auth/login", user);
     dispatch(loginSuccess(res.data));
+    window.location.replace("/");
+    toast.success(" Login siccess!", tostifySuccess);
   } catch (error) {
     dispatch(loginfailure());
     console.log(error);
@@ -135,18 +137,17 @@ export const deleteJobs = async (id, dispatch) => {
   } catch (error) {
     console.log("unable to delete jobs" + error);
     dispatch(deleteJobFailure());
-    console.log(error);
     toast.error(" Unable to delete jobs!", tostifyFailure);
   }
 };
 
 // update jobs
-export const updateProducts = async (id, jobs, dispatch) => {
+export const updateJobs = async (id, jobs, dispatch) => {
   dispatch(updateJobsStart());
   try {
     await userRequest.put(`/jobs/${id}`, jobs);
     dispatch(updateJobsSuccess(id, jobs));
-    toast.success(" Job updated!", tostifySuccess);
+    toast.success(" Job successfull updated!", tostifySuccess);
   } catch (error) {
     console.log("unable to update job" + error);
     dispatch(updateJobsFailure());
@@ -227,10 +228,12 @@ export const createBlog = async (blogData, dispatch) => {
   try {
     await userRequest.post(`/blog`, blogData);
     dispatch(createBlogSuccess(blogData.data));
+    toast.success(" Blog successfully  created!", tostifySuccess);
   } catch (error) {
     console.log("unable to create blog" + error);
     dispatch(createBlogFailure());
     console.log(error);
+    toast.error(" Something went wrong! please try again!! ", tostifyFailure);
   }
 };
 
@@ -240,9 +243,11 @@ export const updateBlog = async (id, blogs, dispatch) => {
   try {
     await userRequest.put(`/blog/${id}`, blogs);
     dispatch(updateBlogsSuccess(id, blogs));
+    toast.success(" Blog successfully  updated!", tostifySuccess);
   } catch (error) {
     console.log("unable to update blog" + error);
     dispatch(updateBlogsFailure());
+    toast.error(" Something went wrong! please try again!! ", tostifyFailure);
   }
 };
 // delete blog
@@ -255,5 +260,6 @@ export const deleteBlog = async (id, dispatch) => {
     console.log("unable to delete Blog" + error);
     dispatch(deleteBlogFailure());
     console.log(error);
+    toast.error(" Something went wrong! please try again!! ", tostifyFailure);
   }
 };

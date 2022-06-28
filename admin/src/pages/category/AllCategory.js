@@ -89,7 +89,7 @@ const AllCategory = () => {
                 className="tableContainer"
                 style={{ height: 520, width: "96%" }}
               >
-              {/* show popoup whwn delete button is clicked */}
+                {/* show popoup whwn delete button is clicked */}
                 {showDeleteAlert && (
                   <DeleteAlert
                     setShowDeleteAlert={setShowDeleteAlert}
