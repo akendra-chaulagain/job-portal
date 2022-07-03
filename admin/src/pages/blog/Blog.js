@@ -28,14 +28,11 @@ const Allproduct = () => {
 
   // colums material ui table
   const columns = [
-    // job's id
-    { field: "_id", headerName: "UserId", width: 250 },
-
     // jobs photo
     {
       field: "img",
       headerName: "Photo",
-      width: 70,
+      width: 100,
       renderCell: (params) => {
         return (
           <>

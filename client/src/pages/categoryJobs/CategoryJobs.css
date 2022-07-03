@@ -6,9 +6,9 @@
 .categoryTopTitle {
   font-size: 26px;
   letter-spacing: 1px;
-  font-weight: 700;
+  font-weight: 600;
   color: black;
-  margin: 20vh 0px 0.5vh 0px;
+  margin: 24vh 0px 0.5vh 0px;
 }
 .categoryTopText {
   width: 50%;
@@ -30,13 +30,13 @@
   .categoryTopText {
     width: 100%;
   }
-  .categoryTopTitle p {
-    font-size: 13px;
+  .categoryTopText p {
+    font-size: 12px;
   }
 }
 
 @media only screen and (max-width: 770px) {
-  .categoryTopTitle p {
+  .categoryTopText p {
     font-size: 12px;
   }
 }

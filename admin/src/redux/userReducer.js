@@ -17,7 +17,8 @@ export const userSlice = createSlice({
       state.isFetching = false;
       state.currentUser =
         localStorage.setItem("accesToken", action.payload.token) ||
-        localStorage.setItem("userId", action.payload.others._id);
+        localStorage.setItem("userId", action.payload.others._id) ||
+        action.payload;
       state.error = false;
     },
     loginfailure: (state) => {

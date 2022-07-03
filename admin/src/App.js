@@ -26,97 +26,90 @@ import { ToastContainer } from "react-toastify";
 
 const App = () => {
   const user = localStorage.getItem("accesToken");
+
   return (
     <>
-      <Router>
-        {user && (
-          <>
-            <Topbar />
-            <SliderBar />
-          </>
-        )}
-        <Routes>
-          {/* home page */}
-          <Route
-            exact
-            path="/"
-            element={user ? <Home /> : <Navigate to="/login" />}
-          />
-          {/* all jobs page */}
-          <Route
-            path="/jobs"
-            element={user ? <AllJobs /> : <Navigate to="/login" />}
-          />
-          {/* get jobs by id */}
-          <Route
-            path="/job/:id"
-            element={user ? <EditJobs /> : <Navigate to="/login" />}
-          />
-          {/* create new jobs */}
-          <Route
-            exact
-            path="/createjobs"
-            element={user ? <AddJob /> : <Navigate to="/login" />}
-          />
+      {user && (
+        <>
+          <Topbar />
+          <SliderBar />
+        </>
+      )}
+      <Routes>
+        {/* home page */}
+        <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+        {/* all jobs page */}
+        <Route
+          path="/jobs"
+          element={user ? <AllJobs /> : <Navigate to="/login" />}
+        />
+        {/* get jobs by id */}
+        <Route
+          path="/job/:id"
+          element={user ? <EditJobs /> : <Navigate to="/login" />}
+        />
+        {/* create new jobs */}
+        <Route
+          exact
+          path="/createjobs"
+          element={user ? <AddJob /> : <Navigate to="/login" />}
+        />
 
-          {/* get all blogs */}
-          <Route
-            path="/blog"
-            element={user ? <Blog /> : <Navigate to="/login" />}
-          />
+        {/* get all blogs */}
+        <Route
+          path="/blog"
+          element={user ? <Blog /> : <Navigate to="/login" />}
+        />
 
-          {/* creat enew blogs */}
-          <Route
-            path="/newblog"
-            element={user ? <AddBlog /> : <Navigate to="/login" />}
-          />
+        {/* creat enew blogs */}
+        <Route
+          path="/newblog"
+          element={user ? <AddBlog /> : <Navigate to="/login" />}
+        />
 
-          {/* update blogs */}
-          <Route
-            path="/edit_blog/:id"
-            element={user ? <EditBlog /> : <Navigate to="/login" />}
-          />
+        {/* update blogs */}
+        <Route
+          path="/edit_blog/:id"
+          element={user ? <EditBlog /> : <Navigate to="/login" />}
+        />
 
-          {/* profile page */}
-          <Route
-            path="/profile"
-            element={user ? <Profile /> : <Navigate to="/login" />}
-          />
-          {/* password change page */}
-          <Route
-            path="/password"
-            element={user ? <ChangePassword /> : <Navigate to="/login" />}
-          />
+        {/* profile page */}
+        <Route
+          path="/profile"
+          element={user ? <Profile /> : <Navigate to="/login" />}
+        />
+        {/* password change page */}
+        <Route
+          path="/password"
+          element={user ? <ChangePassword /> : <Navigate to="/login" />}
+        />
 
-          {/* core */}
-          <Route
-            path="/setting/core"
-            element={user ? <Core /> : <Navigate to="/login" />}
-          />
-          {/* category */}
-          <Route
-            path="/category"
-            element={user ? <AllCategory /> : <Navigate to="/login" />}
-          />
-          {/* create category */}
-          <Route
-            path="/create_cat"
-            element={user ? <CreateCategory /> : <Navigate to="/login" />}
-          />
-          {/* edit cat */}
-          <Route
-            path="/edit_cat/:id"
-            element={user ? <EditCategory /> : <Navigate to="/login" />}
-          />
-          <Route
-            exact
-            path="/login"
-            element={user ? <Navigate to="/" /> : <Login />}
-          />
-        </Routes>
-        {/* tost container is used for alert function */}
-        <ToastContainer />
-      </Router>
+        {/* core */}
+        <Route
+          path="/setting/core"
+          element={user ? <Core /> : <Navigate to="/login" />}
+        />
+        {/* category */}
+        <Route
+          path="/category"
+          element={user ? <AllCategory /> : <Navigate to="/login" />}
+        />
+        {/* create category */}
+        <Route
+          path="/create_cat"
+          element={user ? <CreateCategory /> : <Navigate to="/login" />}
+        />
+        {/* edit cat */}
+        <Route
+          path="/edit_cat/:id"
+          element={user ? <EditCategory /> : <Navigate to="/login" />}
+        />
+      </Routes>
+      <Routes>
+        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+      </Routes>
+      {/* tost container is used for alert function */}
+      <ToastContainer />
     </>
   );
 };

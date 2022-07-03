@@ -22,9 +22,7 @@ const Slider = () => {
               alt="alider_Img"
             />
             <div className="bottomLeftContain">
-              <h1>Keep in touch & stay updated</h1>
-            </div>
-            <div className="bottomLeftButton">
+              <h3>Keep in touch & stay updated</h3>
               <button>Click Here</button>
             </div>
           </div>
@@ -35,9 +33,7 @@ const Slider = () => {
               alt="alider_Img"
             />
             <div className="bottomLeftContain">
-              <h1>Software developers</h1>
-            </div>
-            <div className="bottomLeftButton">
+              <h3>Keep in touch & stay updated</h3>
               <button>Click Here</button>
             </div>
           </div>
@@ -48,9 +44,7 @@ const Slider = () => {
               alt="alider_Img"
             />
             <div className="bottomLeftContain">
-              <h1>Make your life easy</h1>
-            </div>
-            <div className="bottomLeftButton">
+              <h3>Keep in touch & stay updated</h3>
               <button>Click Here</button>
             </div>
           </div>

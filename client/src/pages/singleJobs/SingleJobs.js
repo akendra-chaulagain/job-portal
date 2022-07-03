@@ -54,7 +54,7 @@ const SingleJobs = () => {
               </div>
               {/* apply button */}
               <div className="applyButton">
-                <Link className="link" to="/application">
+                <Link className="link" to={`/${jobData.title}/application`}>
                   <button>APPLY NOW</button>
                 </Link>
               </div>

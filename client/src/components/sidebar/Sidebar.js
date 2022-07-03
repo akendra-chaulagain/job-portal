@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import "./Sidebar.css";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/logo/logo.png";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserAdmin } from "../../redux/apiCalls";
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(true);
   const showSidebarr = () => setSidebar(!sidebar);
+
+  // get user
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.currentUser);
+
+  useEffect(() => {
+    getUserAdmin(dispatch);
+  }, [dispatch]);
+
   return (
     <>
       {/* side bar top container */}
@@ -19,7 +29,14 @@ const Sidebar = () => {
           {/* company logo */}
           <div className="companyLogoSidebar">
             <Link to="/">
-              <img className="img-fluid" src={Logo} alt="company_logo" />
+              {user.map((item) => (
+                <img
+                  className="img-fluid"
+                  src={item.logo}
+                  alt="company_logo"
+                  key={item._id}
+                />
+              ))}
             </Link>
           </div>
         </div>

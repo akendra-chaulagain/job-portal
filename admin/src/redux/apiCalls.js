@@ -43,7 +43,6 @@ import {
   loginfailure,
   loginStart,
   loginSuccess,
-  logOutUserSuccess,
   updateUserFailure,
   updateUserStart,
   updateUserSuccess,
@@ -79,13 +78,11 @@ export const loginUser = async (dispatch, user) => {
   try {
     const res = await userRequest.post("/auth/login", user);
     dispatch(loginSuccess(res.data));
-    // logout user
-
     toast.success(" Login success!", tostifySuccess);
   } catch (error) {
     dispatch(loginfailure());
     console.log(error);
-    toast.error(" Login failed!", tostifyFailure);
+    toast.error(" Something went wrong. please try again!", tostifyFailure);
   }
 };
 
@@ -99,7 +96,7 @@ export const updateProfile = async (id, data, dispatch) => {
   } catch (error) {
     console.log("unable to update user" + error);
     dispatch(updateUserFailure());
-    toast.error(" Login failed!", tostifyFailure);
+    // toast.error(" Something went wrong. please try again!", tostifyFailure);
   }
 };
 
@@ -126,7 +123,7 @@ export const createJobs = async (jobs, dispatch) => {
     console.log("unable to create jobs" + error);
     dispatch(createJobFailure());
     console.log(error);
-    toast.error(" Something went wrong! please try again!!", tostifyFailure);
+    toast.error(" Something went wrong. please try again!!", tostifyFailure);
   }
 };
 
@@ -139,7 +136,7 @@ export const deleteJobs = async (id, dispatch) => {
   } catch (error) {
     console.log("unable to delete jobs" + error);
     dispatch(deleteJobFailure());
-    toast.error(" Unable to delete jobs!", tostifyFailure);
+    toast.error(" Something went wrong. please try again!", tostifyFailure);
   }
 };
 
@@ -153,7 +150,7 @@ export const updateJobs = async (id, jobs, dispatch) => {
   } catch (error) {
     console.log("unable to update job" + error);
     dispatch(updateJobsFailure());
-    toast.error(" Something went wrong! please try again!! ", tostifyFailure);
+    toast.error(" Something went wrong. please try again!! ", tostifyFailure);
   }
 };
 
@@ -180,7 +177,7 @@ export const createCategory = async (blogData, dispatch) => {
     console.log("unable to create blog" + error);
     dispatch(createBlogFailure());
     console.log(error);
-    toast.error(" Something went wrong! please try again!! ", tostifyFailure);
+    toast.error(" Something went wrong! please try again! ", tostifyFailure);
   }
 };
 
@@ -194,7 +191,7 @@ export const updateCategory = async (id, cat, dispatch) => {
   } catch (error) {
     console.log("unable to update category" + error);
     dispatch(updateCategorysFailure());
-    toast.error(" Something went wrong! please try again!! ", tostifyFailure);
+    toast.error(" Something went wrong! please try again! ", tostifyFailure);
   }
 };
 
@@ -235,7 +232,7 @@ export const createBlog = async (blogData, dispatch) => {
     console.log("unable to create blog" + error);
     dispatch(createBlogFailure());
     console.log(error);
-    toast.error(" Something went wrong! please try again!! ", tostifyFailure);
+    toast.error(" Something went wrong! please try again! ", tostifyFailure);
   }
 };
 
@@ -249,7 +246,7 @@ export const updateBlog = async (id, blogs, dispatch) => {
   } catch (error) {
     console.log("unable to update blog" + error);
     dispatch(updateBlogsFailure());
-    toast.error(" Something went wrong! please try again!! ", tostifyFailure);
+    toast.error(" Something went wrong! please try again! ", tostifyFailure);
   }
 };
 // delete blog
@@ -262,6 +259,6 @@ export const deleteBlog = async (id, dispatch) => {
     console.log("unable to delete Blog" + error);
     dispatch(deleteBlogFailure());
     console.log(error);
-    toast.error(" Something went wrong! please try again!! ", tostifyFailure);
+    toast.error(" Something went wrong! please try again! ", tostifyFailure);
   }
 };

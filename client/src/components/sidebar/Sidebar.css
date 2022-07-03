@@ -16,11 +16,17 @@
     align-items: center;
     cursor: pointer;
   }
+  .menuIconContainer {
+    width: 50%;
+  }
   .menuIconContainer i {
-    font-size: 19px;
-    padding-left: 20px;
+    font-size: 24px;
+    margin-left: 10%;
   }
   /* company logo */
+  .companyLogoSidebar {
+    margin-left: 10%;
+  }
   .companyLogoSidebar img {
     height: 6vh;
     width: 100%;
@@ -117,9 +123,19 @@
 }
 @media only screen and (max-width: 600px) {
   .companyLogoSidebar img {
-    height: 4.5vh;
+    height: 5vh;
   }
   .sidebar-item a {
     font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .menuIconContainer i {
+    font-size: 20px;
+    margin-left: 10%;
+  }
+    .companyLogoSidebar img {
+    height: 4.5vh;
   }
 }

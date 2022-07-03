@@ -6,6 +6,19 @@ import {
   getCategorysStart,
   getCategorysSuccess,
 } from "./categoryReducer";
+import { getUserfailure, getUserStart, getUserSuccess } from "./userReducer";
+
+// get user
+export const getUserAdmin = async (dispatch) => {
+  dispatch(getUserStart());
+  try {
+    const res = await axios.get("/user/user");
+    dispatch(getUserSuccess(res.data));
+  } catch (error) {
+    dispatch(getUserfailure());
+    console.log(error);
+  }
+};
 
 // get all blogs
 export const getAllBlogs = async (dispatch) => {

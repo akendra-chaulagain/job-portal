@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./JobApplication.css";
 import Footer from "../../components/footer/Footer";
+import { useLocation } from "react-router-dom";
 
 const JobApplication = () => {
   // preview profile iamges before uploading
@@ -13,6 +14,8 @@ const JobApplication = () => {
       setSelectImagesProfile(event.target.files[0]);
     }
   };
+  const location = useLocation();
+  const path = location.pathname.split("/")[1];
 
   return (
     <>
@@ -30,46 +33,47 @@ const JobApplication = () => {
             <form action="">
               {/* full name */}
               <div className="jobApplicationFormInputs">
-                <input type="text" placeholder="Full Name" />
+                <label htmlFor="">Full Name</label>
+                <input type="text" required />
               </div>
-              {/* phone  and  email*/}
-              <div className="jobApplicationPhoneandEmail">
-                {/* phone */}
-                <input type="number" placeholder="Phone" />
-                {/* email */}
-                <input className="pl-3" type="email" placeholder="Email" />
+              {/* phone  */}
+              <div className="jobApplicationFormInputs">
+                <label htmlFor="">Contact </label>
+                <input type="number" required />
+              </div>
+
+              {/* email */}
+              <div className="jobApplicationFormInputs">
+                <label htmlFor="">Email </label>
+                <input className="pl-3" type="email" required />
               </div>
 
               {/* message */}
               <div className="jobApplicationFormInputs">
-                <textarea type="text" placeholder="Message..." />
+                <label htmlFor="">Message</label>
+                <textarea type="text" required />
               </div>
-              {/* date */}
-              <div className="jobApplicationFormInputs ">
-                <input type="date" />
-              </div>
-              {/* time */}
-              <div className="jobApplicationFormInputs">
-                <input type="time" />
+              {/* position */}
+              <div className="jobApplicationFormInputs  ">
+                <label htmlFor="">Job's Position</label>
+                <input
+                  type="text"
+                  defaultValue={path}
+                  placeholder="job's position"
+                  required
+                />
               </div>
               {/* CV */}
-              <div className="jobApplicationCV">
-                {image ? (
-                  <img src={image} alt="select_img" />
-                ) : (
-                  <>
-                    <label htmlFor="file">
-                      <p>Drag & Drop Files Here</p>
-                      <input
-                        type="file"
-                        id="file"
-                        name="img"
-                        style={{ display: "none" }}
-                        onChange={onImageChange}
-                      />
-                    </label>
-                  </>
-                )}
+              <div className="jobApplicationFormInputsCV">
+                <label htmlFor="file">CV</label>
+                <br />
+                <input
+                  type="file"
+                  id="file"
+                  name="img"
+                  onChange={onImageChange}
+                  required
+                />
               </div>
               {/* submit button */}
               <div className="cvSubmitForm">

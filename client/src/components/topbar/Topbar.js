@@ -1,13 +1,23 @@
 import React, { useEffect } from "react";
 import "./Topbar.css";
 import { NavLink } from "react-router-dom";
-import Logo from "../../assets/logo/logo.png";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserAdmin } from "../../redux/apiCalls";
 
 const Topbar = () => {
   useEffect(() => {
     // 👇️ scroll to top on page load
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
+
+  // get user
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user?.currentUser);
+
+  useEffect(() => {
+    getUserAdmin(dispatch);
+  }, [dispatch]);
+
   return (
     <>
       <nav className="navbar navbar-expand-lg ">
@@ -15,7 +25,14 @@ const Topbar = () => {
           {/* company logo */}
           <NavLink className="link" to="/">
             <div className="companyLogo">
-              <img className="img-fluid" src={Logo} alt="company_logo" />
+              {user.map((item) => (
+                <img
+                  className="img-fluid"
+                  src={item.logo}
+                  alt="company_logo"
+                  key={item._id}
+                />
+              ))}
             </div>
           </NavLink>
 
@@ -34,7 +51,7 @@ const Topbar = () => {
                 </NavLink>
 
                 {/* dropdown menu */}
-                <div className="dropdown-content">
+                {/* <div className="dropdown-content">
                   <NavLink
                     onClick={() => {
                       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -43,7 +60,7 @@ const Topbar = () => {
                   >
                     Employers
                   </NavLink>
-                </div>
+                </div> */}
               </li>
               {/* JOBS */}
               <li className="nav-item">

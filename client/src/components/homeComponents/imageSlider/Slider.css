@@ -2,89 +2,73 @@
   position: relative;
   text-align: center;
   margin-top: 15vh;
+  z-index: -999;
 }
-.curosel-item {
-  height: 80vh;
-  width: 100%;
-}
+
 .curosel-item img {
-  height: 100vh;
+  height: 80vh;
   width: 100%;
   object-fit: cover;
 }
 .bottomLeftContain {
   position: absolute;
-  bottom: 57%;
-  left: 10%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.bottomLeftContain h1 {
+.bottomLeftContain h3 {
   font-weight: 600;
   color: white;
   font-size: 50px;
 }
 
-.bottomLeftButton {
-  position: absolute;
-  bottom: 48%;
-  left: 10%;
-}
-.bottomLeftButton button {
-  padding: 7px 18px;
+.bottomLeftContain button {
+  padding: 6px 30px;
   outline: none;
   border: none;
   background-color: #d51339;
   color: white;
   border-radius: 4px;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 @media only screen and (max-width: 1000px) {
-  .curoselContainer{
-    margin-top: 0px;
-    z-index: -1;
+  .curoselContainer {
+    margin-top: 0vh;
   }
-    .curosel-item {
-    height: 45vh;
-    width: 100%;
+  .bottomLeftContain {
+    width: 80%;
   }
   .curosel-item img {
-    height: 45vh;
-    object-fit: cover;
+    height: 70vh;
   }
-  
 }
 
 @media only screen and (max-width: 768px) {
-  .curoselContainer {
-    z-index: -999;
-    margin-top: 0vh;
+  .bottomLeftContain {
+    width: 70%;
   }
-  .curosel-item {
-    height: 35vh;
-    width: 100%;
+  .bottomLeftContain h3 {
+    font-size: 40px;
   }
   .curosel-item img {
-    height: 35vh;
-    object-fit: cover;
+    height: 50vh;
   }
+}
+
+@media only screen and (max-width: 550px) {
   .bottomLeftContain {
-    position: absolute;
-    bottom: 50%;
-    left: 6%;
+    width: 80%;
   }
-  .bottomLeftContain h1 {
-    font-weight: 600;
-    color: white;
-    font-size: 25px;
+  .curosel-item img {
+    height: 40vh;
   }
-  .bottomLeftButton {
-    position: absolute;
-    bottom: 42%;
-    left: 6%;
-    z-index: 99;
+  .bottomLeftContain h3 {
+    font-size: 28px;
   }
-  .bottomLeftButton button {
-    padding: 3px 10px;
-    font-size: 12px;
+
+  .bottomLeftContain button {
+    padding: 4px 10px;
+    font-size: 13px;
   }
 }

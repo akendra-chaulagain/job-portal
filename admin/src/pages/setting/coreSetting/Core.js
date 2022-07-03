@@ -61,6 +61,7 @@ const Core = () => {
   const [metaTitle, setMetaTitle] = useState(userData.metaTitle);
   const [metaKey, setMetaKey] = useState(userData.metaKey);
   const [metaDesc, setMetaDesc] = useState(userData.metaDesc);
+  const [address, setAddress] = useState(userData.address)
 
   // firebase is used to store images and videos in email id
   const handleSubmitData = (e) => {
@@ -103,6 +104,7 @@ const Core = () => {
               metaDesc,
               metaTitle,
               metaKey,
+              address
             };
             updateProfile(userId, data, dispatch);
             navigate("/profile");
@@ -121,6 +123,7 @@ const Core = () => {
         metaDesc,
         metaTitle,
         metaKey,
+        address
       };
       updateProfile(userId, data, dispatch);
       navigate("/setting/core");
@@ -244,6 +247,23 @@ const Core = () => {
                           onChange={(e) => setcontact(e.target.value)}
                         />
                       </div>
+                    </div>
+                    {/* address */}
+                    <div className="coreInputFieldItem">
+                      <label
+                        htmlFor=""
+                        style={{ color: "gray", marginTop: 10 }}
+                      >
+                        Address
+                      </label>
+                      <br />
+                      <input
+                        type="text"
+                        defaultValue={userData.address}
+                        name="address"
+                        autoComplete="off"
+                        onChange={(e) => setAddress(e.target.value)}
+                      />
                     </div>
                     {/* social information */}
                     <div className="socialDetails">

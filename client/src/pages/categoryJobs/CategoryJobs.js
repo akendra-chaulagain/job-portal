@@ -23,7 +23,6 @@ const CategoryJobs = () => {
     getCategoryData();
     return () => setDidMount(false);
   }, [path]);
-  console.log(catData);
 
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState([]);
@@ -67,7 +66,7 @@ const CategoryJobs = () => {
               key={item._id}
             >
               <div className="jobdeschData">
-                <Link className="link" to={`/job/${item.title}/${item._id}`}>
+                <Link className="link" to={`/job/${item._id}`}>
                   <h6>{item.title}</h6>
                 </Link>
                 {/* job desc */}

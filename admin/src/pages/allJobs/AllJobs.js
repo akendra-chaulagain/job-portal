@@ -27,8 +27,7 @@ const AllJobs = () => {
 
   // colums material ui table
   const columns = [
-    // job's id
-    { field: "_id", headerName: "UserId", width: 220 },
+   
 
    
     // jobs title

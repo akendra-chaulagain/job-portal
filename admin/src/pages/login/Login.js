@@ -1,46 +1,28 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { useDispatch, useSelector } from "react-redux";
-import { Formik, Form } from "formik";
-import * as Yup from "yup";
-import LoginTextField from "../../components/loginTextField/LoginTextField";
 import { loginUser } from "../../redux/apiCalls";
 import Logo from "../../assets/logo/logo.png";
-import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  let navigate = useNavigate();
-  const dispactch = useDispatch();
+  const dispatch = useDispatch();
   const { isFetching } = useSelector((state) => state.user);
   // logout user after timer
 
-  const validate = Yup.object({
-    email: Yup.string().email("Invalid email!").required("Email is required!"),
-    password: Yup.string().required("Password is required!"),
-  });
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const handleLogin = (e) => {
     e.preventDefault();
-    loginUser(dispactch, { email, password });
-    navigate("/");
+    const value = { email, password };
+    loginUser(dispatch, value);
+    setTimeout(() => {
+      window.location.replace("/");
+    }, 1000);
   };
 
   return (
     <>
-      {/* <Formik
-        initialValues={{
-          email: "",
-          password: "",
-        }}
-        validationSchema={validate}
-        onSubmit={(values) => {
-          loginUser(dispactch, values);
-          navigate("/");
-        }}
-      > */}
-      {/* <Form> */}
       <div className=" loginPage">
         <form className="loginFrom">
           {/* company logo */}
@@ -53,9 +35,11 @@ const Login = () => {
             <div className="inputBox mt-3">
               <label>Email</label>
               <input
+                label="Email"
                 name="email"
                 type="text"
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
 
@@ -63,22 +47,22 @@ const Login = () => {
             <div className="inputBox mt-2">
               <label>Password</label>
               <input
+                label="Password"
                 name="password"
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </div>
             <div className="inputBox mt-1">
               {/* login button */}
-              <button disabled={isFetching} onClick={handleLogin}>
+              <button onClick={handleLogin} disabled={isFetching}>
                 Continue
               </button>
             </div>
           </div>
         </form>
       </div>
-      {/* </Form>
-      </Formik> */}
     </>
   );
 };

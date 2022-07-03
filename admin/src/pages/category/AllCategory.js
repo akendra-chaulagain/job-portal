@@ -24,8 +24,7 @@ const AllCategory = () => {
   }, [dispatch]);
 
   const columns = [
-    // id
-    { field: "_id", headerName: "ID", width: 350 },
+   
     // job's category title
     { field: "title", headerName: "Title", width: 260 },
 

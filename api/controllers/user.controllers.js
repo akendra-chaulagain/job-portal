@@ -44,4 +44,14 @@ const getUserData = async (req, res) => {
   }
 };
 
-module.exports = { updateUser, deleteUser, getUserData };
+// get admin data
+const getAllUserData = async (req, res) => {
+  try {
+    const user = await User.find();
+    return res.status(201).json(user);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+module.exports = { updateUser, deleteUser, getUserData, getAllUserData };
