@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/apiCalls";
 import Logo from "../../assets/logo/logo.png";
+import { useNavigate } from "react-router-dom";
+import decode from "decode";
 
 const Login = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { isFetching } = useSelector((state) => state.user);
   // logout user after timer

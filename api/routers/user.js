@@ -18,7 +18,6 @@ router.delete("/:id", verifyToken, deleteUser);
 router.get("/find/:id", verifyToken, getUserData);
 
 // get user
-router.get("/user", getAllUserData);
-
+router.get("/user", verifyToken, getAllUserData);
 
 module.exports = router;

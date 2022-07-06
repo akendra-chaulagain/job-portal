@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./Topbar.css";
 import Logo from "../../assets/logo/logo.png";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { userRequest } from "../../RequestMethod";
 
 const Topbar = () => {

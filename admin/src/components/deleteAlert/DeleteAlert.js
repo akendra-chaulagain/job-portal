@@ -25,7 +25,7 @@ function DeleteAlert({ setShowDeleteAlert, props }) {
       toast.success(" Job successfully  deleted !", tostifySuccess);
     } else if (props === "job category") {
       deleteCategory(id, dispatch);
-      toast.success(" Category successfully  deleted !", tostifySuccess);
+      // toast.success(" Category successfully  deleted !", tostifySuccess);
     } else if (props === "blog") {
       deleteBlog(id, dispatch);
       toast.success(" Blog successfully  deleted !", tostifySuccess);

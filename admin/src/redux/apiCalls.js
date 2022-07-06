@@ -1,5 +1,3 @@
-import { userRequest } from "../RequestMethod";
-
 import {
   createBlogFailure,
   createBlogStart,
@@ -49,6 +47,8 @@ import {
 } from "./userReducer";
 
 import { toast } from "react-toastify";
+import axios from "axios";
+import { userRequest } from "../RequestMethod";
 
 // success tostify
 const tostifySuccess = {
@@ -76,7 +76,7 @@ const tostifyFailure = {
 export const loginUser = async (dispatch, user) => {
   dispatch(loginStart());
   try {
-    const res = await userRequest.post("/auth/login", user);
+    const res = await axios.post("/auth/login", user);
     dispatch(loginSuccess(res.data));
     toast.success(" Login success!", tostifySuccess);
   } catch (error) {
@@ -104,7 +104,7 @@ export const updateProfile = async (id, data, dispatch) => {
 export const getAllJobs = async (dispatch) => {
   dispatch(getJobsStart());
   try {
-    const res = await userRequest.get("/jobs/allJobs");
+    const res = await axios.get("/jobs/allJobs");
     dispatch(getJobsSuccess(res.data));
   } catch (error) {
     dispatch(getJobsFailure());
@@ -158,7 +158,7 @@ export const updateJobs = async (id, jobs, dispatch) => {
 export const getAllCategory = async (dispatch) => {
   dispatch(getCategorysStart());
   try {
-    const res = await userRequest.get("/category/allCategory");
+    const res = await axios.get("/category/allCategory");
     dispatch(getCategorysSuccess(res.data));
   } catch (error) {
     dispatch(getCategorysFailure());
@@ -201,10 +201,12 @@ export const deleteCategory = async (id, dispatch) => {
   try {
     await userRequest.delete(`/category/${id}`);
     dispatch(deleteCategorySuccess(id));
+    toast.success(" Category  successfully  deleted!", tostifySuccess);
   } catch (error) {
     console.log("unable to delete category" + error);
     dispatch(deleteCategoryFailure());
     console.log(error);
+    toast.error(" Something went wrong! please try again! ", tostifyFailure);
   }
 };
 
@@ -213,7 +215,7 @@ export const deleteCategory = async (id, dispatch) => {
 export const getAllBlog = async (dispatch) => {
   dispatch(getBlogsStart());
   try {
-    const res = await userRequest.get("/blog/allBlog");
+    const res = await axios.get("/blog/allBlog");
     dispatch(getBlogsSuccess(res.data));
   } catch (error) {
     dispatch(getBlogsFailure());

@@ -3,11 +3,11 @@ import "./Sidebar.css";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
-  const handleLogout = () => {
-    localStorage.removeItem("accesToken");
-    localStorage.removeItem("userId");
+  const handleLogout = async () => {
+    localStorage.clear();
     window.location.reload("/login");
   };
+
   return (
     <>
       <div className=" sidebar">
