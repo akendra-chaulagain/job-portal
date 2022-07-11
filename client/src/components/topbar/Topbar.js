@@ -49,18 +49,6 @@ const Topbar = () => {
                 >
                   HOME
                 </NavLink>
-
-                {/* dropdown menu */}
-                {/* <div className="dropdown-content">
-                  <NavLink
-                    onClick={() => {
-                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-                    }}
-                    to="/application"
-                  >
-                    Employers
-                  </NavLink>
-                </div> */}
               </li>
               {/* JOBS */}
               <li className="nav-item">

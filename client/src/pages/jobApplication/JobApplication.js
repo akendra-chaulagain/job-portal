@@ -1,21 +1,34 @@
-import React from "react";
-import { useState } from "react";
+import React, { useRef } from "react";
+// import { useState } from "react";
 import "./JobApplication.css";
 import Footer from "../../components/footer/Footer";
 import { useLocation } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 
 const JobApplication = () => {
-  // preview profile iamges before uploading
-  const [image, setImage] = useState(null);
-  const [selectImagesProfile, setSelectImagesProfile] = useState(null);
-  const onImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      setImage(URL.createObjectURL(event.target.files[0]));
-      setSelectImagesProfile(event.target.files[0]);
-    }
-  };
   const location = useLocation();
   const path = location.pathname.split("/")[1];
+
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_bjbw9gz",
+        "template_d44haf1",
+        form.current,
+        "rHEVolQUUNXIllkPh"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("messange send");
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
 
   return (
     <>
@@ -30,28 +43,28 @@ const JobApplication = () => {
             <div className="jobApplicationTitle text-center">
               <p>Job application form</p>
             </div>
-            <form action="">
+            <form action="" ref={form}>
               {/* full name */}
               <div className="jobApplicationFormInputs">
                 <label htmlFor="">Full Name</label>
-                <input type="text" required />
+                <input name="name" type="text" required />
               </div>
               {/* phone  */}
               <div className="jobApplicationFormInputs">
                 <label htmlFor="">Contact </label>
-                <input type="number" required />
+                <input name="contact" type="number" required />
               </div>
 
               {/* email */}
               <div className="jobApplicationFormInputs">
                 <label htmlFor="">Email </label>
-                <input className="pl-3" type="email" required />
+                <input name="email" className="pl-3" type="email" required />
               </div>
 
               {/* message */}
               <div className="jobApplicationFormInputs">
                 <label htmlFor="">Message</label>
-                <textarea type="text" required />
+                <textarea name="message" type="text" required />
               </div>
               {/* position */}
               <div className="jobApplicationFormInputs  ">
@@ -61,23 +74,20 @@ const JobApplication = () => {
                   defaultValue={path}
                   placeholder="job's position"
                   required
+                  name="position"
                 />
               </div>
               {/* CV */}
               <div className="jobApplicationFormInputsCV">
                 <label htmlFor="file">CV</label>
                 <br />
-                <input
-                  type="file"
-                  id="file"
-                  name="img"
-                  onChange={onImageChange}
-                  required
-                />
+                <input type="file" id="file" name="img" />
               </div>
               {/* submit button */}
               <div className="cvSubmitForm">
-                <button>SUBMIT FORM</button>
+                <button type="submmit" onClick={sendEmail}>
+                  SUBMIT FORM
+                </button>
               </div>
             </form>
           </div>

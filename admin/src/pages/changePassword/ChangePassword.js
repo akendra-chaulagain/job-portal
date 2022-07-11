@@ -4,15 +4,17 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import "./ChangePassword.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateProfile } from "../../redux/apiCalls";
 import InputField from "../../components/inputFiled/InputFiled";
 
 const ChangePassword = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userId = localStorage.getItem("userId");
-  console.log(userId);
+
+  const user = useSelector((state) => state.user.currentUser);
+  const userId = user.others._id;
+
   const validate = Yup.object({
     password: Yup.string()
       .min(6, "Password is too short -should be 6 characters minimum")
@@ -36,7 +38,7 @@ const ChangePassword = () => {
               className={({ isActive }) => (isActive ? "active link" : "")}
               to="/profile"
             >
-              <i class="fa-solid fa-circle-info"></i>
+              <i className="fa-solid fa-circle-info"></i>
               information
             </NavLink>
             {/* key icon(password icons) */}
@@ -44,7 +46,7 @@ const ChangePassword = () => {
               className={({ isActive }) => (isActive ? "active link" : "")}
               to="/password"
             >
-              <i class="fa-solid fa-lock"></i>
+              <i className="fa-solid fa-lock"></i>
               security
             </NavLink>
           </div>

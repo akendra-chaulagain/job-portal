@@ -13,6 +13,9 @@ import {
   updateBlogsSuccess,
 } from "./blogReducer";
 import {
+  createCategoryFailure,
+  createCategoryStart,
+  createCategorySuccess,
   deleteCategoryFailure,
   deleteCategoryStart,
   deleteCategorySuccess,
@@ -48,7 +51,6 @@ import {
 
 import { toast } from "react-toastify";
 import axios from "axios";
-import { userRequest } from "../RequestMethod";
 
 // success tostify
 const tostifySuccess = {
@@ -79,6 +81,12 @@ export const loginUser = async (dispatch, user) => {
     const res = await axios.post("/auth/login", user);
     dispatch(loginSuccess(res.data));
     toast.success(" Login success!", tostifySuccess);
+    // auto logout whwn token is expired
+    setTimeout(() => {
+      localStorage.clear();
+      window.location.reload("/");
+      toast.error(" Token Expired! Login Again", tostifyFailure);
+    }, 1000 * 60 * 5);
   } catch (error) {
     dispatch(loginfailure());
     console.log(error);
@@ -90,7 +98,7 @@ export const loginUser = async (dispatch, user) => {
 export const updateProfile = async (id, data, dispatch) => {
   dispatch(updateUserStart());
   try {
-    await userRequest.put(`/user/${id}`, data);
+    await axios.put(`/user/${id}`, data);
     dispatch(updateUserSuccess(id, data));
     toast.success(" Profile successfully  updated!", tostifySuccess);
   } catch (error) {
@@ -116,7 +124,7 @@ export const getAllJobs = async (dispatch) => {
 export const createJobs = async (jobs, dispatch) => {
   dispatch(createJobStart());
   try {
-    await userRequest.post(`/jobs`, jobs);
+    await axios.post(`/jobs`, jobs);
     dispatch(createJobSuccess(jobs.data));
     toast.success(" Job successfully  created!", tostifySuccess);
   } catch (error) {
@@ -131,7 +139,7 @@ export const createJobs = async (jobs, dispatch) => {
 export const deleteJobs = async (id, dispatch) => {
   dispatch(deleteJobStart());
   try {
-    await userRequest.delete(`/jobs/${id}`);
+    await axios.delete(`/jobs/${id}`);
     dispatch(deleteJobSuccess(id));
   } catch (error) {
     console.log("unable to delete jobs" + error);
@@ -144,7 +152,7 @@ export const deleteJobs = async (id, dispatch) => {
 export const updateJobs = async (id, jobs, dispatch) => {
   dispatch(updateJobsStart());
   try {
-    await userRequest.put(`/jobs/${id}`, jobs);
+    await axios.put(`/jobs/${id}`, jobs);
     dispatch(updateJobsSuccess(id, jobs));
     toast.success(" Job successfull updated!", tostifySuccess);
   } catch (error) {
@@ -168,14 +176,14 @@ export const getAllCategory = async (dispatch) => {
 
 // create category
 export const createCategory = async (blogData, dispatch) => {
-  dispatch(createBlogStart());
+  dispatch(createCategoryStart());
   try {
-    await userRequest.post(`/category`, blogData);
-    dispatch(createBlogSuccess(blogData.data));
+    await axios.post(`/category`, blogData);
+    dispatch(createCategorySuccess(blogData.data));
     toast.success(" Category successfully  created!", tostifySuccess);
   } catch (error) {
     console.log("unable to create blog" + error);
-    dispatch(createBlogFailure());
+    dispatch(createCategoryFailure());
     console.log(error);
     toast.error(" Something went wrong! please try again! ", tostifyFailure);
   }
@@ -185,7 +193,7 @@ export const createCategory = async (blogData, dispatch) => {
 export const updateCategory = async (id, cat, dispatch) => {
   dispatch(updateCategorysStart());
   try {
-    await userRequest.put(`/category/${id}`, cat);
+    await axios.put(`/category/${id}`, cat);
     dispatch(updateCategorysSuccess(id, cat));
     toast.success(" Category successfully  updated!", tostifySuccess);
   } catch (error) {
@@ -199,7 +207,7 @@ export const updateCategory = async (id, cat, dispatch) => {
 export const deleteCategory = async (id, dispatch) => {
   dispatch(deleteCategoryStart());
   try {
-    await userRequest.delete(`/category/${id}`);
+    await axios.delete(`/category/${id}`);
     dispatch(deleteCategorySuccess(id));
     toast.success(" Category  successfully  deleted!", tostifySuccess);
   } catch (error) {
@@ -227,7 +235,7 @@ export const getAllBlog = async (dispatch) => {
 export const createBlog = async (blogData, dispatch) => {
   dispatch(createBlogStart());
   try {
-    await userRequest.post(`/blog`, blogData);
+    await axios.post(`/blog`, blogData);
     dispatch(createBlogSuccess(blogData.data));
     toast.success(" Blog successfully  created!", tostifySuccess);
   } catch (error) {
@@ -242,7 +250,7 @@ export const createBlog = async (blogData, dispatch) => {
 export const updateBlog = async (id, blogs, dispatch) => {
   dispatch(updateBlogsStart());
   try {
-    await userRequest.put(`/blog/${id}`, blogs);
+    await axios.put(`/blog/${id}`, blogs);
     dispatch(updateBlogsSuccess(id, blogs));
     toast.success(" Blog successfully  updated!", tostifySuccess);
   } catch (error) {
@@ -255,7 +263,7 @@ export const updateBlog = async (id, blogs, dispatch) => {
 export const deleteBlog = async (id, dispatch) => {
   dispatch(deleteBlogStart());
   try {
-    await userRequest.delete(`/blog/${id}`);
+    await axios.delete(`/blog/${id}`);
     dispatch(deleteBlogSuccess(id));
   } catch (error) {
     console.log("unable to delete Blog" + error);

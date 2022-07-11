@@ -14,25 +14,20 @@ const tostifySuccess = {
   progress: undefined,
 };
 
-
-
 function DeleteAlert({ setShowDeleteAlert, props }) {
   const dispatch = useDispatch();
   // delete jobs
   const handleDelete = (id) => {
     if (props === "job") {
       deleteJobs(id, dispatch);
-      toast.success(" Job successfully  deleted !", tostifySuccess);
     } else if (props === "job category") {
       deleteCategory(id, dispatch);
       // toast.success(" Category successfully  deleted !", tostifySuccess);
     } else if (props === "blog") {
       deleteBlog(id, dispatch);
-      toast.success(" Blog successfully  deleted !", tostifySuccess);
     } else {
       alert("unable to delete");
       console.log("not deleted");
-      
     }
   };
 

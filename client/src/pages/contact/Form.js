@@ -38,7 +38,14 @@ const Form = () => {
     <>
       <div className="form">
         {/* contact us text */}
-        <h3 className="text-center">Contact us</h3>
+        <div className="contactTopdata">
+          <h3 className="text-center">Contact us</h3>
+          <p>
+            Need to get in touch with us? Either fill out the form with your
+            inquiry or find the department email you'd like to contact below.{" "}
+          </p>
+        </div>
+
         <div className="container">
           <div className="row">
             {/* left side container */}

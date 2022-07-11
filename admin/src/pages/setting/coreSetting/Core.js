@@ -10,14 +10,15 @@ import {
 import app from "../../../firebase";
 import CoreWidget from "../../../components/coreWidget/CoreWidget";
 import { updateProfile } from "../../../redux/apiCalls";
-import { useDispatch } from "react-redux";
-import { userRequest } from "../../../RequestMethod";
+import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../../components/Loader/Loader";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Core = () => {
-  const navigate = useNavigate();
-  const userId = localStorage.getItem("userId");
+
+  const user = useSelector((state) => state.user.currentUser);
+  const userId = user.others._id;
+
   // get user data from user id
   const [isLoading, setLoading] = useState(true);
   const [didMount, setDidMount] = useState(false);
@@ -27,7 +28,7 @@ const Core = () => {
     const getUserData = async () => {
       setDidMount(true);
       try {
-        const res = await userRequest.get("/user/find/" + userId);
+        const res = await axios.get("/user/find/" + userId);
         setUserData(res.data);
       } catch (error) {
         console.log(error);
@@ -107,7 +108,7 @@ const Core = () => {
               address
             };
             updateProfile(userId, data, dispatch);
-            navigate("/profile");
+            window.location.replace("/setting/core");
           });
         }
       );
@@ -126,7 +127,7 @@ const Core = () => {
         address
       };
       updateProfile(userId, data, dispatch);
-      navigate("/setting/core");
+      window.location.replace("/setting/core");
     }
   };
 

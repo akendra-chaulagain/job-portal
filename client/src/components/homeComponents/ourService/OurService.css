@@ -23,7 +23,9 @@
   font-weight: 600;
 }
 .ourServiceFirstDesc p {
-  font-size: 15px;
+  font-size: 18px;
+  text-align: justify;
+  line-height: 30px;
 }
 @media only screen and (max-width: 1000px) {
   .ourService h1 {
@@ -35,13 +37,7 @@
     align-items: center;
   }
   .ourServiceFirstImg img {
-    height: 30vh;
-  }
-  .ourServiceFirstTitle {
-    font-size: 17px;
-  }
-  .ourServiceFirstDesc p {
-    font-size: 13px;
+    height: 50vh;
   }
 }
 
@@ -56,6 +52,6 @@
     font-size: 15px;
   }
   .ourServiceFirstDesc p {
-    font-size: 12px;
+    font-size: 15px;
   }
 }

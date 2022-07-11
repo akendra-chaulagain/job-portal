@@ -51,7 +51,7 @@ const Widget = () => {
           {/* middle */}
           {/* category */}
           <div className="col-md-4 mt-4 middletWidget">
-            <i class="fa-solid fa-shapes"></i>
+            <i className="fa-solid fa-shapes"></i>
             <h5>Total Category</h5>
             <p>{categoryData.length}</p>
             <div className="seeAlluser">

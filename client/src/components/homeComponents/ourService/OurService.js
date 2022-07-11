@@ -21,18 +21,15 @@ const OurService = () => {
 
           <div className="ourServiceFirstDesc">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab,
-              beatae maiores quo veritatis laborum vel praesentium ipsam error
-              mollitia saepe dolorem accusantium vero. Non doloribus veniam
-              fugit tempore quisquam aut corrupti cum. Odit, assumenda
-              consequatur adipisci vel fugiat accusantium suscipit laudantium
-              cupiditate cumque natus quia? Quas sint molestiae id beatae optio
-              sunt pariatur, fugiat, rem modi veniam magnam! Sequi minus
-              repudiandae pariatur. Sint aliquam culpa hic iusto adipisci beatae
-              totam, perferendis recusandae quam fugit at dignissimos maxime
-              libero repudiandae corrupti quasi unde earum iure impedit. Quod
-              veniam saepe eveniet minima libero maxime iusto eius natus
-              quisquam architecto? Reprehenderit, corrupti laudantium.
+              Those days are long gone when you have to work on every single
+              service on your own. If you have a limited budget and cannot work
+              for in-house services all the time, then you might think about
+              dealing with outsourcing recruitment services. And for the best
+              recruitment, you can bang on Multi Employment Agency . <br />
+              We are associated with the field of offshore recruitment services
+              for years now, and can easily offer you with quality help. Whether
+              you want help for a small firm or just looking for best
+              offshore recruitment for larger enterprises, we are happy to help.
             </p>
           </div>
         </div>

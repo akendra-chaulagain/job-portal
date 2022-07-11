@@ -1,6 +1,5 @@
 require("../database/connection");
 const bcrypt = require("bcrypt");
-
 // user models
 const User = require("../models/User");
 

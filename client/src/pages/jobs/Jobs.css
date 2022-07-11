@@ -13,7 +13,7 @@
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgb(0, 0, 0, 0.4)),
-    url("https://images.pexels.com/photos/4065137/pexels-photo-4065137.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+    url("../../assets/common.jpeg");
 }
 .aboutTopData h3 {
   font-size: 32px;
@@ -25,7 +25,6 @@
 .searchContainer {
   margin: 20px;
   width: 100%;
-  height: 30vh;
 }
 .searechInputField input {
   width: 45%;
@@ -42,30 +41,14 @@
   background-color: #d51339;
   color: white;
 }
-
-/* category section */
-
-.category h3 {
-  font-size: 26px;
-  margin-top: 20px;
-  font-weight: 700;
-  margin-bottom: 25px;
-  letter-spacing: 1px;
-  color: #0d235d;
+.category{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
 }
 
-.categoryItem {
-  cursor: pointer;
-}
-
-.categoryItem option {
-  cursor: pointer;
-  border: 1px solid rgb(209, 209, 209);
-  color: black;
-  padding: 3px 10px;
-  font-size: 16px;
-  font-weight: 700;
-}
 
 @media only screen and (max-width: 1000px) {
   .jobs {
@@ -89,29 +72,8 @@
   .searechInputField span {
     padding: 9px 18px 9px 18px;
   }
-  /* category */
-  .category {
-    margin-left: -5%;
-  }
-  .category h3 {
-    font-size: 20px;
-  }
-  .categoryItem option {
-    font-weight: 400;
-    font-size: 12px;
+  .category{
   }
 }
 
-@media only screen and (max-width: 450px) {
-  .categoryItem option {
-    font-weight: 400;
-    padding: 3px 4px 3px 3px;
-    font-size: 11px;
-  }
-}
-@media only screen and (max-width: 350px) {
-  .categoryItem p {
-    padding: 3px;
-    font-size: 10px;
-  }
-}
+

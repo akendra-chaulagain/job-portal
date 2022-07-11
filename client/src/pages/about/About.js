@@ -6,27 +6,25 @@ import "./About.css";
 const About = () => {
   return (
     <>
-     
       <div className="container about">
         <div className="aboutTopData">
           <h3 className="text-center">About Us</h3>
         </div>
         <div className="aboutusWrapper">
           <div className="aboutUsdesc">
-            <h3>Company Name</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo
-              asperiores laudantium in minima est quis aliquam, deleniti illo
-              saepe ut culpa ea perspiciatis consequatur voluptatibus expedita
-              non voluptas nulla velit voluptate. Veritatis commodi, asperiores
-              veniam eveniet, sit dolorum doloribus distinctio quod architecto
-              deleniti at numquam ipsum odio velit minus? Officia modi libero,
-              cum tenetur debitis vero quae minus consequuntur aspernatur non
-              nulla ad dicta, rem deleniti quas dolores architecto nisi. Optio
-              dolores modi sapiente itaque vel, aliquam aperiam beatae quidem
-              atque laudantium sequi delectus voluptates distinctio molestiae
-              cum cumque obcaecati recusandae deleniti similique, dignissimos et
-              doloremque? Dignissimos, assumenda nihil?
+              Founded in 2020, Multi Employment Agency connects jobseekers and
+              recruiters by accurately matching candidate profiles to the
+              relevant job openings through an advanced 2-way matching
+              technology. While most job portals only focus on getting
+              candidates the next job, Multi Employment Agency focuses on the
+              entire career growth of candidates. <br />
+              As the industry shifts towards mobile, Multi Employment Agency is
+              leading the transition and is the fastest-growing job portal on
+              mobile devices, witnessing a 100% YOY growth in mobile traffic and
+              also offers on-the-go jobs through our app. We work closely to
+              bridge the gap between talent & opportunities and offer end-to-end
+              recruitment solutions.
             </p>
           </div>
         </div>

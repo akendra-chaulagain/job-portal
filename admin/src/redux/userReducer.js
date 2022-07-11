@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    currentUser: [],
+    currentUser: null,
     isFetching: false,
     error: false,
   },
@@ -16,8 +16,8 @@ export const userSlice = createSlice({
     loginSuccess: (state, action) => {
       state.isFetching = false;
       state.currentUser =
-        localStorage.setItem("accesToken", action.payload.token) ||
-        localStorage.setItem("userId", action.payload.others._id) ||
+        // localStorage.setItem("accesToken", action.payload.token) 
+        // localStorage.setItem("userId", action.payload.others._id) 
         action.payload;
       state.error = false;
     },
@@ -36,25 +36,10 @@ export const userSlice = createSlice({
       state.currentUser[
         state.currentUser.findIndex((item) => item._id === action.payload.id)
       ] = action.payload.user;
+
+      
     },
     updateUserFailure: (state) => {
-      state.isFetching = false;
-      state.error = true;
-    },
-
-    // logout user
-    // update user
-    logOutUserStart: (state) => {
-      state.isFetching = true;
-      state.error = false;
-    },
-    logOutUserSuccess: (state) => {
-      state.isFetching = false;
-      state.currentUser =
-        localStorage.removeItem("accesToken") ||
-        localStorage.removeItem("userId");
-    },
-    logOutUserFailure: (state) => {
       state.isFetching = false;
       state.error = true;
     },
@@ -68,9 +53,6 @@ export const {
   updateUserFailure,
   updateUserStart,
   updateUserSuccess,
-  logOutUserFailure,
-  logOutUserStart,
-  logOutUserSuccess,
 } = userSlice.actions;
 
 export default userSlice.reducer;

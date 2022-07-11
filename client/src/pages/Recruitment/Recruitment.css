@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgb(0, 0, 0, 0.4)),
-    url("https://images.pexels.com/photos/4065137/pexels-photo-4065137.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+    url("../../assets/common.jpeg");
 }
 .recruitmentTop h3 {
   font-size: 32px;
@@ -30,8 +30,9 @@
 }
 .recruitmentData p {
   margin-top: 20px;
-  font-size: 14px;
+  font-size: 18px;
   letter-spacing: 0.4px;
+  text-align: justify;
 }
 
 @media only screen and (max-width: 1000px) {

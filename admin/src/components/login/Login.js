@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/apiCalls";
 import Logo from "../../assets/logo/logo.png";
 import { useNavigate } from "react-router-dom";
-import decode from "decode";
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -19,9 +19,9 @@ const Login = () => {
     e.preventDefault();
     const value = { email, password };
     loginUser(dispatch, value);
-    setTimeout(() => {
-      window.location.replace("/");
-    }, 1000);
+    // setTimeout(() => {
+    //   window.location.replace("/");
+    // }, 1000);
   };
 
   return (

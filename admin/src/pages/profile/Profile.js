@@ -1,18 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { toast } from "react-toastify";
 import Loader from "../../components/Loader/Loader";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { updateProfile } from "../../redux/apiCalls";
-import { userRequest } from "../../RequestMethod";
 import "./Profile.css";
-import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const navigate = useNavigate();
-  const userId = localStorage.getItem("userId");
+  const user = useSelector((state) => state.user.currentUser);
+  const userId = user.others._id;
 
   // get user data from user id
   const [isLoading, setLoading] = useState(true);
@@ -23,7 +20,7 @@ const Profile = () => {
     const getUserData = async () => {
       setDidMount(true);
       try {
-        const res = await userRequest.get("/user/find/" + userId);
+        const res = await axios.get("/user/find/" + userId);
         setUserData(res.data);
       } catch (error) {
         console.log(error);
@@ -43,7 +40,7 @@ const Profile = () => {
     e.preventDefault();
     const data = { username, email };
     updateProfile(userId, data, dispatch);
-    navigate("/");
+    window.location.replace("/");
   };
 
   return (

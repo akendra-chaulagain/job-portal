@@ -8,7 +8,6 @@ const {
   getCategoryById,
 } = require("../controllers/category.controllers");
 const verifyToken = require("../middleware/verifyToken");
-
 require("../database/connection");
 
 // create Category
@@ -21,7 +20,7 @@ router.put("/:id", verifyToken, updateCategory);
 router.delete("/:id", verifyToken, deleteCategory);
 
 // get job by id
-router.get("/find/:id", getCategoryById);
+router.get("/find/:id",  getCategoryById);
 
 // get all Category
 router.get("/allCategory", getAllCategory);

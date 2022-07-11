@@ -86,35 +86,31 @@ const Jobs = () => {
                 </span>
               </div>
               {/* category  items*/}
-              <div className="container-fluid category">
-                <h3>Trending Jobs</h3>
-                <div className="row">
-                  {categoryData.map((item) => (
-                    <div
-                      className=" col-md-2 col-3 categoryItem"
-                      key={item._id}
-                    >
-                      <Link className="link" to={`/job/trending/${item.title}`}>
-                        <option>{item.title}</option>
-                      </Link>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
+            <div className=" category">
+              <h3>Trending Jobs</h3>
+              <p>
+                Multi Employment Agency is your source for jobs and career
+                opportunities. Search for jobs, read career advice from Multi
+                Employment Agency job experts, and find hiring and recruiting
+                advice.{" "}
+              </p>
+            </div>
+
+            {/* job */}
+
             {foundJobs.length <= 0 ? (
               <>
-                {/* CSS OF JOB CONTAINER IS SAME AS JOSECTION FROM COMPONENT/HOMECOMPONENT  */}
                 {currentItems.map((item) => (
                   <div
-                    className="col-md-4 col-sm-4 jobsContentContainer"
+                    className="col-lg-4 col-md-6 col-sm-6 col-12 mt-2 jobsContentContainer"
                     key={item._id}
                   >
                     <div className="jobdeschData">
                       <Link className="link" to={`/job/${item._id}`}>
                         <h6>{item.title}</h6>
                       </Link>
-                      {/* job desc */}
+
                       <p
                         dangerouslySetInnerHTML={{
                           __html: item.desc.slice(0, 60),
@@ -123,6 +119,7 @@ const Jobs = () => {
                     </div>
                   </div>
                 ))}
+
                 <ReactPaginate
                   breakLabel="..."
                   nextLabel="next >"
@@ -141,7 +138,7 @@ const Jobs = () => {
             ) : (
               <>
                 {/* render data after search */}
-                {foundJobs.map((item, id) => (
+                {foundJobs.map((item) => (
                   <div
                     className="col-md-4 col-sm-4 jobsContentContainer"
                     key={item._id}

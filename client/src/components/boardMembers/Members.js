@@ -9,6 +9,12 @@ const Members = () => {
         <div className="row">
           <div className="boardMembersTopbar text-center">
             <h3>Our Team</h3>
+            <p>
+              We’re proud to be a diverse, global team united by values
+              including openness, positivity, and drive that stems from our
+              founders. No matter how much our teams grow, <br /> we still feel like
+              family.{" "}
+            </p>
           </div>
           {/* jobs content */}
           {boardMembers.map((item, id) => (

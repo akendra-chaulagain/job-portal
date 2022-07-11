@@ -3,12 +3,16 @@ import { useState } from "react";
 import "./SliderBar.css";
 import { Link } from "react-router-dom";
 import { userRequest } from "../../RequestMethod";
+import { useSelector } from "react-redux";
 
 const SliderBar = () => {
   const [sidebar, setSidebar] = useState(true);
   const showSidebarr = () => setSidebar(!sidebar);
 
-  const userId = localStorage.getItem("userId");
+
+    const user = useSelector((state) => state.user.currentUser);
+    const userId = user.others._id;
+
   // get user data from user id
   const [didMount, setDidMount] = useState(false);
   const [userData, setUserData] = useState({});
@@ -29,8 +33,7 @@ const SliderBar = () => {
 
   // logout user
   const handleLogout = () => {
-    localStorage.removeItem("accesToken");
-    localStorage.removeItem("userId");
+    localStorage.clear();
     window.location.reload("/login");
   };
 
@@ -123,9 +126,13 @@ const SliderBar = () => {
                 </Link>
               </li>
               {/* logout */}
-              <li className="sidebar-item" onClick={handleLogout}>
+              <li className="sidebar-item">
                 <h3>User</h3>
-                <span style={{ cursor: "pointer" }} className="link">
+                <span
+                  style={{ cursor: "pointer" }}
+                  className="link"
+                  onClick={handleLogout}
+                >
                   <i className="fa-solid fa-arrow-right-from-bracket"></i>
                   Logout
                 </span>

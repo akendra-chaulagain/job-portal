@@ -50,7 +50,10 @@ const Sidebar = () => {
 
             <ul className="sidebar-nav">
               {/* home page */}
-              <li className="sidebar-item sidebardropdown">
+              <li
+                className="sidebar-item sidebardropdown"
+                onClick={showSidebarr}
+              >
                 <Link
                   onClick={() => {
                     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -60,20 +63,6 @@ const Sidebar = () => {
                 >
                   Home
                 </Link>
-                <span>
-                  <i className="fa-solid fa-angle-down"></i>
-                </span>
-                {/* home page dropdown */}
-                <div className="sidebardropdown-content" onClick={showSidebarr}>
-                  <Link
-                    onClick={() => {
-                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-                    }}
-                    to="/application"
-                  >
-                    Employers
-                  </Link>
-                </div>
               </li>
               {/* jobs page */}
               <li className="sidebar-item" onClick={showSidebarr}>

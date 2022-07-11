@@ -10,6 +10,12 @@
   letter-spacing: 1px;
   color: #0d235d;
 }
+.contactTopdata p {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  margin: 0vh 10vh 0vh 10vh;
+}
 /* left side form */
 .contact-form {
   margin-top: 5vh;
@@ -102,7 +108,6 @@
   .form h3 {
     margin-top: 20px;
     font-size: 23px;
-
   }
   .contact-form {
     margin-top: 2vh;
@@ -125,4 +130,22 @@
   .rightSideFormData h6 {
     font-size: 13px;
   }
+}
+
+@media only screen and (max-width: 768px) {
+  .contactTopdata p {
+    font-size: 15px;
+  /* margin: 0vh 10vh 0vh 10vh; */
+}
+
+}
+
+@media only screen and (max-width: 570px) {
+  .contactTopdata p {
+  margin: 0vh 2vh 0vh 2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 }

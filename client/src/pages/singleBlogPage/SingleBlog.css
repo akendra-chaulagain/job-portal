@@ -34,7 +34,6 @@
   font-weight: 600;
   font-size: 16px;
   color: #0d235d;
-
   margin-top: 10px;
 }
 .singleBlogAuthor span {
@@ -42,13 +41,12 @@
 }
 .singleBlogAuthor p {
   font-weight: 400;
-  font-size: 13px;
   color: #0d235d;
 
 }
 .blogInfo {
   margin-top: 4vh;
-  font-size: 15px;
+  font-size: 18px;
 }
 .blogInfo p {
   color: #0d235d;

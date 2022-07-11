@@ -174,6 +174,7 @@ const NewJob = () => {
                         onChange={(e) => setDesc(e.target.value)}
                         ref={quillRef}
                       />
+                      {/* {oldDelta} */}
                       {/* create btn */}
                       <div className="editJobButton">
                         <button onClick={handleSubmitData}>update</button>

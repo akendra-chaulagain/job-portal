@@ -6,7 +6,6 @@ import { useQuill } from "react-quilljs";
 import "quill/dist/quill.snow.css";
 import { useDispatch, useSelector } from "react-redux";
 import { createJobs, getAllCategory } from "../../redux/apiCalls";
-import { useNavigate } from "react-router-dom";
 
 const NewJob = () => {
   // category
@@ -36,14 +35,15 @@ const NewJob = () => {
   const [metaTitle, setMetaTitle] = useState("");
   const [metaKey, setMetaKey] = useState("");
   const [metaDesc, setMetaDesc] = useState("");
-  console.log(cat);
 
   // create jobs
   const handleSubmitData = (e) => {
     const catData = { title, cat, desc, metaDesc, metaKey, metaTitle };
     e.preventDefault();
     createJobs(catData, dispatch);
-    window.location.replace("/jobs");
+    setTimeout(() => {
+      window.location.replace("/jobs");
+    }, 1500);
   };
 
   return (
@@ -70,6 +70,7 @@ const NewJob = () => {
                         name="title"
                         autoComplete="off"
                         onChange={(e) => setTitle(e.target.value)}
+                        required
                       />
                     </div>
 
@@ -80,6 +81,7 @@ const NewJob = () => {
                       <select
                         name="cat"
                         onChange={(e) => setCat(e.target.value)}
+                        required
                       >
                         {categoryData?.map((item) => (
                           <option
@@ -107,6 +109,7 @@ const NewJob = () => {
                           name="metaTitle"
                           autoComplete="off"
                           onChange={(e) => setMetaTitle(e.target.value)}
+                          required
                         />
                       </div>
                       {/* meta keywords */}
@@ -118,6 +121,7 @@ const NewJob = () => {
                           name="metaKey"
                           autoComplete="off"
                           onChange={(e) => setMetaKey(e.target.value)}
+                          required
                         />
                       </div>
                       {/* meta desc */}
@@ -129,6 +133,7 @@ const NewJob = () => {
                           name="metadesc"
                           autoComplete="off"
                           onChange={(e) => setMetaDesc(e.target.value)}
+                          required
                         />
                       </div>
                     </div>
@@ -142,6 +147,7 @@ const NewJob = () => {
                         name="desc"
                         onChange={(e) => setDesc(e.target.value)}
                         ref={quillRef}
+                        required
                       />
                       {/* create btn */}
                       <div className="createnewJobButton">

@@ -20,8 +20,12 @@ const MainTopbar = () => {
           <div className="col-3 leftSideMainTopBar">
             {/* location icon */}
             <div className="locationIcon">
-              <i className="fa-solid fa-location-dot"></i>
-              <span>sdfds</span>
+              {user.map((item) => (
+                <div className="phoneCallIcon" key={item._id}>
+                  <i className="fa-solid fa-location-dot"></i>
+                  <span>{item.address}</span>
+                </div>
+              ))}
             </div>
           </div>
           {/* middle part contain */}
@@ -51,7 +55,7 @@ const MainTopbar = () => {
                   <i className="fa-brands fa-instagram"></i>
                 </a>
                 {/* twitter */}
-                <a target="_blak" href="www.google.com">
+                <a target="_blak" href={item.twitter}>
                   <i className="fa-brands fa-twitter"></i>
                 </a>
               </div>

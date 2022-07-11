@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./Topbar.css";
 import Logo from "../../assets/logo/logo.png";
 import { Link } from "react-router-dom";
-import { userRequest } from "../../RequestMethod";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 const Topbar = () => {
-  const userId = localStorage.getItem("userId");
+  const user = useSelector((state) => state.user.currentUser);
+
+  const userId = user.others._id;
+
   // get user data from user id
   const [didMount, setDidMount] = useState(false);
   const [userData, setUserData] = useState({});
@@ -14,7 +18,7 @@ const Topbar = () => {
       setDidMount(true);
 
       try {
-        const res = await userRequest.get("/user/find/" + userId);
+        const res = await axios.get("/user/find/" + userId);
         setUserData(res.data);
       } catch (error) {
         console.log(error);
@@ -23,8 +27,6 @@ const Topbar = () => {
     getUserData();
     return () => setDidMount(false);
   }, [userId]);
-
-  
 
   return (
     <>
@@ -69,15 +71,9 @@ const Topbar = () => {
                       <span>Setting</span>
                     </Link>
                   </li>
-                  
                 </ul>
               </div>
-
-
             </div>
-
-
-            
           </div>
         </div>
       </div>

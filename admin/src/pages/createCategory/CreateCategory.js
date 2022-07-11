@@ -16,7 +16,7 @@ const CreateCategory = () => {
     const catData = { title, date };
     e.preventDefault();
     createCategory(catData, dispatch);
-    naviget("/category");
+    window.location.replace("/category");
   };
 
   return (
@@ -47,6 +47,7 @@ const CreateCategory = () => {
                         }
                         name="title"
                         autoComplete="off"
+                        required
                       />
                     </div>
 
@@ -59,13 +60,14 @@ const CreateCategory = () => {
                         onChange={(e) => setDate(e.target.value)}
                         name="name"
                         autoComplete="off"
+                        required
                       />
                     </div>
                   </div>
                 </div>
                 {/* create btn */}
                 <div className="createCategoryButton">
-                  <button onClick={handleSubmitData}>Create</button>
+                  <button onSubmit={handleSubmitData}>Create</button>
                 </div>
               </form>
             </div>

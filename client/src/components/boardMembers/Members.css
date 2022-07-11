@@ -14,6 +14,10 @@
   letter-spacing: 1px;
   color: #0d235d;
 }
+.boardMembersTopbar p {
+  font-size: 18px;
+  color: gray;
+}
 .boardContainWrapper {
   border-radius: 5px;
   /* height: 20vh; */
@@ -29,7 +33,6 @@
   border: none;
   outline: none;
   height: auto;
- 
 }
 
 .bordCard img {
@@ -50,7 +53,7 @@
   font-weight: 400;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 768px) {
   .boardMembers {
     margin-bottom: 6vh;
   }
@@ -68,4 +71,7 @@
     font-size: 11px;
     font-weight: 400;
   }
+  .boardMembersTopbar p {
+  font-size: 15px;
+}
 }

@@ -1,6 +1,5 @@
 //  database
 require("../database/connection");
-
 // Category model
 const Category = require("../models/Category");
 

@@ -84,7 +84,7 @@ const AddBlog = () => {
           createBlog(blogData, dispatch);
           setTimeout(() => {
             window.location.reload("/blog");
-          }, 2000);
+          }, 1500);
         });
       }
     );
@@ -118,6 +118,7 @@ const AddBlog = () => {
                           onChange={(e) => setTitle(e.target.value)}
                           name="title"
                           autoComplete="off"
+                          required
                         />
                       </div>
 
@@ -130,6 +131,7 @@ const AddBlog = () => {
                           onChange={(e) => setAuthor(e.target.value)}
                           name="author"
                           autoComplete="off"
+                          required
                         />
                       </div>
                     </div>
@@ -150,6 +152,7 @@ const AddBlog = () => {
                                 style={{ display: "none" }}
                                 name="coverPic"
                                 onChange={onImageChange}
+                                required
                               />
                             </label>
                           </div>
@@ -166,6 +169,7 @@ const AddBlog = () => {
                               style={{ display: "none" }}
                               name="coverPic"
                               onChange={onImageChange}
+                              required
                             />
                           </label>
                         </div>
@@ -184,6 +188,7 @@ const AddBlog = () => {
                             name="metaTitle"
                             autoComplete="off"
                             onChange={(e) => setMetaTitle(e.target.value)}
+                            required
                           />
                         </div>
                         {/* meta keywords */}
@@ -195,6 +200,7 @@ const AddBlog = () => {
                             name="metaKey"
                             autoComplete="off"
                             onChange={(e) => setMetaKey(e.target.value)}
+                            required
                           />
                         </div>
                         {/* meta desc */}
@@ -206,12 +212,11 @@ const AddBlog = () => {
                             name="metadesc"
                             autoComplete="off"
                             onChange={(e) => setMetaDesc(e.target.value)}
+                            required
                           />
                         </div>
                       </div>
                     </div>
-
-
                   </div>
                   {/* desc */}
                   <div className="blogInputField">
@@ -222,6 +227,7 @@ const AddBlog = () => {
                         name="desc"
                         onChange={(e) => setDesc(e.target.value)}
                         ref={quillRef}
+                        required
                       />
                       {/* create btn */}
                       <div className="createnewBlogButton">

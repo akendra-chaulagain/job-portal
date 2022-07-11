@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgb(0, 0, 0, 0.4)),
-    url("https://images.pexels.com/photos/4065137/pexels-photo-4065137.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+    url("../../assets/common.jpeg");
 }
 .blogTop h3 {
   font-size: 32px;

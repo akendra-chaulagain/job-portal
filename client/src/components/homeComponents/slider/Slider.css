@@ -1,0 +1,119 @@
+.slider__area {
+  background-image: linear-gradient(
+      rgba(44, 54, 95, 0.7),
+      rgba(12, 43, 136, 0.7)
+    ),
+    url("../../../assets//slider/slider-1.jpeg");
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  /* padding: 0vh 8vh 0vh 8vh; */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  z-index: -1;
+}
+.about__shape {
+  position: absolute;
+  top: 100px;
+  left: -27px;
+}
+
+.homeSlider__content > span {
+  color: white;
+  font-size: 20px;
+  display: inline-block;
+  margin-bottom: 7px;
+}
+.homeSlider__content h1 {
+  font-size: 40px;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 38px;
+}
+
+.slider__btn a {
+  padding: 6px 20px;
+  border: none;
+  outline: none;
+  border: 2px solid red;
+  background: transparent;
+  border-radius: 5px;
+  /* font-size: 18px; */
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+.slider__btn a:hover {
+  color: black;
+  background-color: white;
+}
+
+@media only screen and (max-width: 991px) {
+  .slider__area {
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .homeSlider__content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .homeSlider__content h1 {
+    font-size: 30px;
+    margin-bottom: 7px;
+  }
+  .homeSlider__content > span {
+    font-size: 17px;
+  }
+  .slider__btn a {
+    padding: 5px 20px;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .slider__area {
+    padding: 0vh;
+  }
+  .homeSlider__content h1 {
+    font-size: 25px;
+    margin-bottom: 13px;
+  }
+  .homeSlider__content > span {
+    font-size: 16px;
+  }
+  .z-btn-transparent {
+    padding: 5px 15px;
+    font-size: 13px;
+  }
+
+  .slider__btn a {
+    padding: 4px 15px;
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 525px) {
+  .homeSlider__content {
+    display: flex;
+  }
+
+  .homeSlider__content h1 {
+    font-size: 24px;
+    margin-bottom: 13px;
+  }
+  .homeSlider__content > span {
+    font-size: 15px;
+  }
+  .slider__btn a {
+    padding: 4px 13px;
+    font-size: 12px;
+  }
+}
