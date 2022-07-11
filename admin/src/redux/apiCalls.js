@@ -86,7 +86,7 @@ export const loginUser = async (dispatch, user) => {
       localStorage.clear();
       window.location.reload("/");
       toast.error(" Token Expired! Login Again", tostifyFailure);
-    }, 1000 * 60 * 5);
+    }, 1000 * 60 * 60 * 24 * 5);
   } catch (error) {
     dispatch(loginfailure());
     console.log(error);

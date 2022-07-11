@@ -46,14 +46,14 @@ const loginUser = async (req, res, next) => {
       const token = jwt.sign(
         { id: user._id, isAdmin: user.isAdmin },
         process.env.JWT_SECRET_KEY,
-        { expiresIn: "10m" }
+        { expiresIn: "5d" }
       );
-       res.cookie("jsonwebToken", token, {
-         expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 5),
-         path: "/",
-         httpOnly: true,
-         sameSite: "lax",
-       });
+      res.cookie("jsonwebToken", token, {
+        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 5),
+        path: "/",
+        httpOnly: true,
+        sameSite: "lax",
+      });
       const { password, ...others } = user._doc;
       res.status(200).json({ others, token });
     } else {
